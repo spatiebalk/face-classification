@@ -1,0 +1,47 @@
+Classifier results for kdv-control age group 1-3
+knn classifier (k = 10), normalize : 0 
+specificity: 0.7333333333333333, sensitivity: 0.4, AROC: 0.5244444444444445 
+svm classifier (k = rbf), normalize : 0 
+specificity: 0.0, sensitivity: 0.0, AROC: 1.0 
+Random Forest classifier (trees = 10), normalize : 1 
+specificity: 0.6666666666666666, sensitivity: 0.4666666666666667, AROC: 0.6711111111111111 
+Gradient Boost classifier (trees = 20), normalize : 0 
+specificity: 0.6666666666666666, sensitivity: 0.8, AROC: 0.8177777777777777 
+Ada Boost classifier (trees = 10), normalize : 0 
+specificity: 0.8, sensitivity: 0.7333333333333333, AROC: 0.8311111111111111 
+
+Classifier results for kdv-control age group 4-16
+knn classifier (k = 6), normalize : 0 
+specificity: 0.6744186046511628, sensitivity: 0.3488372093023256, AROC: 0.5205516495402921 
+svm classifier (k = sigmoid), normalize : 0 
+specificity: 0.0, sensitivity: 0.0, AROC: 1.0 
+Random Forest classifier (trees = 10), normalize : 1 
+specificity: 0.7674418604651163, sensitivity: 0.3953488372093023, AROC: 0.6027582477014601 
+Gradient Boost classifier (trees = 100), normalize : 0 
+specificity: 0.5348837209302325, sensitivity: 0.5116279069767442, AROC: 0.5343428880475933 
+Ada Boost classifier (trees = 100), normalize : 0 
+specificity: 0.6046511627906976, sensitivity: 0.5581395348837209, AROC: 0.5949161709031909 
+
+Classifier results for kdv-control age group 17-40
+knn classifier (k = 3), normalize : 0 
+specificity: 0.375, sensitivity: 0.5, AROC: 0.4921875 
+svm classifier (k = rbf), normalize : 0 
+specificity: 0.0, sensitivity: 0.0, AROC: 1.0 
+Random Forest classifier (trees = 5), normalize : 0 
+specificity: 0.5, sensitivity: 0.5, AROC: 0.453125 
+Gradient Boost classifier (trees = 10), normalize : 0 
+specificity: 0.25, sensitivity: 0.5, AROC: 0.3125 
+Ada Boost classifier (trees = 80), normalize : 0 
+specificity: 0.25, sensitivity: 0.625, AROC: 0.484375 
+
+Classifier results for kdv-control age group 1-40
+knn classifier (k = 7), normalize : 0 
+specificity: 0.6231884057971014, sensitivity: 0.5, AROC: 0.5253623188405797 
+svm classifier (k = sigmoid), normalize : 2 
+specificity: 0.0, sensitivity: 0.7714285714285715, AROC: 0.9699792960662525 
+Random Forest classifier (trees = 70), normalize : 2 
+specificity: 0.6376811594202898, sensitivity: 0.6142857142857143, AROC: 0.6723602484472049 
+Gradient Boost classifier (trees = 40), normalize : 0 
+specificity: 0.6376811594202898, sensitivity: 0.6, AROC: 0.6596273291925466 
+Ada Boost classifier (trees = 40), normalize : 0 
+specificity: 0.5652173913043478, sensitivity: 0.5571428571428572, AROC: 0.6190476190476191 

@@ -1,0 +1,43 @@
+Classifier results for kdv-control age group 1-3
+knn classifier (k = 3) and normalize=1 has acc: 0.65625 
+svm classifier (kernel =sigmoid) and normalize=1 has acc: 0.59375 
+rf  classifier (trees = 10) and normalize=1 has acc: 0.6875 
+gr  classifier (trees = 20) and normalize=0 has acc: 0.5625
+ada classifier (trees = 60) and normalize=0 has acc: 0.59375 
+nb  classifier                         and normalize=0 has acc: 0.5625
+ensemble classifier with acc: 0.6875 with the combination (('random_forest', RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight=None,
+                       criterion='gini', max_depth=None, max_features='auto',
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=1, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, n_estimators=10,
+                       n_jobs=None, oob_score=False, random_state=None,
+                       verbose=0, warm_start=False)),) and best vote hard and normalize = 0
+
+ 
+ Classifier results for kdv-control age group 4-16
+knn classifier (k = 4) and normalize=0 has acc: 0.7111111111111111 
+svm classifier (kernel =poly) and normalize=0 has acc: 0.7777777777777778 
+rf  classifier (trees = 100) and normalize=1 has acc: 0.7555555555555555 
+gr  classifier (trees = 20) and normalize=0 has acc: 0.7111111111111111
+ada classifier (trees = 5) and normalize=1 has acc: 0.6666666666666666 
+nb  classifier                         and normalize=0 has acc: 0.5666666666666667
+ensemble classifier with acc: 0.7777777777777778 with the combination (('svm', SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma='scale', kernel='poly',
+    max_iter=-1, probability=True, random_state=None, shrinking=True, tol=0.001,
+    verbose=False)),) and best vote hard and normalize = 0
+
+ 
+ Classifier results for kdv-control age group 17-40
+knn classifier (k = 3) and normalize=0 has acc: 0.8888888888888888 
+svm classifier (kernel =linear) and normalize=0 has acc: 0.8888888888888888 
+rf  classifier (trees = 10) and normalize=1 has acc: 0.8888888888888888 
+gr  classifier (trees = 10) and normalize=0 has acc: 0.5555555555555556
+ada classifier (trees = 10) and normalize=1 has acc: 0.6666666666666666 
+nb  classifier                         and normalize=0 has acc: 0.7777777777777778
+ensemble classifier with acc: 0.8888888888888888 with the combination (('knn', KNeighborsClassifier(algorithm='auto', leaf_size=30, metric='minkowski',
+                     metric_params=None, n_jobs=None, n_neighbors=3, p=2,
+                     weights='distance')),) and best vote soft and normalize = 0
+
+ 
+ 
