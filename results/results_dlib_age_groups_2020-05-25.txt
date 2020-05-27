@@ -1,5 +1,0 @@
-Classifier results for kdv-control age group 1-3
-knn classifier (k = 11), normalize : 0 
-specificity: 0.75, sensitivity: 0.3333333333333333, AROC: 0.44166666666666665 
-svm classifier (k = sigmoid), normalize : 0 
-specificity: 0.5625, sensitivity: 0.0, AROC: 0.5416666666666666 
