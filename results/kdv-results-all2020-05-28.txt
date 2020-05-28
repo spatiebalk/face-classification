@@ -1,0 +1,71 @@
+0: Classifying data with deepface representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn results 
+    more results
+svm results 
+    more results
+Random Forest results 
+    more results
+Gradient Boostresults 
+    more results
+Ada Boost results 
+    more results
+
+1: Classifying data with dlib representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn results 
+    more results
+svm results 
+    more results
+Random Forest results 
+    more results
+Gradient Boostresults 
+    more results
+Ada Boost results 
+    more results
+
+2: Classifying data with all deepface+dlib representations
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn results 
+    more results
+svm results 
+    more results
+Random Forest results 
+    more results
+Gradient Boostresults 
+    more results
+Ada Boost results 
+    more results
+
+3: Classifying data with the 300 most important features of deepface+dlib representations
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn results 
+    more results
+svm results 
+    more results
+Random Forest results 
+    more results
+Gradient Boostresults 
+    more results
+Ada Boost results 
+    more results
+
+4: Classifying data with PCA components of deepface+dlib representation
+Nr of pca components used: 143
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn results 
+    more results
+svm results 
+    more results
+Random Forest results 
+    more results
+Gradient Boostresults 
+    more results
+Ada Boost results 
+    more results
+
+Running this whole file took 25.245999813079834 seconds

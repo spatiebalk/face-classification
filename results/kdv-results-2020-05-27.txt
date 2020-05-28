@@ -1,0 +1,53 @@
+0: Classifying data with deepface representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-3
+knn classifier (k = 3), normalize : 0 
+    AROC: 0.4961, spec: 0.8125, sens: 0.1875
+svm classifier (k = sigmoid), normalize : 1 
+    AROC: 0.5625, spec: 0.1875, sens: 0.0000
+Random Forest classifier (trees = 40), normalize : 2 
+    AROC: 0.6680, spec: 0.7500, sens: 0.5000
+Gradient Boost classifier (trees = 10), normalize : 0 
+    AROC: 0.4844, spec: 0.6250, sens: 0.3750
+Ada Boost classifier (trees = 40), normalize : 0 
+    AROC: 0.4883, spec: 0.3125, sens: 0.6250
+
+CLASSIFIER RESULTS for kdv-control age group 4-16
+knn classifier (k = 6), normalize : 0 
+    AROC: 0.8277, spec: 0.9111, sens: 0.3333
+svm classifier (k = linear), normalize : 0 
+    AROC: 0.7943, spec: 0.7778, sens: 0.7111
+Random Forest classifier (trees = 90), normalize : 0 
+    AROC: 0.7721, spec: 0.7111, sens: 0.7333
+Gradient Boost classifier (trees = 60), normalize : 0 
+    AROC: 0.7081, spec: 0.6444, sens: 0.5778
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.7269, spec: 0.6889, sens: 0.7111
+
+CLASSIFIER RESULTS for kdv-control age group 17-40
+knn classifier (k = 5), normalize : 0 
+    AROC: 0.8272, spec: 0.7778, sens: 0.6667
+svm classifier (k = linear), normalize : 0 
+    AROC: 0.8395, spec: 0.7778, sens: 0.7778
+Random Forest classifier (trees = 50), normalize : 0 
+    AROC: 0.9198, spec: 0.8889, sens: 0.7778
+Gradient Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.3827, spec: 0.3333, sens: 0.4444
+Ada Boost classifier (trees = 60), normalize : 0 
+    AROC: 0.5309, spec: 0.5556, sens: 0.6667
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn classifier (k = 7), normalize : 0 
+    AROC: 0.8006, spec: 0.9054, sens: 0.3467
+svm classifier (k = rbf), normalize : 2 
+    AROC: 0.8108, spec: 0.6757, sens: 0.8133
+Random Forest classifier (trees = 90), normalize : 0 
+    AROC: 0.8070, spec: 0.7432, sens: 0.8133
+Gradient Boost classifier (trees = 100), normalize : 0 
+    AROC: 0.8213, spec: 0.8108, sens: 0.7467
+Ada Boost classifier (trees = 100), normalize : 0 
+    AROC: 0.7611, spec: 0.6757, sens: 0.7333
+
+1: Classifying data with dlib representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-3
