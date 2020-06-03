@@ -1,8 +1,0 @@
-1: Classifying data with dlib-text representation
-
-2: Classifying data with all deepface+dlib-text representations
-
-3: Classifying data with the 300 most important features of deepface+dlib-text representations
-
-4: Classifying data with PCA components of deepface+dlib-text representation
-Running this whole file took 0.00 hours

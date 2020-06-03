@@ -1,7 +1,0 @@
-7: Classifying data with openface+cfps representation
-
-assifying data with cfps representation
-
-7: Classifying data with openface+cfps representation
-
-Running this whole file took 0.00 hours
