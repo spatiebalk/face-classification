@@ -1,0 +1,7 @@
+2: Classifying data with all deepface+dlib representations
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+Gradient Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.8807, spec: 0.8143, sens: 0.7424
+
+Running this whole file took 0.51 hours
