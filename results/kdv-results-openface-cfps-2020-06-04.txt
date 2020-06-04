@@ -1,0 +1,43 @@
+5: Classifying data with openface representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn classifier (k = 15), normalize : 0 
+    AROC: 0.7612, spec: 0.6812, sens: 0.6769
+svm classifier (k = sigmoid), normalize : 2 
+    AROC: 0.8495, spec: 0.7536, sens: 0.7538
+Random Forest classifier (trees = 60), normalize : 1 
+    AROC: 0.8301, spec: 0.8261, sens: 0.6769
+Gradient Boost classifier (trees = 80), normalize : 1 
+    AROC: 0.7955, spec: 0.8116, sens: 0.7692
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7770, spec: 0.7536, sens: 0.6923
+
+6: Classifying data with cfps representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn classifier (k = 13), normalize : 0 
+    AROC: 0.8339, spec: 0.8261, sens: 0.7077
+svm classifier (k = sigmoid), normalize : 2 
+    AROC: 0.8722, spec: 0.8261, sens: 0.7692
+Random Forest classifier (trees = 80), normalize : 1 
+    AROC: 0.7605, spec: 0.6957, sens: 0.6462
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.6406, spec: 0.6232, sens: 0.5538
+Ada Boost classifier (trees = 10), normalize : 2 
+    AROC: 0.7826, spec: 0.6667, sens: 0.6923
+
+7: Classifying data with openface+cfps representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn classifier (k = 15), normalize : 0 
+    AROC: 0.8388, spec: 0.7971, sens: 0.7077
+svm classifier (k = sigmoid), normalize : 1 
+    AROC: 0.8925, spec: 0.8261, sens: 0.8154
+Random Forest classifier (trees = 40), normalize : 2 
+    AROC: 0.8242, spec: 0.8406, sens: 0.6462
+Gradient Boost classifier (trees = 80), normalize : 0 
+    AROC: 0.7291, spec: 0.7681, sens: 0.6000
+Ada Boost classifier (trees = 40), normalize : 1 
+    AROC: 0.8450, spec: 0.7681, sens: 0.7846
+
+Running this whole file took 1.09 hours
