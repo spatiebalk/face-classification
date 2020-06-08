@@ -1,0 +1,38 @@
+0: Classifying data with deepface representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+
+1: Classifying data with dlib representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+
+2: Classifying data with all deepface+dlib representations
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+
+3: Classifying data with the 300 most important features of deepface-dlib representations
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+
+4: Classifying data with PCA components of deepface-dlib representation
+Nr of pca components used: 0
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+
+5: Classifying data with openface representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+
+6: Classifying data with cfps representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+
+7: Classifying data with openface+cfps representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+
+8: Classifying data with facereader representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+
+Running this whole file took 0.01 hours
