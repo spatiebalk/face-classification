@@ -1,0 +1,71 @@
+Best configurations
+
+ADNP:
+0: Classifying data with deepface representation
+Shape of data: 27 patients, 27 controls, 4096 features 
+
+svm classifier (k = sigmoid), normalize : 1 
+    AROC: 0.9849, spec: 0.9630, sens: 0.9259
+
+ANKRD11:
+2: Classifying data with all deepface+dlib representations
+Shape of data: 24 patients, 24 controls, 6306 features 
+
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.9323, spec: 0.8750, sens: 0.9167
+
+CDK13:
+0: Classifying data with deepface representation
+Shape of data: 29 patients, 29 controls, 4096 features 
+
+svm classifier (k = sigmoid), normalize : 1 
+    AROC: 0.9584, spec: 0.8966, sens: 0.9655
+
+DEAF1:
+2: Classifying data with all deepface+dlib representations
+Shape of data: 20 patients, 20 controls, 6306 features 
+
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.9000, spec: 0.8500, sens: 0.9000
+
+DYRK1A:
+0: Classifying data with deepface representation
+Shape of data: 15 patients, 15 controls, 4096 features 
+
+svm classifier (k = sigmoid), normalize : 0 
+    AROC: 0.9822, spec: 0.8000, sens: 1.0000
+
+EHMT1:
+0: Classifying data with deepface representation
+Shape of data: 38 patients, 38 controls, 4096 features 
+
+svm classifier (k = linear), normalize : 2 
+    AROC: 1.0000, spec: 0.9737, sens: 1.0000
+
+FBOX11:
+1: Classifying data with dlib representation
+Shape of data: 18 patients, 18 controls, 2210 features 
+
+knn classifier (k = 3), normalize : 0 
+    AROC: 0.8210, spec: 0.9444, sens: 0.7222
+
+SON:
+0: Classifying data with deepface representation
+Shape of data: 19 patients, 19 controls, 4096 features 
+
+knn classifier (k = 3), normalize : 2 
+    AROC: 0.9834, spec: 0.8947, sens: 0.9474
+
+SPOP:
+3: Classifying data with the 300 most important features of deepface-dlib representations
+Shape of data: 6 patients, 6 controls, 300 features 
+
+Gradient Boost classifier (trees = 5), normalize : 0 
+    AROC: 1.0000, spec: 1.0000, sens: 1.0000
+
+WAC:
+0: Classifying data with deepface representation
+Shape of data: 14 patients, 14 controls, 4096 features 
+
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 1.0000, spec: 1.0000, sens: 1.0000
