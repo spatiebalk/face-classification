@@ -1,0 +1,132 @@
+Syndrome that will be classified: ADNP 
+
+0: Classifying data with deepface representation
+
+Shape of data: 27 patients, 27 controls, 4096 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.9959, spec: 0.9630, sens: 0.9259
+svm classifier (k = linear), normalize : 0 
+    AROC: 1.0000, spec: 1.0000, sens: 0.9630
+Random Forest classifier (trees = 5), normalize : 2 
+    AROC: 0.9650, spec: 0.8889, sens: 0.9630
+Gradient Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.8450, spec: 0.8519, sens: 0.7778
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.8354, spec: 0.7778, sens: 0.7407
+
+1: Classifying data with dlib representation
+
+Shape of data: 26 patients, 27 controls, 2210 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.6709, spec: 0.8519, sens: 0.3846
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.8775, spec: 1.0000, sens: 0.0000
+Random Forest classifier (trees = 5), normalize : 2 
+    AROC: 0.7343, spec: 0.8148, sens: 0.6923
+Gradient Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.6225, spec: 0.7778, sens: 0.6154
+Ada Boost classifier (trees = 10), normalize : 0 
+    AROC: 0.7564, spec: 0.6667, sens: 0.6923
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 26 patients, 27 controls, 6306 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.9779, spec: 0.9630, sens: 0.9231
+svm classifier (k = linear), normalize : 0 
+    AROC: 1.0000, spec: 1.0000, sens: 0.9615
+Random Forest classifier (trees = 10), normalize : 0 
+    AROC: 0.9751, spec: 1.0000, sens: 0.8462
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.8860, spec: 0.7778, sens: 0.8462
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.9174, spec: 0.8889, sens: 0.8846
+
+3: Classifying data with the 300 most important features of deepface-dlib representations
+
+Shape of data: 26 patients, 27 controls, 300 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.9943, spec: 0.9259, sens: 0.9231
+svm classifier (k = linear), normalize : 0 
+    AROC: 0.9972, spec: 1.0000, sens: 0.9615
+Random Forest classifier (trees = 20), normalize : 1 
+    AROC: 0.9630, spec: 0.9259, sens: 0.8846
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.7635, spec: 0.7407, sens: 0.8077
+Ada Boost classifier (trees = 10), normalize : 2 
+    AROC: 0.9402, spec: 1.0000, sens: 0.8077
+
+4: Classifying data with PCA components of deepface-dlib representation
+Shape of data: 26 patients, 27 controls, 52 features 
+
+Nr of pca components used: 0
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.9915, spec: 0.9630, sens: 0.8846
+svm classifier (k = linear), normalize : 0 
+    AROC: 1.0000, spec: 1.0000, sens: 0.9615
+Random Forest classifier (trees = 20), normalize : 2 
+    AROC: 0.8932, spec: 0.8148, sens: 0.7692
+Gradient Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.9202, spec: 0.8889, sens: 0.9231
+Ada Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.9573, spec: 0.9630, sens: 0.9615
+
+5: Classifying data with openface representation
+
+Shape of data: 23 patients, 23 controls, 128 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+knn classifier (k = 13), normalize : 0 
+    AROC: 0.8733, spec: 0.9130, sens: 0.8261
+svm classifier (k = sigmoid), normalize : 1 
+    AROC: 0.8280, spec: 0.7391, sens: 0.7391
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 0.8289, spec: 0.7826, sens: 0.5652
+Gradient Boost classifier (trees = 10), normalize : 2 
+    AROC: 0.7637, spec: 0.6957, sens: 0.6957
+Ada Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.7505, spec: 0.6957, sens: 0.6087
+
+6: Classifying data with cfps representation
+
+Shape of data: 23 patients, 23 controls, 340 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.8563, spec: 0.7391, sens: 0.7391
+svm classifier (k = linear), normalize : 0 
+    AROC: 0.8544, spec: 0.7826, sens: 0.7826
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.7023, spec: 0.7391, sens: 0.5217
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.6314, spec: 0.6957, sens: 0.6522
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6881, spec: 0.6522, sens: 0.6087
+
+7: Classifying data with openface+cfps representation
+
+Shape of data: 23 patients, 23 controls, 468 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+knn classifier (k = 9), normalize : 0 
+    AROC: 0.9660, spec: 0.9565, sens: 0.8261
+svm classifier (k = linear), normalize : 2 
+    AROC: 0.8715, spec: 0.8261, sens: 0.6957
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 0.7401, spec: 0.7391, sens: 0.4783
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.7429, spec: 0.6087, sens: 0.7391
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7013, spec: 0.6087, sens: 0.6957
+
+Running this whole file took 0.28 hours

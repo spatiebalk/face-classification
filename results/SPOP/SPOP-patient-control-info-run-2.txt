@@ -1,0 +1,15 @@
+Patients for syndrome SPOP
+SPOP_1.jpg
+SPOP_2.jpg
+SPOP_3.jpg
+SPOP_4.jpg
+SPOP_5.jpg
+SPOP_6.jpg
+
+Controls for syndrome SPOP
+P05-2860_small_DSCN8260.JPG
+P06-0129_small_DSCN8388.JPG
+P08-0091_small_RIMG0527.JPG
+P08-3590_small_IMG_3331.JPG
+P11-1179_small_P11-1179_F1_.JPG
+P13-4983_small_P13-4983_F1_.JPG

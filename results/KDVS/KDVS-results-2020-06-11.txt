@@ -1,0 +1,4 @@
+Syndrome that will be classified: KDVS 
+
+0: Classifying data with deepface representation
+
