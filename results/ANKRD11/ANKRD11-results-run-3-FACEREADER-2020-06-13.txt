@@ -1,0 +1,19 @@
+Syndrome that will be classified: ANKRD11 
+
+8: Classifying data with facereader representation
+
+Shape of data: 18 patients, 22 controls, 93 features 
+
+CLASSIFIER RESULTS for ANKRD11 patients and controls 
+knn classifier (k = 9), normalize : 2 
+    AROC: 0.8258, spec: 0.8182, sens: 0.7222
+svm classifier (k = rbf), normalize : 2 
+    AROC: 0.8737, spec: 0.8182, sens: 0.6111
+Random Forest classifier (trees = 10), normalize : 2 
+    AROC: 0.7601, spec: 0.8636, sens: 0.5000
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.7449, spec: 0.7727, sens: 0.7222
+Ada Boost classifier (trees = 5), normalize : 2 
+    AROC: 0.6919, spec: 0.5909, sens: 0.6111
+
+Running this whole file took 0.01 hours

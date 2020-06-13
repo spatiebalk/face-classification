@@ -1,0 +1,19 @@
+Syndrome that will be classified: CDK13 
+
+8: Classifying data with facereader representation
+
+Shape of data: 18 patients, 24 controls, 93 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+knn classifier (k = 5), normalize : 0 
+    AROC: 0.8750, spec: 0.8333, sens: 0.8333
+svm classifier (k = rbf), normalize : 2 
+    AROC: 0.8403, spec: 1.0000, sens: 0.5000
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 0.8588, spec: 0.9583, sens: 0.5000
+Gradient Boost classifier (trees = 10), normalize : 0 
+    AROC: 0.5556, spec: 0.5833, sens: 0.5556
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.7153, spec: 0.7083, sens: 0.6667
+
+Running this whole file took 0.01 hours
