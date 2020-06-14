@@ -14,7 +14,7 @@ import openpyxl
 from tqdm import tqdm
 
 def open_syn_excel(syn_name):
-    syn_file = GENERAL_DIR + "\\{}\{}_Database.xlsx".format(syn_name, syn_name)
+    syn_file = GENERAL_DIR + "\\{}\\{}_Database.xlsx".format(syn_name, syn_name)
     assert os.path.exists(syn_file), "This path doesn't exist: {}".format(syn_file)
 
     df_syn = pd.read_excel(syn_file)
@@ -25,7 +25,7 @@ def open_syn_excel(syn_name):
     df_syn.drop(index_with_nan,0, inplace=True)
 
     ### check whether that image is actually present
-    syn_dir = GENERAL_DIR + "\\{}\{}-all-photos".format(syn_name, syn_name)
+    syn_dir = GENERAL_DIR + "\\{}\\{}-all-photos".format(syn_name, syn_name)
     drop_indices = []
 
     for index, row in df_syn.iterrows():
@@ -113,7 +113,7 @@ def select_controls(df_syn, df_ID):
 
 def save_info(syn_name, df_select_syn, df_select_ID):
     syn_info_save = GENERAL_DIR + "\\{}\\{}_patients_info.xlsx".format(syn_name, syn_name)
-    ID_info_save = GENERAL_DIR + "\\{}\{}_matched_ID_controls_info.xlsx".format(syn_name, syn_name)
+    ID_info_save = GENERAL_DIR + "\\{}\\{}_matched_ID_controls_info.xlsx".format(syn_name, syn_name)
     df_select_syn.to_excel(syn_info_save)
     df_select_ID.to_excel(ID_info_save)
 
@@ -152,11 +152,11 @@ def save_img_from_excel_controls(syn_name):
 
 def save_img_from_excel_patients(syn_name):
     
-    syn_dir = GENERAL_DIR + "\\{}\{}-all-photos".format(syn_name, syn_name)
-    select_syn_dir = GENERAL_DIR + "\\{}\{}-patients".format(syn_name, syn_name)
+    syn_dir = GENERAL_DIR + "\\{}\\{}-all-photos".format(syn_name, syn_name)
+    select_syn_dir = GENERAL_DIR + "\\{}\\{}-patients".format(syn_name, syn_name)
     empty_dir(select_syn_dir)    
     
-    syn_info_save = GENERAL_DIR + "\\{}\{}_patients_info.xlsx".format(syn_name, syn_name)
+    syn_info_save = GENERAL_DIR + "\\{}\\{}_patients_info.xlsx".format(syn_name, syn_name)
     df_syn = pd.read_excel(syn_info_save)
 
     for index,rows in df_syn.iterrows():
@@ -174,10 +174,10 @@ def save_img_from_excel_patients(syn_name):
 ## Write syndrome files and control files to txt 
 
 def save_control_patients_info(syn_name, trial_nr):    
-    control_dir = GENERAL_DIR + "//{}//{}-selected-ID-controls".format(syn_name, syn_name)
+    control_dir = GENERAL_DIR + "\\{}\\{}-selected-ID-controls".format(syn_name, syn_name)
     control_files = [f for f in listdir(join(control_dir)) if isfile(join(control_dir, f)) and ".jpg" in f or ".JPG" in f ]
    
-    syn_dir = GENERAL_DIR + "//{}//{}-patients".format(syn_name, syn_name)
+    syn_dir = GENERAL_DIR + "\\{}\\{}-patients".format(syn_name, syn_name)
     syn_files = [f for f in listdir(join(syn_dir)) if isfile(join(syn_dir, f)) and ".jpg" in f or ".JPG" in f ]
    
     control_patient_info = open("results/{}/{}-patient-control-info-run-{}.txt".format(syn_name, syn_name, trial_nr), "w")
