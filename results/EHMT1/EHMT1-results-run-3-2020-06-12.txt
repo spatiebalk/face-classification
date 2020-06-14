@@ -128,5 +128,25 @@ Gradient Boost classifier (trees = 20), normalize : 2
     AROC: 0.5467, spec: 0.6667, sens: 0.5333
 Ada Boost classifier (trees = 10), normalize : 0 
     AROC: 0.4756, spec: 0.4667, sens: 0.5333
+    
+Syndrome that will be classified: EHMT1 
+
+8: Classifying data with facereader representation
+
+Shape of data: 16 patients, 34 controls, 93 features 
+
+CLASSIFIER RESULTS for EHMT1 patients and controls 
+knn classifier (k = 11), normalize : 0 
+    AROC: 0.9191, spec: 0.9412, sens: 0.6250
+svm classifier (k = sigmoid), normalize : 1 
+    AROC: 0.9026, spec: 0.9706, sens: 0.6875
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 0.8520, spec: 0.9706, sens: 0.4375
+Gradient Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.7574, spec: 0.8824, sens: 0.6875
+Ada Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.8217, spec: 0.8824, sens: 0.7500
+
+Running this whole file took 0.01 hours
 
 Running this whole file took 0.60 hours

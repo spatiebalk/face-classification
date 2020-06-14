@@ -128,5 +128,25 @@ Gradient Boost classifier (trees = 20), normalize : 0
     AROC: 0.8408, spec: 0.7647, sens: 0.8235
 Ada Boost classifier (trees = 5), normalize : 2 
     AROC: 0.7785, spec: 0.7647, sens: 0.7059
+    
+Syndrome that will be classified: DEAF1 
+
+8: Classifying data with facereader representation
+
+Shape of data: 15 patients, 20 controls, 93 features 
+
+CLASSIFIER RESULTS for DEAF1 patients and controls 
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.8017, spec: 0.8000, sens: 0.6000
+svm classifier (k = sigmoid), normalize : 2 
+    AROC: 0.6067, spec: 0.8000, sens: 0.3333
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 0.7033, spec: 0.8000, sens: 0.5333
+Gradient Boost classifier (trees = 10), normalize : 2 
+    AROC: 0.6767, spec: 0.9000, sens: 0.6667
+Ada Boost classifier (trees = 5), normalize : 1 
+    AROC: 0.7533, spec: 0.6000, sens: 0.6667
+
+Running this whole file took 0.00 hours
 
 Running this whole file took 0.15 hours

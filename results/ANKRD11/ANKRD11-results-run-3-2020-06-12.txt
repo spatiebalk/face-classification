@@ -117,4 +117,24 @@ Ada Boost classifier (trees = 10), normalize : 0
 
 NO RESULTS as there are 0 patients and 1 controls with a representation
 
+Syndrome that will be classified: ANKRD11 
+
+8: Classifying data with facereader representation
+
+Shape of data: 18 patients, 22 controls, 93 features 
+
+CLASSIFIER RESULTS for ANKRD11 patients and controls 
+knn classifier (k = 9), normalize : 2 
+    AROC: 0.8258, spec: 0.8182, sens: 0.7222
+svm classifier (k = rbf), normalize : 2 
+    AROC: 0.8662, spec: 0.8182, sens: 0.6111
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 0.8447, spec: 0.9091, sens: 0.6667
+Gradient Boost classifier (trees = 20), normalize : 2 
+    AROC: 0.7449, spec: 0.8182, sens: 0.7778
+Ada Boost classifier (trees = 5), normalize : 1 
+    AROC: 0.6919, spec: 0.5909, sens: 0.6111
+
+Running this whole file took 0.00 hours
+
 Running this whole file took 0.21 hours

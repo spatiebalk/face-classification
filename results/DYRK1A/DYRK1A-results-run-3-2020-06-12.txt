@@ -128,5 +128,25 @@ Gradient Boost classifier (trees = 20), normalize : 2
     AROC: 0.6198, spec: 0.2727, sens: 0.7273
 Ada Boost classifier (trees = 5), normalize : 1 
     AROC: 0.7273, spec: 0.8182, sens: 0.4545
+    
+Syndrome that will be classified: DYRK1A 
+
+8: Classifying data with facereader representation
+
+Shape of data: 9 patients, 14 controls, 93 features 
+
+CLASSIFIER RESULTS for DYRK1A patients and controls 
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.7738, spec: 0.9286, sens: 0.4444
+svm classifier (k = rbf), normalize : 1 
+    AROC: 0.5476, spec: 1.0000, sens: 0.1111
+Random Forest classifier (trees = 20), normalize : 2 
+    AROC: 0.7103, spec: 0.8571, sens: 0.3333
+Gradient Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.6667, spec: 0.6429, sens: 0.6667
+Ada Boost classifier (trees = 10), normalize : 2 
+    AROC: 0.5873, spec: 0.8571, sens: 0.4444
+
+Running this whole file took 0.00 hours
 
 Running this whole file took 0.07 hours

@@ -128,5 +128,25 @@ Gradient Boost classifier (trees = 20), normalize : 1
     AROC: 0.5402, spec: 0.5789, sens: 0.7368
 Ada Boost classifier (trees = 5), normalize : 1 
     AROC: 0.5845, spec: 0.3684, sens: 0.5263
+    
+Syndrome that will be classified: SON 
+
+8: Classifying data with facereader representation
+
+Shape of data: 12 patients, 16 controls, 93 features 
+
+CLASSIFIER RESULTS for SON patients and controls 
+knn classifier (k = 11), normalize : 0 
+    AROC: 0.8750, spec: 0.8750, sens: 0.6667
+svm classifier (k = sigmoid), normalize : 1 
+    AROC: 0.9115, spec: 0.8750, sens: 0.6667
+Random Forest classifier (trees = 10), normalize : 2 
+    AROC: 0.7995, spec: 0.8125, sens: 0.5000
+Gradient Boost classifier (trees = 20), normalize : 2 
+    AROC: 0.6562, spec: 0.8125, sens: 0.5000
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.6510, spec: 0.7500, sens: 0.5000
+
+Running this whole file took 0.00 hours
 
 Running this whole file took 0.14 hours
