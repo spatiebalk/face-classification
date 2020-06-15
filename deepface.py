@@ -102,7 +102,7 @@ def create_deepface():
     weights = get_weights()
     model.load_weights(weights)
     model2 = Model(model.input, model.layers[-2].output)
-    model2.summary()
+    #model2.summary()
     return model2
 
 
@@ -119,7 +119,7 @@ def deepface_reps(GENERAL_DIR, syn_name):
     files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".JPG" in f or ".jpg" in f]
 
     # for each kdv image save deepface rep as list:
-    for filename in tqdm(files_syn):
+    for filename in files_syn:
         im = Image.open(join(syn_dir, filename))
         im = im.resize(IMAGE_SIZE)
         output = model.predict(np.expand_dims(im, axis=0))
@@ -127,7 +127,7 @@ def deepface_reps(GENERAL_DIR, syn_name):
 
 
     # for each ID image save deepface rep as list:
-    for filename in tqdm(files_ID):
+    for filename in files_ID:
         im = Image.open(join(ID_dir, filename))
         im = im.resize(IMAGE_SIZE)
         output = model.predict(np.expand_dims(im, axis=0))

@@ -1,0 +1,148 @@
+Syndrome that will be classified: FBXO11 
+
+0: Classifying data with deepface representation
+
+Shape of data: 18 patients, 18 controls, 4096 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+knn classifier (k = 12), normalize : 1 
+    AROC: 0.7191, spec: 0.6667, sens: 0.5556
+svm classifier (k = linear), normalize : 2 
+    AROC: 0.7253, spec: 0.8333, sens: 0.6111
+Random Forest classifier (trees = 40), normalize : 1 
+    AROC: 0.7670, spec: 0.7222, sens: 0.5000
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.7346, spec: 0.7778, sens: 0.9444
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.7346, spec: 0.7222, sens: 0.7778
+
+1: Classifying data with dlib representation
+
+Shape of data: 18 patients, 18 controls, 2210 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+knn classifier (k = 7), normalize : 1 
+    AROC: 0.7253, spec: 0.6667, sens: 0.6667
+svm classifier (k = linear), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 20), normalize : 2 
+    AROC: 0.6528, spec: 0.6111, sens: 0.5556
+Gradient Boost classifier (trees = 40), normalize : 0 
+    AROC: 0.6173, spec: 0.5556, sens: 0.5556
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.6790, spec: 0.6667, sens: 0.3889
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 18 patients, 18 controls, 6306 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+knn classifier (k = 3), normalize : 0 
+    AROC: 0.6559, spec: 0.6111, sens: 0.5556
+svm classifier (k = rbf), normalize : 2 
+    AROC: 0.7778, spec: 0.1111, sens: 0.0000
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 0.6744, spec: 0.8889, sens: 0.5556
+Gradient Boost classifier (trees = 40), normalize : 0 
+    AROC: 0.8179, spec: 0.7222, sens: 0.6667
+Ada Boost classifier (trees = 10), normalize : 2 
+    AROC: 0.9290, spec: 0.7778, sens: 0.8333
+
+3: Classifying data with the 300 most important features of deepface-dlib representations
+
+Shape of data: 18 patients, 18 controls, 300 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+knn classifier (k = 7), normalize : 0 
+    AROC: 0.7037, spec: 0.9444, sens: 0.3333
+svm classifier (k = sigmoid), normalize : 0 
+    AROC: 0.7469, spec: 0.5556, sens: 0.7222
+Random Forest classifier (trees = 10), normalize : 2 
+    AROC: 0.7130, spec: 0.6667, sens: 0.6111
+Gradient Boost classifier (trees = 5), normalize : 1 
+    AROC: 0.7623, spec: 0.7778, sens: 0.7778
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.7500, spec: 0.8333, sens: 0.5556
+
+4: Classifying data with PCA components of deepface-dlib representation
+Shape of data: 18 patients, 18 controls, 35 features 
+
+Nr of pca components used: 0
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+knn classifier (k = 12), normalize : 1 
+    AROC: 0.6852, spec: 0.6667, sens: 0.6667
+svm classifier (k = rbf), normalize : 2 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 5), normalize : 2 
+    AROC: 0.5664, spec: 0.7778, sens: 0.3889
+Gradient Boost classifier (trees = 40), normalize : 2 
+    AROC: 0.5093, spec: 0.5556, sens: 0.4444
+Ada Boost classifier (trees = 40), normalize : 2 
+    AROC: 0.5216, spec: 0.6111, sens: 0.4444
+
+5: Classifying data with openface representation
+
+Shape of data: 16 patients, 16 controls, 128 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.7109, spec: 0.7500, sens: 0.5625
+svm classifier (k = poly), normalize : 2 
+    AROC: 0.2852, spec: 0.6875, sens: 0.3750
+Random Forest classifier (trees = 40), normalize : 2 
+    AROC: 0.5820, spec: 0.6875, sens: 0.5625
+Gradient Boost classifier (trees = 40), normalize : 1 
+    AROC: 0.4258, spec: 0.5000, sens: 0.3750
+Ada Boost classifier (trees = 40), normalize : 0 
+    AROC: 0.5664, spec: 0.5000, sens: 0.7500
+
+6: Classifying data with cfps representation
+
+Shape of data: 16 patients, 16 controls, 340 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+knn classifier (k = 3), normalize : 2 
+    AROC: 0.4844, spec: 0.3750, sens: 0.5625
+svm classifier (k = rbf), normalize : 2 
+    AROC: 0.9648, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 5), normalize : 2 
+    AROC: 0.5586, spec: 0.6250, sens: 0.5625
+Gradient Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.1875, spec: 0.4375, sens: 0.3125
+Ada Boost classifier (trees = 40), normalize : 0 
+    AROC: 0.4336, spec: 0.6250, sens: 0.5625
+
+7: Classifying data with openface+cfps representation
+
+Shape of data: 16 patients, 16 controls, 468 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.6172, spec: 0.4375, sens: 0.6250
+svm classifier (k = rbf), normalize : 1 
+    AROC: 0.8203, spec: 0.0000, sens: 0.0625
+Random Forest classifier (trees = 5), normalize : 2 
+    AROC: 0.5117, spec: 0.5625, sens: 0.4375
+Gradient Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.1836, spec: 0.3125, sens: 0.1875
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.4883, spec: 0.6250, sens: 0.4375
+
+8: Classifying data with facereader representation
+
+Shape of data: 17 patients, 17 controls, 93 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+knn classifier (k = 9), normalize : 0 
+    AROC: 0.7958, spec: 0.8235, sens: 0.6471
+svm classifier (k = sigmoid), normalize : 0 
+    AROC: 0.8028, spec: 0.7647, sens: 0.6471
+Random Forest classifier (trees = 5), normalize : 1 
+    AROC: 0.6211, spec: 0.7059, sens: 0.4706
+Gradient Boost classifier (trees = 5), normalize : 1 
+    AROC: 0.5363, spec: 0.5882, sens: 0.7059
+Ada Boost classifier (trees = 40), normalize : 1 
+    AROC: 0.5467, spec: 0.5294, sens: 0.6471
+
+Running this whole file took 0.24 hours

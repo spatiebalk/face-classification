@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import openpyxl
 from tqdm import tqdm
 
-def open_syn_excel(syn_name):
+def open_syn_excel(syn_name, GENERAL_DIR):
     syn_file = GENERAL_DIR + "\\{}\\{}_Database.xlsx".format(syn_name, syn_name)
     assert os.path.exists(syn_file), "This path doesn't exist: {}".format(syn_file)
 
@@ -49,7 +49,7 @@ def make_hist(df_syn):
 
 
 # open ID control excel sheet
-def open_control_excel(syn_name):
+def open_control_excel(syn_name, GENERAL_DIR):
     ID_file = GENERAL_DIR + "\\ID-controls\\all_ID_controls_info_complete.xlsm"
     assert os.path.exists(ID_file), "This path doesn't exist: {}".format(ID_file)
 
@@ -111,7 +111,7 @@ def select_controls(df_syn, df_ID):
     return df_select_syn, df_select_ID
 
 
-def save_info(syn_name, df_select_syn, df_select_ID):
+def save_info(syn_name, df_select_syn, df_select_ID, GENERAL_DIR):
     syn_info_save = GENERAL_DIR + "\\{}\\{}_patients_info.xlsx".format(syn_name, syn_name)
     ID_info_save = GENERAL_DIR + "\\{}\\{}_matched_ID_controls_info.xlsx".format(syn_name, syn_name)
     df_select_syn.to_excel(syn_info_save)
@@ -127,7 +127,7 @@ def empty_dir(directory):
 
 ### Open Excel files and write the found images to a new directory
 
-def save_img_from_excel_controls(syn_name):
+def save_img_from_excel_controls(syn_name, GENERAL_DIR):
     ID_dir = GENERAL_DIR + "\\ID-controls"
     select_ID_dir = GENERAL_DIR + "\\{}\\{}-selected-ID-controls".format(syn_name, syn_name)
     empty_dir(select_ID_dir)
@@ -150,7 +150,7 @@ def save_img_from_excel_controls(syn_name):
     print("Done saving ID files.")
 
 
-def save_img_from_excel_patients(syn_name):
+def save_img_from_excel_patients(syn_name, GENERAL_DIR):
     
     syn_dir = GENERAL_DIR + "\\{}\\{}-all-photos".format(syn_name, syn_name)
     select_syn_dir = GENERAL_DIR + "\\{}\\{}-patients".format(syn_name, syn_name)
@@ -173,7 +173,7 @@ def save_img_from_excel_patients(syn_name):
 
 ## Write syndrome files and control files to txt 
 
-def save_control_patients_info(syn_name, trial_nr):    
+def save_control_patients_info(syn_name, trial_nr, GENERAL_DIR):    
     control_dir = GENERAL_DIR + "\\{}\\{}-selected-ID-controls".format(syn_name, syn_name)
     control_files = [f for f in listdir(join(control_dir)) if isfile(join(control_dir, f)) and ".jpg" in f or ".JPG" in f ]
    
@@ -192,27 +192,25 @@ def save_control_patients_info(syn_name, trial_nr):
     control_patient_info.close()
 
 
-GENERAL_DIR = ""
 
-def main(general_dir, syn_list, trial_nr):
+def main(GENERAL_DIR, syn_list, trial_nr):
     
-    GENERAL_DIR = general_dir
 
     print("Selecting controls for trial {} \nfor syndromens: {}".format(trial_nr, syn_list))
     for syn_name in tqdm(syn_list):
-        df_syn = open_syn_excel(syn_name)
-        df_ID = open_control_excel(syn_name)
+        df_syn = open_syn_excel(syn_name, GENERAL_DIR)
+        df_ID = open_control_excel(syn_name, GENERAL_DIR)
         #make_hist(df_syn)
 
         df_select_syn, df_select_ID = select_controls(df_syn, df_ID)
         print("Syndrome {} \nShape of patient data {}, shape of control data {}".format(syn_name, df_select_syn.shape, df_select_ID.shape))
 
-        save_info(syn_name, df_select_syn, df_select_ID)
+        save_info(syn_name, df_select_syn, df_select_ID, GENERAL_DIR)
 
-        save_img_from_excel_controls(syn_name)
-        save_img_from_excel_patients(syn_name)
+        save_img_from_excel_controls(syn_name, GENERAL_DIR)
+        save_img_from_excel_patients(syn_name, GENERAL_DIR)
 
-        save_control_patients_info(syn_name, trial_nr)    
+        save_control_patients_info(syn_name, trial_nr, GENERAL_DIR)    
                 
     print("Done running ID_control_selection.py")
 
