@@ -1,0 +1,152 @@
+Syndrome that will be classified: CDK13 
+
+0: Classifying data with deepface representation
+
+Shape of data: 29 patients, 29 controls, 4096 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+knn classifier (k = 15), normalize : 0 
+    AROC: 0.9703, spec: 0.8966, sens: 0.9310
+svm classifier (k = linear), normalize : 2 
+    AROC: 0.9738, spec: 0.8621, sens: 0.9655
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 0.9370, spec: 0.8966, sens: 0.7931
+Gradient Boost classifier (trees = 10), normalize : 0 
+    AROC: 0.8216, spec: 0.8276, sens: 0.6897
+Ada Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.9287, spec: 0.8966, sens: 0.9310
+
+1: Classifying data with dlib representation
+
+Shape of data: 28 patients, 29 controls, 2210 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+knn classifier (k = 15), normalize : 0 
+    AROC: 0.7796, spec: 0.7931, sens: 0.6786
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.8793, spec: 0.7241, sens: 0.0000
+Random Forest classifier (trees = 10), normalize : 2 
+    AROC: 0.7826, spec: 0.8276, sens: 0.6786
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.5049, spec: 0.5517, sens: 0.5357
+Ada Boost classifier (trees = 10), normalize : 0 
+    AROC: 0.7217, spec: 0.7241, sens: 0.7143
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 28 patients, 29 controls, 6306 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+knn classifier (k = 5), normalize : 0 
+    AROC: 0.9052, spec: 0.7241, sens: 0.8929
+svm classifier (k = linear), normalize : 2 
+    AROC: 0.9815, spec: 0.8966, sens: 0.9643
+Random Forest classifier (trees = 10), normalize : 0 
+    AROC: 0.9015, spec: 0.9310, sens: 0.7500
+Gradient Boost classifier (trees = 20), normalize : 2 
+    AROC: 0.8805, spec: 0.8621, sens: 0.8214
+Ada Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.9323, spec: 0.8621, sens: 0.8571
+
+3: Classifying data with the 300 most important features of deepface-dlib representations
+
+Shape of data: 28 patients, 29 controls, 300 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.9661, spec: 0.8621, sens: 0.9643
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.9704, spec: 0.8966, sens: 0.9643
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 0.9298, spec: 0.9655, sens: 0.8214
+Gradient Boost classifier (trees = 5), normalize : 1 
+    AROC: 0.8867, spec: 0.8621, sens: 0.7857
+Ada Boost classifier (trees = 5), normalize : 1 
+    AROC: 0.9520, spec: 0.8276, sens: 0.9643
+
+4: Classifying data with PCA components of deepface-dlib representation
+Shape of data: 28 patients, 29 controls, 56 features 
+
+Nr of pca components used: 0
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.9083, spec: 0.8966, sens: 0.8571
+svm classifier (k = linear), normalize : 0 
+    AROC: 0.9704, spec: 0.8966, sens: 0.8929
+Random Forest classifier (trees = 20), normalize : 1 
+    AROC: 0.7506, spec: 0.7241, sens: 0.6071
+Gradient Boost classifier (trees = 10), normalize : 2 
+    AROC: 0.8707, spec: 0.8276, sens: 0.8214
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.8744, spec: 0.8276, sens: 0.7857
+
+5: Classifying data with openface representation
+
+Shape of data: 19 patients, 19 controls, 128 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+knn classifier (k = 5), normalize : 0 
+    AROC: 0.7396, spec: 0.4737, sens: 1.0000
+svm classifier (k = poly), normalize : 2 
+    AROC: 0.7091, spec: 0.5789, sens: 0.7895
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.8269, spec: 0.7895, sens: 0.5263
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.6233, spec: 0.7895, sens: 0.4737
+Ada Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.7479, spec: 0.6842, sens: 0.5789
+
+6: Classifying data with cfps representation
+
+Shape of data: 19 patients, 19 controls, 340 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.5720, spec: 0.5789, sens: 0.4211
+svm classifier (k = rbf), normalize : 2 
+    AROC: 0.9141, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 10), normalize : 0 
+    AROC: 0.4668, spec: 0.5789, sens: 0.4737
+Gradient Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.6205, spec: 0.8421, sens: 0.5263
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.5429, spec: 0.4737, sens: 0.5263
+
+7: Classifying data with openface+cfps representation
+
+Shape of data: 19 patients, 19 controls, 468 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+knn classifier (k = 7), normalize : 0 
+    AROC: 0.6842, spec: 0.6316, sens: 0.6316
+svm classifier (k = linear), normalize : 0 
+    AROC: 0.4737, spec: 0.5789, sens: 0.5789
+Random Forest classifier (trees = 10), normalize : 2 
+    AROC: 0.6648, spec: 0.6842, sens: 0.4737
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.4349, spec: 0.4737, sens: 0.4211
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.5734, spec: 0.6316, sens: 0.6316
+    
+Syndrome that will be classified: CDK13 
+
+8: Classifying data with facereader representation
+
+Shape of data: 18 patients, 24 controls, 93 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+knn classifier (k = 5), normalize : 0 
+    AROC: 0.8750, spec: 0.8333, sens: 0.8333
+svm classifier (k = rbf), normalize : 0 
+    AROC: 0.8449, spec: 1.0000, sens: 0.5000
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 0.7894, spec: 0.8750, sens: 0.6667
+Gradient Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.5324, spec: 0.7500, sens: 0.3889
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.7037, spec: 0.7083, sens: 0.6111
+
+Running this whole file took 0.01 hours
+
+Running this whole file took 0.32 hours

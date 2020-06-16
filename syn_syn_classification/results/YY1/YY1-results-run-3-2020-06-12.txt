@@ -1,0 +1,152 @@
+Syndrome that will be classified: YY1 
+
+0: Classifying data with deepface representation
+
+Shape of data: 12 patients, 12 controls, 4096 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+knn classifier (k = 3), normalize : 2 
+    AROC: 1.0000, spec: 0.9167, sens: 1.0000
+svm classifier (k = rbf), normalize : 0 
+    AROC: 1.0000, spec: 0.9167, sens: 1.0000
+Random Forest classifier (trees = 20), normalize : 0 
+    AROC: 1.0000, spec: 1.0000, sens: 0.9167
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.9861, spec: 0.8333, sens: 0.9167
+Ada Boost classifier (trees = 20), normalize : 2 
+    AROC: 0.8750, spec: 0.8333, sens: 0.9167
+
+1: Classifying data with dlib representation
+
+Shape of data: 12 patients, 12 controls, 2210 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+knn classifier (k = 7), normalize : 0 
+    AROC: 0.5833, spec: 0.5833, sens: 0.5833
+svm classifier (k = linear), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.7188, spec: 0.7500, sens: 0.5000
+Gradient Boost classifier (trees = 10), normalize : 0 
+    AROC: 0.7153, spec: 0.7500, sens: 0.5833
+Ada Boost classifier (trees = 5), normalize : 1 
+    AROC: 0.4514, spec: 0.5000, sens: 0.4167
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 12 patients, 12 controls, 6306 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.9931, spec: 0.9167, sens: 0.9167
+svm classifier (k = linear), normalize : 0 
+    AROC: 0.9931, spec: 1.0000, sens: 0.8333
+Random Forest classifier (trees = 10), normalize : 0 
+    AROC: 0.9549, spec: 0.9167, sens: 0.8333
+Gradient Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.6181, spec: 0.5833, sens: 0.7500
+Ada Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.6458, spec: 0.5833, sens: 0.8333
+
+3: Classifying data with the 300 most important features of deepface-dlib representations
+
+Shape of data: 12 patients, 12 controls, 300 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 1.0000, spec: 1.0000, sens: 1.0000
+svm classifier (k = linear), normalize : 1 
+    AROC: 1.0000, spec: 1.0000, sens: 1.0000
+Random Forest classifier (trees = 5), normalize : 0 
+    AROC: 1.0000, spec: 1.0000, sens: 1.0000
+Gradient Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.9167, spec: 1.0000, sens: 0.9167
+Ada Boost classifier (trees = 10), normalize : 0 
+    AROC: 0.9444, spec: 0.7500, sens: 0.9167
+
+4: Classifying data with PCA components of deepface-dlib representation
+Shape of data: 12 patients, 12 controls, 23 features 
+
+Nr of pca components used: 0
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.9514, spec: 1.0000, sens: 0.8333
+svm classifier (k = linear), normalize : 1 
+    AROC: 1.0000, spec: 1.0000, sens: 0.9167
+Random Forest classifier (trees = 5), normalize : 2 
+    AROC: 0.8403, spec: 0.5833, sens: 0.9167
+Gradient Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.6875, spec: 0.9167, sens: 0.7500
+Ada Boost classifier (trees = 5), normalize : 1 
+    AROC: 0.7708, spec: 0.9167, sens: 0.6667
+
+5: Classifying data with openface representation
+
+Shape of data: 12 patients, 12 controls, 128 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.6944, spec: 0.7500, sens: 0.7500
+svm classifier (k = sigmoid), normalize : 0 
+    AROC: 0.5347, spec: 0.9167, sens: 0.5833
+Random Forest classifier (trees = 10), normalize : 0 
+    AROC: 0.6181, spec: 0.8333, sens: 0.5833
+Gradient Boost classifier (trees = 20), normalize : 1 
+    AROC: 0.3611, spec: 0.4167, sens: 0.4167
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.5903, spec: 0.3333, sens: 0.5833
+
+6: Classifying data with cfps representation
+
+Shape of data: 12 patients, 12 controls, 340 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.4722, spec: 0.4167, sens: 0.4167
+svm classifier (k = rbf), normalize : 1 
+    AROC: 0.8264, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 20), normalize : 1 
+    AROC: 0.6632, spec: 0.5833, sens: 0.7500
+Gradient Boost classifier (trees = 20), normalize : 0 
+    AROC: 0.9167, spec: 1.0000, sens: 0.8333
+Ada Boost classifier (trees = 5), normalize : 2 
+    AROC: 0.9167, spec: 1.0000, sens: 0.8333
+
+7: Classifying data with openface+cfps representation
+
+Shape of data: 12 patients, 12 controls, 468 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+knn classifier (k = 13), normalize : 0 
+    AROC: 0.6667, spec: 0.5833, sens: 0.6667
+svm classifier (k = rbf), normalize : 0 
+    AROC: 0.3785, spec: 0.0000, sens: 0.1667
+Random Forest classifier (trees = 10), normalize : 2 
+    AROC: 0.6597, spec: 0.6667, sens: 0.5833
+Gradient Boost classifier (trees = 10), normalize : 0 
+    AROC: 0.9028, spec: 1.0000, sens: 0.8333
+Ada Boost classifier (trees = 10), normalize : 0 
+    AROC: 0.8958, spec: 1.0000, sens: 0.8333
+    
+Syndrome that will be classified: YY1 
+
+8: Classifying data with facereader representation
+
+Shape of data: 9 patients, 11 controls, 93 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+knn classifier (k = 5), normalize : 2 
+    AROC: 0.8081, spec: 0.7273, sens: 0.8889
+svm classifier (k = sigmoid), normalize : 2 
+    AROC: 0.6869, spec: 0.6364, sens: 0.7778
+Random Forest classifier (trees = 5), normalize : 0 
+    AROC: 0.8990, spec: 1.0000, sens: 0.6667
+Gradient Boost classifier (trees = 10), normalize : 0 
+    AROC: 0.4848, spec: 0.5455, sens: 0.5556
+Ada Boost classifier (trees = 5), normalize : 1 
+    AROC: 0.5354, spec: 0.5455, sens: 0.3333
+
+Running this whole file took 0.00 hours
+
+Running this whole file took 0.05 hours

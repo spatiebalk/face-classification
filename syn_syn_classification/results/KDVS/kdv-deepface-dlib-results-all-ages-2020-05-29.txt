@@ -1,0 +1,72 @@
+0: Classifying data with deepface representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn classifier (k = 9), normalize : 1 
+    AROC: 0.7959, spec: 0.7297, sens: 0.6800
+svm classifier (k = linear), normalize : 0 
+    AROC: 0.7937, spec: 0.7838, sens: 0.7200
+Random Forest classifier (trees = 60), normalize : 2 
+    AROC: 0.7981, spec: 0.6892, sens: 0.8000
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7894, spec: 0.6757, sens: 0.8000
+Ada Boost classifier (trees = 10), normalize : 2 
+    AROC: 0.7613, spec: 0.7162, sens: 0.7200
+
+1: Classifying data with dlib representation
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn classifier (k = 9), normalize : 0 
+    AROC: 0.5550, spec: 0.6351, sens: 0.4571
+svm classifier (k = linear), normalize : 2 
+    AROC: 0.6632, spec: 0.6892, sens: 0.6143
+Random Forest classifier (trees = 60), normalize : 2 
+    AROC: 0.6601, spec: 0.6757, sens: 0.5714
+Gradient Boost classifier (trees = 5), normalize : 0 
+    AROC: 0.6948, spec: 0.7432, sens: 0.6714
+Ada Boost classifier (trees = 40), normalize : 1 
+    AROC: 0.6840, spec: 0.5541, sens: 0.6429
+
+2: Classifying data with all deepface+dlib representations
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn classifier (k = 3), normalize : 0 
+    AROC: 0.7622, spec: 0.9324, sens: 0.3571
+svm classifier (k = linear), normalize : 2 
+    AROC: 0.8135, spec: 0.7838, sens: 0.7286
+Random Forest classifier (trees = 80), normalize : 1 
+    AROC: 0.8066, spec: 0.8108, sens: 0.6857
+Gradient Boost classifier (trees = 10), normalize : 2 
+    AROC: 0.8699, spec: 0.8243, sens: 0.7714
+Ada Boost classifier (trees = 60), normalize : 0 
+    AROC: 0.8199, spec: 0.7703, sens: 0.7857
+
+3: Classifying data with the 300 most important features of deepface+dlib representations
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.8530, spec: 0.8784, sens: 0.6143
+svm classifier (k = poly), normalize : 1 
+    AROC: 0.8514, spec: 0.7568, sens: 0.7857
+Random Forest classifier (trees = 60), normalize : 2 
+    AROC: 0.8321, spec: 0.7703, sens: 0.7429
+Gradient Boost classifier (trees = 80), normalize : 1 
+    AROC: 0.8012, spec: 0.7568, sens: 0.7143
+Ada Boost classifier (trees = 5), normalize : 2 
+    AROC: 0.7421, spec: 0.6216, sens: 0.7857
+
+4: Classifying data with PCA components of deepface+dlib representation
+Nr of pca components used: 143
+
+CLASSIFIER RESULTS for kdv-control age group 1-40
+knn classifier (k = 5), normalize : 1 
+    AROC: 0.8483, spec: 0.8649, sens: 0.6429
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.8349, spec: 0.7703, sens: 0.8143
+Random Forest classifier (trees = 60), normalize : 1 
+    AROC: 0.6880, spec: 0.6622, sens: 0.5571
+Gradient Boost classifier (trees = 40), normalize : 2 
+    AROC: 0.6465, spec: 0.6081, sens: 0.6286
+Ada Boost classifier (trees = 5), normalize : 1 
+    AROC: 0.7649, spec: 0.7297, sens: 0.7000
+
+Running this whole file took 777.27 minutes
