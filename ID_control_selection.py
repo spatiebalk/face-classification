@@ -14,27 +14,12 @@ import openpyxl
 from tqdm import tqdm
 
 def open_syn_excel(syn_name, GENERAL_DIR):
-    syn_file = GENERAL_DIR + "\\{}\\{}_Database.xlsx".format(syn_name, syn_name)
+    syn_file = GENERAL_DIR + "\\{}\\{}_Database.csv".format(syn_name, syn_name)
     assert os.path.exists(syn_file), "This path doesn't exist: {}".format(syn_file)
 
-    df_syn = pd.read_excel(syn_file)
+    df_syn = pd.read_csv(syn_file, sep =';')
     df_syn = df_syn[['Patient', 'Age on photo', 'Gender']]
     df_syn.rename(columns={'Patient':'image','Age on photo':'age', 'Gender':'gender'},inplace=True)
-
-    index_with_nan = df_syn.index[df_syn.isnull().any(axis=1)]
-    df_syn.drop(index_with_nan,0, inplace=True)
-
-    ### check whether that image is actually present
-    syn_dir = GENERAL_DIR + "\\{}\\{}-all-photos".format(syn_name, syn_name)
-    drop_indices = []
-
-    for index, row in df_syn.iterrows():
-        image = row['image']
-        files = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)) and image + ".jpg" in f)]
-        if(len(files)==0):
-            drop_indices.append(index)
-
-    df_syn = df_syn.drop(drop_indices)
     
     return df_syn
 
@@ -50,62 +35,74 @@ def make_hist(df_syn):
 
 # open ID control excel sheet
 def open_control_excel(syn_name, GENERAL_DIR):
-    ID_file = GENERAL_DIR + "\\ID-controls\\all_ID_controls_info_complete.xlsm"
+    ID_file = GENERAL_DIR + "\\ID-controls\\all_ID_controls_info_complete.csv"
     assert os.path.exists(ID_file), "This path doesn't exist: {}".format(ID_file)
 
-    df_ID = pd.read_excel(ID_file)
+    df_ID = pd.read_csv(ID_file, sep=';')
     df_ID = df_ID[['pnummer', 'frontal face image', 'agecorrected', 'gender']]
     df_ID = df_ID[df_ID['frontal face image'].notnull()]
     df_ID = df_ID.rename(columns={"frontal face image": "image", "agecorrected": "age"})
 
     return df_ID
 
+def get_list_age_dif(age_syn):
+    age_dif = int(float(age_syn)/3.0)
+    a = list(range(-age_dif, 0))
+    a.reverse()
+    b = list(range(0, age_dif + 1))
+    c = list(zip(b, a))
+    
+    return np.array(c).flatten().tolist()
+    
+    
 
 def select_controls(df_syn, df_ID):
     # empty object
     df_select_syn = pd.DataFrame(columns=['image', 'age', 'gender'])
-    df_select_ID = pd.DataFrame(columns=['pnummer', 'image', 'age', 'gender'])
-
+    df_select_ID = pd.DataFrame(columns=['image', 'age', 'gender'])
+    
+    print("there are {} patients".format(df_syn.shape))
     # find control ID for each syndromic patients
     for index, row in df_syn.iterrows():
+        if isinstance(row['age'], int) : 
+            age_syn = row['age']
+            gender_syn = row['gender'].lower()
 
-        age_syn = int(row['age'])
-        gender_syn = row['gender'].lower()
+            # find a control ID with exact same age
+            matches_ID = df_ID.loc[(df_ID['age'] == age_syn) & (df_ID['gender'] == gender_syn)]
 
-        # find a control ID with exact same age
-        matches_ID = df_ID.loc[(df_ID['age'] == age_syn) & (df_ID['gender'] == gender_syn)]
+            # try different age differences
+            age_dif = get_list_age_dif(age_syn)
 
-        # try different age differences
-        age_dif = [1, -1, 2, -2, 3, -3, 4, -4, 5, -5, 6, -6]
-        i = 0   
-        while matches_ID.shape[0] == 0:
-            matches_ID = df_ID.loc[(df_ID['age'] == age_syn + age_dif[i]) & (df_ID['gender'] == gender_syn)]
-            i+= 1
-            if i == len(age_dif):
-                break
+            i = 0   
+            while matches_ID.shape[0] == 0:
+                matches_ID = df_ID.loc[(df_ID['age'] == age_syn + age_dif[i]) & (df_ID['gender'] == gender_syn)]
+                i+= 1
+                if i == len(age_dif):
+                    break
 
-        if(matches_ID.shape[0] ==0):
-            print("For patient {}, gender: {}, age: {}".format(row['image'], row['gender'], row['age']))
-            print("No match found within {} and {} years".format(max(age_dif), min(age_dif)))
-            continue
+            if(matches_ID.shape[0] ==0):
+                print("For patient {}, gender: {}, age: {}".format(row['image'], row['gender'], row['age']))
+                print("No match found within {} and {} years".format(max(age_dif), min(age_dif)))
+                continue
 
-        # a match is found, so append sy patient
-        df_select_syn = df_select_syn.append(row) 
+            # a match is found, so append sy patient
+            df_select_syn = df_select_syn.append({'image': str(row.image) + ".jpg", 'age':row.age, 'gender':row.gender}, ignore_index=True) 
 
-        # pick a random control from this list to append to selected controls
-        random_index = random.randint(0, matches_ID.shape[0]-1)
-        select_ID = matches_ID.iloc[random_index]
-        df_select_ID = df_select_ID.append(select_ID)
+            # pick a random control from this list to append to selected controls
+            random_index = random.randint(0, matches_ID.shape[0]-1)
+            select_ID = matches_ID.iloc[random_index]
+            df_select_ID = df_select_ID.append({'image':str(select_ID.pnummer) + '_small_'+ str(select_ID.image), 'age': select_ID.age, 'gender': select_ID.gender}, ignore_index=True)               
 
-        # remove selected row from set of all controls 
-        i = df_ID[(df_ID.image == select_ID.image) & (df_ID.pnummer == select_ID.pnummer)].index
+            # remove selected row from set of all controls 
+            i = df_ID[(df_ID.image == select_ID.image) & (df_ID.pnummer == select_ID.pnummer)].index
 
-        OG_shape = df_ID.shape
-        df_ID = df_ID.drop(i)
-        new_shape = df_ID.shape  
+            OG_shape = df_ID.shape
+            df_ID = df_ID.drop(i)
+            new_shape = df_ID.shape  
 
-        if(OG_shape[0] - new_shape[0]> 1):
-            print("Error")
+            if(OG_shape[0] - new_shape[0]> 1):
+                print("Error")
 
     print("Done finding all ID controls.")
     return df_select_syn, df_select_ID
@@ -136,19 +133,15 @@ def save_img_from_excel_controls(syn_name, GENERAL_DIR):
     df_ID = pd.read_excel(ID_info_save)
 
     for index,rows in df_ID.iterrows():
-        pnr = rows['pnummer']
-        image = rows['image']
+        image = str(rows['image'])
 
-        files = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f)) & ((pnr + "_small_" + image.replace(".JPG", "")) in f))]
+        files = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f)) & (image in f))]
         if(len(files)==1):
             im = Image.open(join(ID_dir, files[0]))
             im.save(join(select_ID_dir, files[0]))
         else: 
-            print("Manually find image for " + str(pnr) + "_small_" + str(image.replace(".JPG", "")))   
+            print("Manually find image for  {}".format(image))  
             print("in " + str(ID_dir))
-
-    print("Done saving ID files.")
-
 
 def save_img_from_excel_patients(syn_name, GENERAL_DIR):
     
@@ -161,24 +154,21 @@ def save_img_from_excel_patients(syn_name, GENERAL_DIR):
 
     for index,rows in df_syn.iterrows():
         image = rows['image']
-        files = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)) and image + ".jpg" in f)]
+        files = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)) and image in f)]
         if(len(files)==1):
             im = Image.open(join(syn_dir, files[0]))
             im.save(join(select_syn_dir, files[0]))
         else: 
             print("Manually find image for image: {}".format(image))
 
-    print("Done saving syndrome files.")
-
-
 ## Write syndrome files and control files to txt 
 
 def save_control_patients_info(syn_name, trial_nr, GENERAL_DIR):    
     control_dir = GENERAL_DIR + "\\{}\\{}-selected-ID-controls".format(syn_name, syn_name)
-    control_files = [f for f in listdir(join(control_dir)) if isfile(join(control_dir, f)) and ".jpg" in f or ".JPG" in f ]
+    control_files = [f for f in listdir(join(control_dir)) if isfile(join(control_dir, f)) and ".jpg" in f ]
    
     syn_dir = GENERAL_DIR + "\\{}\\{}-patients".format(syn_name, syn_name)
-    syn_files = [f for f in listdir(join(syn_dir)) if isfile(join(syn_dir, f)) and ".jpg" in f or ".JPG" in f ]
+    syn_files = [f for f in listdir(join(syn_dir)) if isfile(join(syn_dir, f)) and ".jpg" in f ]
    
     control_patient_info = open("results/{}/{}-patient-control-info-run-{}.txt".format(syn_name, syn_name, trial_nr), "w")
     
@@ -196,7 +186,8 @@ def save_control_patients_info(syn_name, trial_nr, GENERAL_DIR):
 def main(GENERAL_DIR, syn_list, trial_nr):
     
 
-    print("Selecting controls for trial {} \nfor syndromens: {}".format(trial_nr, syn_list))
+    print("Selecting controls for trial {} \nfor syndroms: {}".format(trial_nr, syn_list))
+    
     for syn_name in tqdm(syn_list):
         df_syn = open_syn_excel(syn_name, GENERAL_DIR)
         df_ID = open_control_excel(syn_name, GENERAL_DIR)

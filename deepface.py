@@ -115,9 +115,12 @@ def deepface_reps(GENERAL_DIR, syn_name):
     ID_dir = GENERAL_DIR + "\\{}\{}-selected-ID-controls".format(syn_name, syn_name)
 
     # get list of filenames
-    files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn_name in f] #"kdv" for KDVS
-    files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".JPG" in f or ".jpg" in f]
+    files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn_name in f]
+    files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".jpg" in f]
+    
+    print("Syn_list: {}, ID_list: {}".format(len(files_syn), len(files_ID)))
 
+        
     # for each kdv image save deepface rep as list:
     for filename in files_syn:
         im = Image.open(join(syn_dir, filename))

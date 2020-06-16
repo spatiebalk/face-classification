@@ -17,33 +17,37 @@ def openface_cfps_reps(GENERAL_DIR, method, syn_name):
     ID_dir = GENERAL_DIR + "\{}\{}-selected-ID-controls".format(syn_name, syn_name)
 
     # get list of filenames
-    files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn_name in f] # "kdv" for KDVS
-    files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".JPG" in f or ".jpg" in f]
+    files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn_name in f] 
+    files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".jpg" in f]
+    
+    print("Syn_files: {}, ID_files: {}".format(len(files_syn), len(files_ID)))
 
+    
     syn_xlsx = GENERAL_DIR + "\\features_"+method+"_patient_groups.xlsx"    
     df_reps = pd.read_excel(syn_xlsx)
 
     ID_xlsx = GENERAL_DIR + "\\features_"+method+"_all_controls.xlsx"
     df_ID = pd.read_excel(ID_xlsx)
 
-    for (index_rep, row_rep), (index_ID, row_ID) in zip(df_reps.iterrows(), df_ID.iterrows()):
+    for index_rep, row_rep  in df_reps.iterrows():
 
         filename = row_rep.iloc[0]
-        # check if row is about kdv patient
 
-        if syn_name in filename:
-        #if "kdv" in filename: # kdv specific
+        if filename +".jpg" in files_syn: # openface is saved without extension
+            rep_syn = row_rep.iloc[5:].tolist()
+            syn_rep.append([filename] + rep_syn)
 
-            # check if that kdv patient is in the current list
-            filename = filename + ".jpg"
-            #filename = filename.replace("small_","") # kdv specific
-            if filename in files_syn:
-                rep_syn = row_rep.iloc[5:].tolist()
-                syn_rep.append([filename] + rep_syn)
+                
+    for index_ID, row_ID in  df_ID.iterrows():
 
-                rep_ID = row_ID.iloc[5:].tolist()
-                ID_rep.append([filename] + rep_ID)    
+        filename = row_ID.iloc[0]
 
+        if filename +".jpg" in files_ID:
+            rep_ID = row_ID.iloc[5:].tolist()
+            ID_rep.append([filename] + rep_ID)
+
+                
+                
     print("Syn_reps: {}, ID_reps: {}".format(len(syn_rep), len(ID_rep)))
 
     # location to save representation

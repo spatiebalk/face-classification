@@ -18,7 +18,10 @@ def facereader_reps(GENERAL_DIR, syn_name):
 
     # get list of filenames
     files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn_name in f]
-    files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".JPG" in f or ".jpg" in f]
+    files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".jpg" in f]
+    
+    print("Syn_list: {}, ID_list: {}".format(len(files_syn), len(files_ID)))
+
 
     syn_csv = GENERAL_DIR + "\\features_facereader_patient_groups.csv"    
    

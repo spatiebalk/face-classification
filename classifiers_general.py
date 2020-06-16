@@ -33,19 +33,37 @@ def read_rep(syn_name, syn_csv, ID_csv, data_dir):
 
     # get list of filenames
     files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f))) and ".jpg" in f]
-    files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and (".jpg" in f or ".JPG" in f) ]
+    files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".jpg" in f]
     
-    data = []
-    labels = []
+    data, labels, indices_to_drop = [], [], []
 
-    for i, csv_file in enumerate([ID_csv, syn_csv]):
-        with open (csv_file, newline='') as file:
-            reader = csv.reader(file, delimiter=',')
-            for row in reader:
-                if row[0] in files_syn or row[0] in files_ID:
-                    rep = list(map(float, row[1:]))
-                    data.append(rep)
-                    labels.append(i)
+    data_syn = []
+    with open (syn_csv, newline='') as file:
+        reader = csv.reader(file, delimiter=',')
+        for index, row in enumerate(reader):
+            if row[0] in files_syn: 
+                rep = list(map(float, row[1:]))
+                data_syn.append(rep)
+                if all(v == 0 for v in rep):
+                    indices_to_drop.append(index)
+                    
+    data_ID = []                    
+    with open (ID_csv, newline='') as file:
+        reader = csv.reader(file, delimiter=',')
+        for index, row in enumerate(reader):
+            if row[0] in files_ID:
+                rep = list(map(float, row[1:]))
+                data_ID.append(rep)
+                if all(v == 0 for v in rep):
+                    indices_to_drop.append(index)
+    
+
+    for index, (syn_item, ID_item) in enumerate(zip(data_syn, data_ID)):
+        if index not in indices_to_drop:
+            data.append(syn_item)
+            labels.append(1)
+            data.append(ID_item)
+            labels.append(0)
 
     return np.array(data), np.array(labels)
 
@@ -58,20 +76,39 @@ def read_rep2(syn_name, syn_csv, ID_csv, data_dir):
 
     # get list of filenames
     files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f))) and ".jpg" in f]
-    files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and (".jpg" in f or ".JPG" in f) ]
-    
-    data = []
-    labels = []
-
-    for i, csv_file in enumerate([ID_csv, syn_csv]):
-        with open (csv_file, newline='') as file:
-            reader = csv.reader(file, delimiter=',')
-            for row in reader:
-                if row[0] in files_syn or row[0] + ".jpg" in files_ID or row[0] + ".JPG" in files_ID:
-                    rep = list(map(float, row[1:]))
-                    data.append(row)
-                    labels.append(i)
-    
+    files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".jpg" in f]
+        
+    data, labels, indices_to_drop = [], [], []
+   
+    data_syn = []
+    with open (syn_csv, newline='') as file:
+        reader = csv.reader(file, delimiter=',')
+        for index, row in enumerate(reader):
+            if row[0] +".jpg" in files_syn: # openface is saved without extension
+                rep = list(map(float, row[1:]))
+                data_syn.append(row)
+                if all(v == 0 for v in rep):
+                    indices_to_drop.append(index)
+            else:
+                print("image that couldn't be found: {}".format(row[0]))
+                
+                    
+    data_ID = []                    
+    with open (ID_csv, newline='') as file:
+        reader = csv.reader(file, delimiter=',')
+        for index, row in enumerate(reader):
+            if row[0] + ".jpg" in files_ID:
+                rep = list(map(float, row[1:]))
+                data_ID.append(row)
+                if all(v == 0 for v in rep):
+                    indices_to_drop.append(index)
+        
+    for index, (syn_item, ID_item) in enumerate(zip(data_syn, data_ID)):
+        if index not in indices_to_drop:          
+            data.append(syn_item)
+            labels.append(1)
+            data.append(ID_item)
+            labels.append(0)         
     return np.array(data), np.array(labels)
 
 
@@ -137,14 +174,16 @@ def normalize(data, i):
 
 
 def knn_classifier(data, labels):
-    k_values = [3,5,7,9,12]
+    k_values = [3] #  [3,5,7,9,12]
     best_aroc = 0
     best_k = 0
+    best_norm = -1
+    best_spec,best_sens = 0, 0
 
     for k in tqdm(k_values):
         # can't have more neighbors than samples
         if k < data.shape[0]:
-            for i in [0, 1, 2]:
+            for i in [1]: #[0, 1, 2]:
                 data = normalize(data, i) 
                 all_y, all_probs, all_preds = [], [], [] 
                 loo = LeaveOneOut()
@@ -171,12 +210,14 @@ def knn_classifier(data, labels):
 
 
 def svm_classifier(data, labels):
-    kernels = ['linear', 'poly', 'rbf', 'sigmoid']
+    kernels = ['linear'] # , 'poly', 'rbf', 'sigmoid']
     best_aroc = 0
     best_kernel = None
+    best_norm = -1
+    best_spec,best_sens = 0, 0
 
     for k in tqdm(kernels):
-        for i in [0, 1, 2]:
+        for i in [1]: #[0, 1, 2]:
             
             data = normalize(data, i) 
             all_y, all_probs, all_preds = [], [], [] 
@@ -205,12 +246,13 @@ def svm_classifier(data, labels):
 
 def rf_classifier(data, labels):
     best_aroc = 0
-    estimators = [5, 10, 20, 40] 
+    estimators = [10] # [5, 10, 20, 40] 
     best_estimator_rf = 0
     best_norm = -1
+    best_spec,best_sens = 0, 0
 
     for est in tqdm(estimators):
-        for i in [0, 1, 2]:
+        for i in [1]: #[0, 1, 2]:
             
             data = normalize(data, i) 
             all_y, all_probs, all_preds = [], [], [] 
@@ -239,12 +281,13 @@ def rf_classifier(data, labels):
 
 def gr_classifier(data, labels):
     best_aroc = 0
-    estimators = [5, 10, 20, 40]
+    estimators = [10] # [5, 10, 20, 40]
     best_estimator_gr = 0
     best_norm = -1
+    best_spec,best_sens = 0, 0
 
     for est in tqdm(estimators):
-        for i in [0, 1, 2]:
+        for i in [1]: #[0, 1, 2]:
             
             data = normalize(data, i) 
             all_y, all_probs, all_preds = [], [], [] 
@@ -274,12 +317,13 @@ def gr_classifier(data, labels):
 
 def ada_classifier(data, labels):
     best_aroc = 0
-    estimators = [5, 10, 20, 40]
+    estimators = [10] #[5, 10, 20, 40]
     best_estimator_ada = 0
     best_norm = -1
+    best_spec,best_sens = 0, 0
 
     for est in tqdm(estimators):
-        for i in [0,1, 2]:
+        for i in [1]: #[0,1, 2]:
             
             data = normalize(data, i) 
             all_y, all_probs, all_preds = [], [], [] 
@@ -417,12 +461,12 @@ def concatenate(syn_name, data_dir, data_combination, nr_feats):
         
     if data_combination == 7:
         # openface + cfps 
-           
         matches = [i==j for i, j in zip(openface_names, cfps_names)]
         
         data, labels  = [], []
         for index, (openface_i, cfps_i) in enumerate(zip(data_openface, data_cfps)):
-            if(matches[index]):
+            if openface_names[index] in cfps_names:
+            #if(matches[index]):
                 if not isinstance(openface_i, list):
                     openface_i = openface_i.tolist()
                 if not isinstance(cfps_i, list):
@@ -432,8 +476,7 @@ def concatenate(syn_name, data_dir, data_combination, nr_feats):
                 rep = [float(i) for i in rep_list]
                 data.append(rep) # concatenation of 128 openface + 340 cfps
                 labels.append(labels_openface[index].astype(np.float64))
-     
-            
+                
     
     if data_combination == 8:
         # facereader
@@ -495,18 +538,21 @@ def main(GENERAL_DIR, syn_list, trial_nr):
 
         nr_feats = 300
 
-        for data_combination in [0,1, 2, 3, 4, 5, 6, 7, 8]: 
+        for data_combination in [0,1, 2, 7, 8]: #, 4, 5, 6, 7, 8]: 
 
             results_file.write(get_header(data_combination, nr_feats))
             print(get_header(data_combination, nr_feats))            
 
             nr_comps, data, labels = concatenate(syn_name, data_dir, data_combination, nr_feats) 
-            
+          
             if labels.tolist().count(1) <= 3:
                 results_file.write("NO RESULTS as there are {} patients and {} controls with a representation\n\n".format(labels.tolist().count(1), labels.tolist().count(0)))
                 continue
             
             print("Data shape: {} and labels shape: {}".format(data.shape, labels.shape))
+            print("Amount of negatives: {} and positives: {}".format(labels.tolist().count(0), labels.tolist().count(1)))
+            
+            # continue # so no classifying
             
             results_file.write("Shape of data: {} patients, {} controls, {} features \n\n".format(labels.tolist().count(1), labels.tolist().count(0), data.shape[1]))                          
             if data_combination == 4:
