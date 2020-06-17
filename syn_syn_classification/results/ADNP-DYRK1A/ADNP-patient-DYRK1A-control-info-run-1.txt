@@ -1,0 +1,23 @@
+Patients for syndrome ADNP
+ADNP_12_1.jpg
+ADNP_14.jpg
+ADNP_1_2.jpg
+ADNP_36_1.jpg
+ADNP_40.jpg
+ADNP_46.jpg
+ADNP_48.jpg
+ADNP_52.jpg
+ADNP_6.jpg
+ADNP_8.jpg
+
+DYRK1A controls for syndrome ADNP
+DYRK1A_1.jpg
+DYRK1A_10_1.jpg
+DYRK1A_11.jpg
+DYRK1A_12_1.jpg
+DYRK1A_16.jpg
+DYRK1A_17_1.jpg
+DYRK1A_18_1.jpg
+DYRK1A_3.jpg
+DYRK1A_6.jpg
+DYRK1A_7.jpg

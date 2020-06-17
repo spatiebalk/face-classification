@@ -1,0 +1,83 @@
+Syndrome that will be classified: KDVS 
+
+0: Classifying data with deepface representation
+
+Shape of data: 75 patients, 75 controls, 4096 features 
+
+CLASSIFIER RESULTS for KDVS patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.7790, spec: 0.8667, sens: 0.5333
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.8336, spec: 0.8267, sens: 0.6800
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.6988, spec: 0.6933, sens: 0.6133
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7280, spec: 0.6267, sens: 0.7200
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7920, spec: 0.7467, sens: 0.7600
+
+1: Classifying data with dlib representation
+
+Shape of data: 73 patients, 73 controls, 2277 features 
+
+CLASSIFIER RESULTS for KDVS patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.5200, spec: 0.5479, sens: 0.5890
+svm classifier (k = linear), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.6587, spec: 0.6849, sens: 0.4932
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7515, spec: 0.6712, sens: 0.7123
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7684, spec: 0.6712, sens: 0.7123
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 73 patients, 73 controls, 6373 features 
+
+CLASSIFIER RESULTS for KDVS patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.7941, spec: 0.8767, sens: 0.5479
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.8338, spec: 0.8356, sens: 0.6849
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.7139, spec: 0.7260, sens: 0.6301
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7136, spec: 0.6164, sens: 0.7260
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6994, spec: 0.6438, sens: 0.6301
+
+7: Classifying data with openface+cfps representation
+
+Shape of data: 70 patients, 70 controls, 468 features 
+
+CLASSIFIER RESULTS for KDVS patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.8192, spec: 0.7857, sens: 0.7714
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.8715, spec: 0.7429, sens: 0.8143
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.6736, spec: 0.6714, sens: 0.6143
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7080, spec: 0.6286, sens: 0.7143
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.5445, spec: 0.5143, sens: 0.5429
+
+8: Classifying data with facereader representation
+
+Shape of data: 54 patients, 54 controls, 93 features 
+
+CLASSIFIER RESULTS for KDVS patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.5643, spec: 0.4444, sens: 0.6111
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.2497, spec: 0.5741, sens: 0.5185
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.6214, spec: 0.7037, sens: 0.5370
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.4914, spec: 0.4630, sens: 0.4815
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6070, spec: 0.5556, sens: 0.5556
+
+Running this whole file took 0.22 hours

@@ -1,0 +1,83 @@
+Syndrome that will be classified: ANKRD11 
+
+0: Classifying data with deepface representation
+
+Shape of data: 25 patients, 25 controls, 4096 features 
+
+CLASSIFIER RESULTS for ANKRD11 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.8856, spec: 0.8000, sens: 0.8800
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.9472, spec: 0.9200, sens: 0.8800
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.8904, spec: 0.8800, sens: 0.8400
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7360, spec: 0.6400, sens: 0.8800
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7968, spec: 0.7600, sens: 0.8000
+
+1: Classifying data with dlib representation
+
+Shape of data: 25 patients, 25 controls, 2277 features 
+
+CLASSIFIER RESULTS for ANKRD11 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.4816, spec: 0.5200, sens: 0.5200
+svm classifier (k = linear), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.6736, spec: 0.6800, sens: 0.4800
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6032, spec: 0.6400, sens: 0.6400
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6944, spec: 0.7200, sens: 0.6800
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 25 patients, 25 controls, 6373 features 
+
+CLASSIFIER RESULTS for ANKRD11 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.8856, spec: 0.8000, sens: 0.8800
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.9440, spec: 0.9200, sens: 0.8800
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.8520, spec: 0.7600, sens: 0.6800
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7696, spec: 0.6400, sens: 0.8800
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8000, spec: 0.7600, sens: 0.8000
+
+7: Classifying data with openface+cfps representation
+
+Shape of data: 21 patients, 21 controls, 468 features 
+
+CLASSIFIER RESULTS for ANKRD11 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.8912, spec: 0.8095, sens: 0.6667
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.8481, spec: 0.7619, sens: 0.7143
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.7664, spec: 0.7143, sens: 0.6190
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7370, spec: 0.7619, sens: 0.8095
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7687, spec: 0.7619, sens: 0.5714
+
+8: Classifying data with facereader representation
+
+Shape of data: 19 patients, 19 controls, 93 features 
+
+CLASSIFIER RESULTS for ANKRD11 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.8380, spec: 0.8421, sens: 0.7895
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.2438, spec: 0.5263, sens: 0.2105
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.6177, spec: 0.7368, sens: 0.5789
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7368, spec: 0.6842, sens: 0.7368
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7091, spec: 0.6842, sens: 0.6316
+
+Running this whole file took 0.02 hours

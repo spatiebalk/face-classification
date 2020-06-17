@@ -47,15 +47,16 @@ def open_control_excel(control, GENERAL_DIR):
     return df_ID
 
 def get_list_age_dif(age_syn):
-    if age_syn < 3:
-        return [0]
+    if age_syn < 6:
+        return [0, 1, -1]
     
     age_dif = int(float(age_syn)/3.0)
     a = list(range(-age_dif, 0))
     a.reverse()
-    b = list(range(0, age_dif))
+    b = list(range(1, age_dif))
     c = list(zip(b, a))
-    return np.array(c).flatten().tolist()
+    c = np.array(c).flatten().tolist()
+    return c
     
     
 
@@ -76,9 +77,6 @@ def select_controls(df_syn, df_ID):
 
             # try different age differences
             age_dif = get_list_age_dif(age_syn)
-            if len(age_dif) == 0:
-                print(age_syn)
-
             i = 0   
             while matches_ID.shape[0] == 0:
 
@@ -187,11 +185,28 @@ def save_control_patients_info(syn_name, control, trial_nr, GENERAL_DIR):
         control_patient_info.write(control + "\n")
     control_patient_info.close()
 
+def make_dirs(GENERAL_DIR, syn_name, control):
+
+    if not os.path.exists(GENERAL_DIR + "\\{}-{}".format(syn_name, control)):
+        os.mkdir(GENERAL_DIR + "\\{}-{}".format(syn_name, control))
+            
+    if not os.path.exists(GENERAL_DIR + "\\{}-{}\\{}-selected-{}-controls".format(syn_name, control, syn_name, control)):
+        os.mkdir(GENERAL_DIR + "\\{}-{}\\{}-selected-{}-controls".format(syn_name, control, syn_name, control))
+
+    if not os.path.exists(GENERAL_DIR + "\\{}-{}\\{}-patients".format(syn_name, control, syn_name)):
+        os.mkdir(GENERAL_DIR + "\\{}-{}\\{}-patients".format(syn_name, control, syn_name))
+    
+    if not os.path.exists(GENERAL_DIR + "\\{}-{}\\representations".format(syn_name, control)):
+        os.mkdir(GENERAL_DIR + "\\{}-{}\\representations".format(syn_name, control))
+        
+    if not os.path.exists("results\\{}-{}".format(syn_name, control)):
+        os.mkdir("results\\{}-{}".format(syn_name, control))
 
 
 def main(GENERAL_DIR, syn_name, control, trial_nr):
     
-
+    make_dirs(GENERAL_DIR, syn_name, control)
+        
     print("Selecting controls for trial {} \nfor syndrom: {} and control: {}".format(trial_nr, syn_name, control))
     
     df_syn = open_syn_data(syn_name, GENERAL_DIR)
@@ -199,7 +214,6 @@ def main(GENERAL_DIR, syn_name, control, trial_nr):
 #     make_hist(df_syn)
     
 #     make_hist(df_ID)
-
 
     df_select_syn, df_select_ID = select_controls(df_syn, df_ID)
     print("Syndrome {} \nShape of patient data {}, shape of {} control data {}".format(syn_name, df_select_syn.shape, control, df_select_ID.shape))

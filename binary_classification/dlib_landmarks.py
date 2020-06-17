@@ -114,7 +114,7 @@ def get_features(path, text):
     return np.zeros(11).tolist()
 
 detector = dlib.get_frontal_face_detector()
-path_to_shape_predictor = r"C:/Users/manz616236/Documents/face-classification/binary-classification/models/shape_predictor_68_face_landmarks.dat"
+path_to_shape_predictor = r"C:/Users/manz616236/Documents/face-classification/binary_classification/models/shape_predictor_68_face_landmarks.dat"
 predictor = dlib.shape_predictor(path_to_shape_predictor)
 
 def dlib_landmarks_reps(GENERAL_DIR, syn_name):

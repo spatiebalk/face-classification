@@ -1,0 +1,35 @@
+Patients for syndrome DYRK1A
+DYRK1A_1.jpg
+DYRK1A_10_1.jpg
+DYRK1A_11.jpg
+DYRK1A_12_1.jpg
+DYRK1A_16.jpg
+DYRK1A_17_1.jpg
+DYRK1A_18_1.jpg
+DYRK1A_19.jpg
+DYRK1A_21.jpg
+DYRK1A_3.jpg
+DYRK1A_4.jpg
+DYRK1A_5.jpg
+DYRK1A_6.jpg
+DYRK1A_7.jpg
+DYRK1A_8.jpg
+DYRK1A_9_1.jpg
+
+Controls for syndrome DYRK1A
+P01-0741_small_P01-0741_F1_.jpg
+P06-0932_small_DSCN9306.jpg
+P06-1089_small_DSCN9082.jpg
+P06-1814_small_DSCN9776.jpg
+P06-2005_small_DSCN9532.jpg
+P06-2345_small_DSCN9755.jpg
+P06-3424_small_P06-3424_F1_2015Y_.jpg
+P07-3633_small_P07-3633_F1_.jpg
+P08-1142_small_RIMG0523.jpg
+P08-1989_small_RIMG0600.jpg
+P08-2542_small_IMG_3169.jpg
+P09-1560_small_IMG_4612.jpg
+P09-2457_small_P09-2457_F1_.jpg
+P15-2936_small_DSCN3699.jpg
+P16-1132_small_P16-1132_F3_.jpg
+P17-2731_small_DSCN3187.jpg
