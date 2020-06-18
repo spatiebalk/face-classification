@@ -174,7 +174,7 @@ def normalize(data, i):
 
 
 def knn_classifier(data, labels):
-    k_values = [3] #  [3,5,7,9,12]
+    k_values = [3,5,7,9,12]
     best_aroc = 0
     best_k = 0
     best_norm = -1
@@ -210,7 +210,7 @@ def knn_classifier(data, labels):
 
 
 def svm_classifier(data, labels):
-    kernels = ['linear'] # , 'poly', 'rbf', 'sigmoid']
+    kernels = ['linear', 'poly', 'rbf', 'sigmoid']
     best_aroc = 0
     best_kernel = None
     best_norm = -1
@@ -246,7 +246,7 @@ def svm_classifier(data, labels):
 
 def rf_classifier(data, labels):
     best_aroc = 0
-    estimators = [10] # [5, 10, 20, 40] 
+    estimators = [5, 10, 20, 40] 
     best_estimator_rf = 0
     best_norm = -1
     best_spec,best_sens = 0, 0
@@ -281,7 +281,7 @@ def rf_classifier(data, labels):
 
 def gr_classifier(data, labels):
     best_aroc = 0
-    estimators = [10] # [5, 10, 20, 40]
+    estimators = [5, 10, 20, 40]
     best_estimator_gr = 0
     best_norm = -1
     best_spec,best_sens = 0, 0
@@ -317,7 +317,7 @@ def gr_classifier(data, labels):
 
 def ada_classifier(data, labels):
     best_aroc = 0
-    estimators = [10] #[5, 10, 20, 40]
+    estimators = [5, 10, 20, 40]
     best_estimator_ada = 0
     best_norm = -1
     best_spec,best_sens = 0, 0

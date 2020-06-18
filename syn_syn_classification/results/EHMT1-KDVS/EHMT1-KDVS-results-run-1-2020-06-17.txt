@@ -1,0 +1,83 @@
+Syndrome that will be classified: EHMT1 with controls: KDVS 
+
+0: Classifying data with deepface representation
+
+Shape of data: 38 patients, 38 controls, 4096 features 
+
+CLASSIFIER RESULTS for EHMT1 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.9190, spec: 0.8158, sens: 0.8947
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.9723, spec: 0.8947, sens: 0.9211
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.9553, spec: 0.8421, sens: 0.8421
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7909, spec: 0.7895, sens: 0.7368
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8823, spec: 0.8158, sens: 0.7632
+
+1: Classifying data with dlib representation
+
+Shape of data: 38 patients, 38 controls, 2277 features 
+
+CLASSIFIER RESULTS for EHMT1 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.7528, spec: 0.7105, sens: 0.5789
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.9581, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.8473, spec: 0.8158, sens: 0.6053
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6593, spec: 0.6579, sens: 0.6053
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8075, spec: 0.7632, sens: 0.7368
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 38 patients, 38 controls, 6373 features 
+
+CLASSIFIER RESULTS for EHMT1 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.9190, spec: 0.8158, sens: 0.8947
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.9695, spec: 0.8947, sens: 0.9211
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.8972, spec: 0.9211, sens: 0.7632
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7708, spec: 0.7632, sens: 0.7368
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.9086, spec: 0.8421, sens: 0.7632
+
+7: Classifying data with openface+cfps representation
+
+Shape of data: 35 patients, 35 controls, 468 features 
+
+CLASSIFIER RESULTS for EHMT1 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.8531, spec: 0.8857, sens: 0.7143
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.9347, spec: 0.8000, sens: 0.8000
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.8331, spec: 0.8000, sens: 0.6857
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8792, spec: 0.8857, sens: 0.8857
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8114, spec: 0.7143, sens: 0.7714
+
+8: Classifying data with facereader representation
+
+Shape of data: 16 patients, 16 controls, 93 features 
+
+CLASSIFIER RESULTS for EHMT1 patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.6641, spec: 0.5000, sens: 0.6250
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.2930, spec: 0.9375, sens: 0.1875
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.7715, spec: 0.8750, sens: 0.6250
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6484, spec: 0.6875, sens: 0.7500
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7812, spec: 0.8125, sens: 0.6875
+
+Running this whole file took 0.05 hours

@@ -1,0 +1,71 @@
+Syndrome that will be classified: DYRK1A with controls: YY1 
+
+0: Classifying data with deepface representation
+
+Shape of data: 7 patients, 7 controls, 4096 features 
+
+CLASSIFIER RESULTS for DYRK1A patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.1633, spec: 0.4286, sens: 0.1429
+svm classifier (k = linear), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.1633, spec: 0.2857, sens: 0.2857
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8571, spec: 0.8571, sens: 0.7143
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7857, spec: 0.5714, sens: 1.0000
+
+1: Classifying data with dlib representation
+
+Shape of data: 7 patients, 7 controls, 2277 features 
+
+CLASSIFIER RESULTS for DYRK1A patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.5306, spec: 0.5714, sens: 0.5714
+svm classifier (k = linear), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.3878, spec: 0.4286, sens: 0.4286
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.3673, spec: 0.5714, sens: 0.2857
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.4082, spec: 0.5714, sens: 0.5714
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 7 patients, 7 controls, 6373 features 
+
+CLASSIFIER RESULTS for DYRK1A patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.1633, spec: 0.4286, sens: 0.1429
+svm classifier (k = linear), normalize : 1 
+    AROC: 0.9796, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.1327, spec: 0.1429, sens: 0.2857
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8163, spec: 0.7143, sens: 0.5714
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7857, spec: 0.7143, sens: 0.8571
+
+7: Classifying data with openface+cfps representation
+
+Shape of data: 7 patients, 7 controls, 468 features 
+
+CLASSIFIER RESULTS for DYRK1A patients and controls 
+knn classifier (k = 3), normalize : 1 
+    AROC: 0.7857, spec: 0.8571, sens: 0.2857
+svm classifier (k = None), normalize : -1 
+    AROC: 0.0000, spec: 0.0000, sens: 0.0000
+Random Forest classifier (trees = 10), normalize : 1 
+    AROC: 0.4694, spec: 0.5714, sens: 0.5714
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.1837, spec: 0.2857, sens: 0.2857
+Ada Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.2857, spec: 0.4286, sens: 0.1429
+
+8: Classifying data with facereader representation
+
+NO RESULTS as there are 3 patients and 3 controls with a representation
+
+Running this whole file took 0.00 hours
