@@ -1,0 +1,27 @@
+Patients for syndrome WAC
+WAC_10_1.jpg
+WAC_10_2.jpg
+WAC_13_1.jpg
+WAC_13_2.jpg
+WAC_16_1.jpg
+WAC_2.jpg
+WAC_3.jpg
+WAC_6_1.jpg
+WAC_6_2.jpg
+WAC_8.jpg
+WAC_9_1.jpg
+WAC_9_2.jpg
+
+Controls for syndrome WAC
+P01-0038_small_P01-0038_F1_.jpg
+P01-0741_small_P01-0741_F1_.jpg
+P03-0090_small_DSCN2122.jpg
+P05-2280_small_DSCN7933.jpg
+P06-3356_small_IMG_4472.jpg
+P07-2383_small_P07-2383_F1_2007Y_.jpg
+P07-3633_small_P07-3633_F1_.jpg
+P08-1988_small_RIMG0594.jpg
+P08-3279_small_IMG_0215.jpg
+P08-3590_small_IMG_3331.jpg
+P08-3597_small_P08-3597_F2_2008Y_.jpg
+P11-1179_small_P11-1179_F1_.jpg
