@@ -492,7 +492,22 @@ def concatenate(syn_name, data_dir, data_combination, nr_feats):
                 data.append(fr_i)
                 labels.append(labels_fr[index])
     
+
+    if data_combination == 9: # facereader landmarks
+        method = "facereader-landmarks-distances"
+        syn_csv = data_dir+"\\representations\{}-patients-{}.csv".format(syn_name, method)
+        ID_csv  = data_dir+"\\representations\ID-controls-{}.csv".format(method)
+        data_fr, labels_fr = read_rep(syn_name, syn_csv, ID_csv, data_dir)
+
+        data, labels  = [], []
+        for index, data_i in enumerate(data_fr):
+            if not all(v == 0 for v in data_i):
+                #only if a face is found
+                data.append(data_i) 
+                labels.append(labels_fr[index])
+                
     return 0, np.array(data), np.array(labels)
+              
 
 
 def get_header(data_combination, nr_feats):
@@ -523,6 +538,8 @@ def get_header(data_combination, nr_feats):
     if data_combination == 8:
         return "8: Classifying data with facereader representation\n\n"
 
+    if data_combination == 9:
+        return "9: Classifying data with facereader-landmarks-distance representation\n\n"
 
 def main(GENERAL_DIR, syn_list, trial_nr):    
     
@@ -532,13 +549,13 @@ def main(GENERAL_DIR, syn_list, trial_nr):
         start = time.time()
 
         data_dir = GENERAL_DIR + "\\{}".format(syn_name) 
-        results_file = open("results/{}/{}-results-run-{}-{}.txt".format(syn_name, syn_name, trial_nr, today), "w")
+        results_file = open("results/{}/{}-results-facereader-landmarks-run-{}-{}.txt".format(syn_name, syn_name, trial_nr, today), "w")
         results_file.write("Syndrome that will be classified: {} \n\n".format(syn_name))
         print("Syndrome that will be classified: {} \n\n".format(syn_name))
 
         nr_feats = 300
 
-        for data_combination in [0,1, 2, 7, 8]: #, 4, 5, 6, 7, 8]: 
+        for data_combination in [9]: #0,1, 2, 7, 8]: #, 4, 5, 6, 7, 8]: 
 
             results_file.write(get_header(data_combination, nr_feats))
             print(get_header(data_combination, nr_feats))            
@@ -563,20 +580,20 @@ def main(GENERAL_DIR, syn_list, trial_nr):
 
             results_file.write("CLASSIFIER RESULTS for {} patients and controls \n".format(syn_name))
 
-            k, knn_norm, knn_aroc, knn_spec, knn_sens = knn_classifier(data, labels)
-            results_file.write("knn classifier (k = {}), normalize : {} \n    AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}\n".format(k, knn_norm, knn_aroc, knn_spec, knn_sens))
+#             k, knn_norm, knn_aroc, knn_spec, knn_sens = knn_classifier(data, labels)
+#             results_file.write("knn classifier (k = {}), normalize : {} \n    AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}\n".format(k, knn_norm, knn_aroc, knn_spec, knn_sens))
 
-            kernel, svm_norm, svm_aroc, svm_spec, svm_sens = svm_classifier(data, labels)
-            results_file.write("svm classifier (k = {}), normalize : {} \n    AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}\n".format(kernel, svm_norm, svm_aroc, svm_spec, svm_sens))
+#             kernel, svm_norm, svm_aroc, svm_spec, svm_sens = svm_classifier(data, labels)
+#             results_file.write("svm classifier (k = {}), normalize : {} \n    AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}\n".format(kernel, svm_norm, svm_aroc, svm_spec, svm_sens))
 
-            n_trees_rf, rf_norm, rf_aroc, rf_spec, rf_sens = rf_classifier(data, labels)
-            results_file.write("Random Forest classifier (trees = {}), normalize : {} \n    AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}\n".format(n_trees_rf, rf_norm, rf_aroc, rf_spec, rf_sens))
+#             n_trees_rf, rf_norm, rf_aroc, rf_spec, rf_sens = rf_classifier(data, labels)
+#             results_file.write("Random Forest classifier (trees = {}), normalize : {} \n    AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}\n".format(n_trees_rf, rf_norm, rf_aroc, rf_spec, rf_sens))
 
             n_trees_gr, gr_norm, gr_aroc, gr_spec, gr_sens = gr_classifier(data, labels)
             results_file.write("Gradient Boost classifier (trees = {}), normalize : {} \n    AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}\n".format(n_trees_gr, gr_norm, gr_aroc, gr_spec, gr_sens))
 
-            n_trees_ada, ada_norm, ada_aroc, ada_spec, ada_sens = ada_classifier(data, labels)
-            results_file.write("Ada Boost classifier (trees = {}), normalize : {} \n    AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}\n".format(n_trees_ada, ada_norm, ada_aroc, ada_spec, ada_sens))
+#             n_trees_ada, ada_norm, ada_aroc, ada_spec, ada_sens = ada_classifier(data, labels)
+#             results_file.write("Ada Boost classifier (trees = {}), normalize : {} \n    AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}\n".format(n_trees_ada, ada_norm, ada_aroc, ada_spec, ada_sens))
 
             results_file.write("\n")
 

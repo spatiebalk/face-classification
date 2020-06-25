@@ -1,0 +1,11 @@
+Syndrome that will be classified: CDK13 
+
+9: Classifying data with facereader-landmarks-distance representation
+
+Shape of data: 17 patients, 17 controls, 129795 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.5398, spec: 0.5882, sens: 0.7647
+
+Running this whole file took 0.06 hours

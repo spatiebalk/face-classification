@@ -1,0 +1,11 @@
+Syndrome that will be classified: CDK13 
+
+9: Classifying data with facereader-landmarks-distance representation
+
+Shape of data: 17 patients, 17 controls, 129795 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+svm classifier (k = linear), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+
+Running this whole file took 0.02 hours

@@ -1,0 +1,11 @@
+Syndrome that will be classified: KDVS 
+
+9: Classifying data with facereader-landmarks-distance representation
+
+Shape of data: 51 patients, 51 controls, 129795 features 
+
+CLASSIFIER RESULTS for KDVS patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.3799, spec: 0.4510, sens: 0.4314
+
+Running this whole file took 0.77 hours

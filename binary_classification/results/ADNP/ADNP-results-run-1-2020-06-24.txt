@@ -1,0 +1,11 @@
+Syndrome that will be classified: ADNP 
+
+9: Classifying data with facereader-landmarks-distance representation
+
+Shape of data: 13 patients, 13 controls, 129795 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+svm classifier (k = linear), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+
+Running this whole file took 0.01 hours

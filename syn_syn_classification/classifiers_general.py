@@ -523,6 +523,7 @@ def get_header(data_combination, nr_feats):
     if data_combination == 8:
         return "8: Classifying data with facereader representation\n\n"
 
+    
 
 def main(GENERAL_DIR, syn_name, control, trial_nr):    
     
