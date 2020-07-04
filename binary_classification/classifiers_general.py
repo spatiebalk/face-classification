@@ -549,13 +549,13 @@ def main(GENERAL_DIR, syn_list, trial_nr):
         start = time.time()
 
         data_dir = GENERAL_DIR + "\\{}".format(syn_name) 
-        results_file = open("results/{}/{}-results-facereader-landmarks-run-{}-{}.txt".format(syn_name, syn_name, trial_nr, today), "w")
+        results_file = open("results/{}/{}-results-deepface-gr-run-{}-{}.txt".format(syn_name, syn_name, trial_nr, today), "w")
         results_file.write("Syndrome that will be classified: {} \n\n".format(syn_name))
         print("Syndrome that will be classified: {} \n\n".format(syn_name))
 
         nr_feats = 300
 
-        for data_combination in [9]: #0,1, 2, 7, 8]: #, 4, 5, 6, 7, 8]: 
+        for data_combination in [0]: #0,1, 2, 7, 8]: #, 4, 5, 6, 7, 8]: 
 
             results_file.write(get_header(data_combination, nr_feats))
             print(get_header(data_combination, nr_feats))            

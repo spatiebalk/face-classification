@@ -13,12 +13,12 @@ from PIL import Image
 from keras.models import Model
 import tensorflow
 from tqdm import tqdm
-import dlib
+#import dlib
 
-import cfps_openface
+# import cfps_openface
 import deepface
-import dlib_landmarks
-import facereader
+# import dlib_landmarks
+# import facereader
 
 
 def main(GENERAL_DIR, syn_list):
@@ -32,16 +32,16 @@ def main(GENERAL_DIR, syn_list):
 #         cfps_openface.openface_cfps_reps(GENERAL_DIR, "cfps", syn)
 #         print ("\ndeepface")
 #         # deepface
-#         deepface.deepface_reps(GENERAL_DIR, syn)
+         deepface.deepface_reps(GENERAL_DIR, syn)
 #         print ("\ndlib")
 #         # dlib
 #         dlib_landmarks.dlib_landmarks_reps(GENERAL_DIR, syn)
 #         print ("\nfacereader")
 #         # facereader
 #         facereader.facereader_reps(GENERAL_DIR, syn) 
-        print ("\nfacereader-landmarks")
+#        print ("\nfacereader-landmarks")
         # facereader
-        facereader.facereader_landmarks_reps(GENERAL_DIR, syn) 
+#        facereader.facereader_landmarks_reps(GENERAL_DIR, syn) 
 
     print("Done running save_representations.py")
 
