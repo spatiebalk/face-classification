@@ -1,0 +1,32 @@
+Syndrome ADNP with 12 patients and 12 controls 
+AROC: 0.9583, spec: 0.9167, sens: 0.8333
+
+Syndrome ANKRD11 with 19 patients and 19 controls 
+AROC: 0.8920, spec: 0.8421, sens: 0.7895
+
+Syndrome CDK13 with 17 patients and 17 controls 
+AROC: 0.4412, spec: 0.7647, sens: 0.1176
+
+Syndrome DEAF1 with 15 patients and 15 controls 
+AROC: 0.8000, spec: 0.7333, sens: 0.6667
+
+Syndrome DYRK1A with 10 patients and 10 controls 
+AROC: 0.6900, spec: 0.7000, sens: 0.7000
+
+Syndrome EHMT1 with 17 patients and 17 controls 
+AROC: 0.5588, spec: 0.8235, sens: 0.2941
+
+Syndrome FBXO11 with 15 patients and 15 controls 
+AROC: 0.4756, spec: 0.6667, sens: 0.5333
+
+Syndrome SON with 9 patients and 9 controls 
+AROC: 0.5556, spec: 1.0000, sens: 0.1111
+
+Syndrome WAC with 10 patients and 10 controls 
+AROC: 0.6700, spec: 0.7000, sens: 0.5000
+
+Syndrome YY1 with 6 patients and 6 controls 
+AROC: 0.6111, spec: 0.6667, sens: 0.1667
+
+Syndrome KDVS with 52 patients and 52 controls 
+AROC: 0.5484, spec: 0.5192, sens: 0.5769
