@@ -1,0 +1,419 @@
+Syndrome that will be classified: ADNP 
+
+0: Classifying data with deepface representation
+
+Shape of data: 33 patients, 33 controls, 4096 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8026, spec: 0.7576, sens: 0.8182
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9963, spec: 0.9394, sens: 1.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.9881, spec: 0.9394, sens: 0.9394
+
+1: Classifying data with dlib representation
+
+Shape of data: 6 patients, 6 controls, 2277 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.1667, spec: 0.5000, sens: 0.3333
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9444, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.4306, spec: 0.3333, sens: 0.5000
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 6 patients, 6 controls, 6373 features 
+
+CLASSIFIER RESULTS for ADNP patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7500, spec: 0.5000, sens: 0.8333
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.7222, spec: 1.0000, sens: 0.8333
+KNN (k = 3), normalize : 1 
+    AROC: 1.0000, spec: 1.0000, sens: 0.8333
+
+Syndrome that will be classified: ANKRD11 
+
+0: Classifying data with deepface representation
+
+Shape of data: 25 patients, 25 controls, 4096 features 
+
+CLASSIFIER RESULTS for ANKRD11 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6976, spec: 0.6400, sens: 0.8000
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9440, spec: 0.8800, sens: 0.9200
+KNN (k = 3), normalize : 1 
+    AROC: 0.9152, spec: 0.8400, sens: 0.9200
+
+1: Classifying data with dlib representation
+
+Shape of data: 10 patients, 10 controls, 2277 features 
+
+CLASSIFIER RESULTS for ANKRD11 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6900, spec: 0.8000, sens: 0.7000
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9800, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.4600, spec: 0.6000, sens: 0.5000
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 10 patients, 10 controls, 6373 features 
+
+CLASSIFIER RESULTS for ANKRD11 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8700, spec: 0.7000, sens: 0.9000
+SVM (kernel = rbf), normalize : 1 
+    AROC: 1.0000, spec: 1.0000, sens: 1.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.9900, spec: 0.9000, sens: 0.9000
+
+Syndrome that will be classified: CDK13 
+
+0: Classifying data with deepface representation
+
+Shape of data: 30 patients, 30 controls, 4096 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8533, spec: 0.8667, sens: 0.8667
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9856, spec: 0.9000, sens: 1.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.9561, spec: 0.9000, sens: 0.9333
+
+1: Classifying data with dlib representation
+
+Shape of data: 13 patients, 13 controls, 2277 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.5148, spec: 0.4615, sens: 0.6923
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9793, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.7751, spec: 0.5385, sens: 0.8462
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 13 patients, 13 controls, 6373 features 
+
+CLASSIFIER RESULTS for CDK13 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6450, spec: 0.7692, sens: 0.6923
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9290, spec: 0.8462, sens: 1.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.8876, spec: 0.8462, sens: 0.9231
+
+Syndrome that will be classified: DEAF1 
+
+0: Classifying data with deepface representation
+
+Shape of data: 19 patients, 19 controls, 4096 features 
+
+CLASSIFIER RESULTS for DEAF1 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7424, spec: 0.6316, sens: 0.6316
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9169, spec: 0.7368, sens: 0.8421
+KNN (k = 3), normalize : 1 
+    AROC: 0.8698, spec: 0.7368, sens: 0.8421
+
+1: Classifying data with dlib representation
+
+Shape of data: 8 patients, 8 controls, 2277 features 
+
+CLASSIFIER RESULTS for DEAF1 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7969, spec: 0.7500, sens: 0.6250
+SVM (kernel = rbf), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.8750, spec: 0.8750, sens: 0.3750
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 8 patients, 8 controls, 6373 features 
+
+CLASSIFIER RESULTS for DEAF1 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.3125, spec: 0.3750, sens: 0.6250
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.0156, spec: 0.3750, sens: 0.5000
+KNN (k = 3), normalize : 1 
+    AROC: 0.6719, spec: 0.3750, sens: 0.6250
+
+Syndrome that will be classified: DYRK1A 
+
+0: Classifying data with deepface representation
+
+Shape of data: 16 patients, 16 controls, 4096 features 
+
+CLASSIFIER RESULTS for DYRK1A patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.4727, spec: 0.5000, sens: 0.4375
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9219, spec: 0.8125, sens: 0.8125
+KNN (k = 3), normalize : 1 
+    AROC: 0.9004, spec: 0.8750, sens: 0.7500
+
+1: Classifying data with dlib representation
+
+Shape of data: 4 patients, 4 controls, 2277 features 
+
+CLASSIFIER RESULTS for DYRK1A patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6250, spec: 0.7500, sens: 0.7500
+SVM (kernel = rbf), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.3125, spec: 0.0000, sens: 0.7500
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 4 patients, 4 controls, 6373 features 
+
+CLASSIFIER RESULTS for DYRK1A patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.0625, spec: 0.0000, sens: 0.7500
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.4375, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.3750, spec: 0.5000, sens: 0.5000
+
+Syndrome that will be classified: EHMT1 
+
+0: Classifying data with deepface representation
+
+Shape of data: 39 patients, 39 controls, 4096 features 
+
+CLASSIFIER RESULTS for EHMT1 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6437, spec: 0.6923, sens: 0.6410
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9691, spec: 0.8974, sens: 0.9487
+KNN (k = 3), normalize : 1 
+    AROC: 0.9579, spec: 0.8974, sens: 0.9487
+
+1: Classifying data with dlib representation
+
+Shape of data: 16 patients, 16 controls, 2277 features 
+
+CLASSIFIER RESULTS for EHMT1 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7461, spec: 0.8750, sens: 0.7500
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.8848, spec: 1.0000, sens: 0.5625
+KNN (k = 3), normalize : 1 
+    AROC: 0.9141, spec: 0.9375, sens: 0.8125
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 16 patients, 16 controls, 6373 features 
+
+CLASSIFIER RESULTS for EHMT1 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7148, spec: 0.8750, sens: 0.6875
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9297, spec: 0.8750, sens: 0.7500
+KNN (k = 3), normalize : 1 
+    AROC: 0.8809, spec: 0.8750, sens: 0.8125
+
+Syndrome that will be classified: FBXO11 
+
+0: Classifying data with deepface representation
+
+Shape of data: 17 patients, 17 controls, 4096 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.4464, spec: 0.4706, sens: 0.6471
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.2353, spec: 0.5882, sens: 0.8824
+KNN (k = 3), normalize : 1 
+    AROC: 0.5969, spec: 0.8824, sens: 0.2941
+
+1: Classifying data with dlib representation
+
+Shape of data: 5 patients, 5 controls, 2277 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.3200, spec: 0.6000, sens: 0.4000
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.8800, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.4800, spec: 0.8000, sens: 0.4000
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 5 patients, 5 controls, 6373 features 
+
+CLASSIFIER RESULTS for FBXO11 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.4800, spec: 0.4000, sens: 0.4000
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.5600, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.3600, spec: 0.6000, sens: 0.4000
+
+Syndrome that will be classified: KDVS 
+
+0: Classifying data with deepface representation
+
+Shape of data: 75 patients, 75 controls, 4096 features 
+
+CLASSIFIER RESULTS for KDVS patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7804, spec: 0.7200, sens: 0.7200
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.8270, spec: 0.8000, sens: 0.6667
+KNN (k = 3), normalize : 1 
+    AROC: 0.8066, spec: 0.8933, sens: 0.5467
+
+1: Classifying data with dlib representation
+
+Shape of data: 31 patients, 31 controls, 2277 features 
+
+CLASSIFIER RESULTS for KDVS patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.4891, spec: 0.4516, sens: 0.4839
+SVM (kernel = rbf), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.6223, spec: 0.5161, sens: 0.6452
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 31 patients, 31 controls, 6373 features 
+
+CLASSIFIER RESULTS for KDVS patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6285, spec: 0.5484, sens: 0.7097
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.7242, spec: 0.6129, sens: 0.7742
+KNN (k = 3), normalize : 1 
+    AROC: 0.7284, spec: 0.8387, sens: 0.4839
+
+Syndrome that will be classified: SON 
+
+0: Classifying data with deepface representation
+
+Shape of data: 18 patients, 18 controls, 4096 features 
+
+CLASSIFIER RESULTS for SON patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8765, spec: 0.8333, sens: 0.8333
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9537, spec: 0.9444, sens: 1.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.9815, spec: 0.9444, sens: 0.8889
+
+1: Classifying data with dlib representation
+
+Shape of data: 5 patients, 5 controls, 2277 features 
+
+CLASSIFIER RESULTS for SON patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.7600, spec: 0.6000, sens: 0.6000
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.7200, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.6400, spec: 0.6000, sens: 0.4000
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 5 patients, 5 controls, 6373 features 
+
+CLASSIFIER RESULTS for SON patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.5600, spec: 0.8000, sens: 0.4000
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.0000, spec: 0.2000, sens: 0.2000
+KNN (k = 3), normalize : 1 
+    AROC: 0.8600, spec: 1.0000, sens: 0.6000
+
+Syndrome that will be classified: WAC 
+
+0: Classifying data with deepface representation
+
+Shape of data: 12 patients, 12 controls, 4096 features 
+
+CLASSIFIER RESULTS for WAC patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6667, spec: 0.6667, sens: 0.9167
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9375, spec: 0.6667, sens: 0.8333
+KNN (k = 3), normalize : 1 
+    AROC: 0.8750, spec: 0.5833, sens: 0.8333
+
+1: Classifying data with dlib representation
+
+Shape of data: 3 patients, 3 controls, 2277 features 
+
+CLASSIFIER RESULTS for WAC patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.6667, spec: 0.6667, sens: 0.6667
+SVM (kernel = rbf), normalize : 1 
+    AROC: 1.0000, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.6667, spec: 0.6667, sens: 0.6667
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 3 patients, 3 controls, 6373 features 
+
+CLASSIFIER RESULTS for WAC patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.1111, spec: 0.3333, sens: 0.3333
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.7778, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.4444, spec: 0.6667, sens: 0.0000
+
+Syndrome that will be classified: YY1 
+
+0: Classifying data with deepface representation
+
+Shape of data: 10 patients, 10 controls, 4096 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.9700, spec: 0.9000, sens: 0.7000
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9400, spec: 0.9000, sens: 1.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.9400, spec: 0.9000, sens: 0.9000
+
+1: Classifying data with dlib representation
+
+Shape of data: 5 patients, 5 controls, 2277 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8000, spec: 0.6000, sens: 0.6000
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.9600, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.6600, spec: 0.8000, sens: 0.4000
+
+2: Classifying data with all deepface+dlib representations
+
+Shape of data: 5 patients, 5 controls, 6373 features 
+
+CLASSIFIER RESULTS for YY1 patients and controls 
+Gradient Boost classifier (trees = 10), normalize : 1 
+    AROC: 0.8800, spec: 0.8000, sens: 0.8000
+SVM (kernel = rbf), normalize : 1 
+    AROC: 0.1600, spec: 0.0000, sens: 0.0000
+KNN (k = 3), normalize : 1 
+    AROC: 0.8800, spec: 0.8000, sens: 0.6000
+
+Running this file took 0.10 hours
