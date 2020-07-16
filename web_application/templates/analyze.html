@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+	<h1> Analyzing Results <h1>
+	<div> Analyzing image {{filename}} for the following syndromes:</div>
+	
+	<h2>Scores for image name using deepface rep</h2>
+
+	<table style="width:100%">
+	<tr>
+		<th>Syndrome</th> 
+		<th>Probability</th>
+	</tr>
+	<tr>
+		{% for syn in syndromes %}
+		<td>{{ syn }} </td>
+		{% endfor %}
+	</tr>
+	<tr>
+		{% for prob in probabilities %}
+		<td>{{ prob }} </td>
+		{% endfor %}
+	</tr>
+</table>
+{% endblock content %}
