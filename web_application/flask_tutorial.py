@@ -1,9 +1,11 @@
 from flask import Flask, render_template, url_for, request
 from werkzeug.utils import secure_filename
 
+import pickle5 as pickle
 import os
 import deepface
 from os.path import isfile, join
+import numpy as np
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -49,21 +51,19 @@ def contact():
 def analyze(syndromes, filename):
     ## get score of deepface
     deepface_rep = deepface.get_deepface_rep(join(UPLOAD_FOLDER, filename))
-    print(deepface_rep)
-    print(len(deepface_rep))
-
+    print(np.array(deepface_rep).shape)
     ## get score of knn classifier
     # load the model from disk
     probabilities = []
     for syn in syndromes:
     
         loaded_model = pickle.load(open('models/knn-deepface-{}'.format(syn), 'rb'))
-        result = loaded_model.predict(deepface_rep) 
+        result = loaded_model.predict_proba(deepface_rep[0].reshape(1, -1))[:,1]
         probabilities.append(result)
 
     ## visualize scores 
-
-    return render_template('analyze.html', title='Analyze', syndromes=syndromes, filename=filename, probabilities=probabilities)
+    indices = list(range(len(probabilities)))
+    return render_template('analyze.html', title='Analyze', syndromes=syndromes, filename=filename, probabilities=probabilities, indices=indices)
 
 if __name__ == '__main__':
     app.run(debug=True)
