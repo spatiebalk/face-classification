@@ -1,11 +1,20 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# # Implementation of DeepFace using Keras
+# In this notebook a [Keras implementation](https://github.com/swghosh/DeepFace) from Github of Facebook's [DeepFace](https://research.fb.com/publications/deepface-closing-the-gap-to-human-level-performance-in-face-verification/) is loaded and used. The weights are trained on the publicly available VGG dataset
+import keras
 import numpy as np
-from os import path, listdir
+from os import path
+from os import listdir
 from os.path import isfile, join
 import cv2
-import tensorflow as tf
+from keras.models import Model
+import tensorflow
 import csv
 import pandas as pd
 from tqdm import tqdm
+import keras.initializers
 
 IMAGE_SIZE = (152, 152) # set by the model 
 CHANNELS = 3 # RGB image
