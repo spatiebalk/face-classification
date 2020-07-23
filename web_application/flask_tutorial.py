@@ -3,9 +3,12 @@ from werkzeug.utils import secure_filename
 
 import pickle5 as pickle
 import os
-import deepface
 from os.path import isfile, join
 import numpy as np
+import keras
+
+import deepface
+import facereader
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -48,22 +51,42 @@ def contact():
 
 
 @app.route("/analyze")
-def analyze(syndromes, filename):
-    ## get score of deepface
+def analyze(syns, filename):
     deepface_rep = deepface.get_deepface_rep(join(UPLOAD_FOLDER, filename))
-    print(np.array(deepface_rep).shape)
-    ## get score of knn classifier
-    # load the model from disk
-    probabilities = []
-    for syn in syndromes:
+    facereader_rep = facereader.get_facereader_rep(join(UPLOAD_FOLDER, filename))
     
-        loaded_model = pickle.load(open('models/knn-deepface-{}'.format(syn), 'rb'))
-        result = loaded_model.predict_proba(deepface_rep[0].reshape(1, -1))[:,1]
-        probabilities.append(result)
+    probs_df, probs_pn, probs_rf = [], [], [] 
+    print(type(facereader_rep))
+    
+    if isinstance(facereader_rep, np.ndarray):
+        facereader_rep_found=True
+    else:
+        facereader_rep_found=False
+        probs_pn.append("error2")
+        probs_rf.append("error2")
+        
+
+    for syn in syns:
+        #get deepface prob
+        model_df = pickle.load(open('models/knn-deepface-{}'.format(syn), 'rb'))
+        result_df = model_df.predict_proba(deepface_rep[0].reshape(1, -1))[:,1]
+        probs_df.append(result_df)
+        
+        if facereader_rep_found:
+            # get poitnet prob
+            print("here") 
+            model_pn = keras.models.load_model('models/pointnet-{}'.format(syn))        
+            y_pred_array = model_pn.predict(facereader_rep)
+            probs_pn.append(y_pred_array[0][1])
+        
+            # get random forest prob        
+            model_rf = pickle.load(open('models/randomforest-{}'.format(syn), 'rb'))
+            result_rf = model_rf.predict_proba(facereader_rep)[:,1]
+            probs_rf.append(result)
 
     ## visualize scores 
-    indices = list(range(len(probabilities)))
-    return render_template('analyze.html', title='Analyze', syndromes=syndromes, filename=filename, probabilities=probabilities, indices=indices)
+    indices = list(range(len(probs_df)))
+    return render_template('analyze.html', title='Analyze', syns=syns, filename=filename, probs_df=probs_df, probs_pn=probs_pn, probs_rf=probs_rf, indices=indices)
 
 if __name__ == '__main__':
     app.run(debug=True)

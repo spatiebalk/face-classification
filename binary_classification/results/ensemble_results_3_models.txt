@@ -1,0 +1,176 @@
+Syndrome: ADNP
+Deepface with 33 patients and 33 controls
+AROC: 0.9862, spec: 0.9091, sens: 0.8788, F1: 0.8923
+
+Deepface with 12 patients and 12 controls
+AROC: 0.8889, spec: 0.7500, sens: 1.0000, F1: 0.8889
+
+Pointnet with 12 patients and 12 controls
+AROC: 0.8438, spec: 0.6667, sens: 0.9167, F1: 0.8148
+
+Random Forest with 12 patients and 12 controls
+AROC: 0.5521, spec: 0.7500, sens: 0.4167, F1: 0.5000
+
+Ensemble classifier mean and mode 
+AROC: 0.8958, spec: 0.7500, sens: 0.9167, F1: 0.8462
+
+Syndrome: ANKRD11
+Deepface with 25 patients and 25 controls
+AROC: 0.9072, spec: 0.8800, sens: 0.9600, F1: 0.9231
+
+Deepface with 19 patients and 19 controls
+AROC: 0.9654, spec: 0.8947, sens: 1.0000, F1: 0.9500
+
+Pointnet with 19 patients and 19 controls
+AROC: 0.6870, spec: 0.7368, sens: 0.6842, F1: 0.7027
+
+Random Forest with 19 patients and 19 controls
+AROC: 0.8435, spec: 0.7895, sens: 0.7368, F1: 0.7568
+
+Ensemble classifier mean and mode 
+AROC: 0.9584, spec: 0.8947, sens: 0.9474, F1: 0.9231
+
+Syndrome: CDK13
+Deepface with 30 patients and 30 controls
+AROC: 0.9650, spec: 0.9333, sens: 0.9667, F1: 0.9508
+
+Deepface with 17 patients and 17 controls
+AROC: 0.9516, spec: 0.8824, sens: 0.8235, F1: 0.8485
+
+Pointnet with 17 patients and 17 controls
+AROC: 0.5000, spec: 0.7059, sens: 0.2941, F1: 0.3704
+
+Random Forest with 17 patients and 17 controls
+AROC: 0.7612, spec: 0.7059, sens: 0.4118, F1: 0.4828
+
+Ensemble classifier mean and mode 
+AROC: 0.8478, spec: 0.7647, sens: 0.5882, F1: 0.6452
+
+Syndrome: DEAF1
+Deepface with 19 patients and 19 controls
+AROC: 0.8989, spec: 0.7895, sens: 0.8947, F1: 0.8500
+
+Deepface with 15 patients and 15 controls
+AROC: 0.9044, spec: 0.6667, sens: 0.8667, F1: 0.7879
+
+Pointnet with 15 patients and 15 controls
+AROC: 0.8400, spec: 0.7333, sens: 0.6667, F1: 0.6897
+
+Random Forest with 15 patients and 15 controls
+AROC: 0.3067, spec: 0.4667, sens: 0.2667, F1: 0.2963
+
+Ensemble classifier mean and mode 
+AROC: 0.8356, spec: 0.7333, sens: 0.8000, F1: 0.7742
+
+Syndrome: DYRK1A
+Deepface with 16 patients and 16 controls
+AROC: 0.9023, spec: 0.8125, sens: 0.6250, F1: 0.6897
+
+Deepface with 10 patients and 10 controls
+AROC: 0.7900, spec: 0.7000, sens: 0.5000, F1: 0.5556
+
+Pointnet with 10 patients and 10 controls
+AROC: 0.7400, spec: 0.8000, sens: 0.3000, F1: 0.4000
+
+Random Forest with 10 patients and 10 controls
+AROC: 0.3250, spec: 0.3000, sens: 0.4000, F1: 0.3810
+
+Ensemble classifier mean and mode 
+AROC: 0.5500, spec: 0.7000, sens: 0.4000, F1: 0.4706
+
+Syndrome: EHMT1
+Deepface with 39 patients and 39 controls
+AROC: 0.9454, spec: 0.8205, sens: 0.9744, F1: 0.9048
+
+Deepface with 17 patients and 17 controls
+AROC: 0.9429, spec: 0.9412, sens: 0.9412, F1: 0.9412
+
+Pointnet with 17 patients and 17 controls
+AROC: 0.5294, spec: 0.8235, sens: 0.2353, F1: 0.3333
+
+Random Forest with 17 patients and 17 controls
+AROC: 0.8806, spec: 0.8824, sens: 0.8235, F1: 0.8485
+
+Ensemble classifier mean and mode 
+AROC: 0.9308, spec: 0.9412, sens: 0.8824, F1: 0.9091
+
+Syndrome: FBXO11
+Deepface with 17 patients and 17 controls
+AROC: 0.6125, spec: 0.7059, sens: 0.3529, F1: 0.4286
+
+Deepface with 15 patients and 15 controls
+AROC: 0.5844, spec: 0.4667, sens: 0.6000, F1: 0.5625
+
+Pointnet with 15 patients and 15 controls
+AROC: 0.4356, spec: 0.5333, sens: 0.4000, F1: 0.4286
+
+Random Forest with 15 patients and 15 controls
+AROC: 0.4733, spec: 0.6667, sens: 0.3333, F1: 0.4000
+
+Ensemble classifier mean and mode 
+AROC: 0.5111, spec: 0.6000, sens: 0.4000, F1: 0.4444
+
+Syndrome: KDVS
+Deepface with 75 patients and 75 controls
+AROC: 0.8144, spec: 0.9200, sens: 0.5333, F1: 0.6612
+
+Deepface with 52 patients and 52 controls
+AROC: 0.7027, spec: 0.8462, sens: 0.3654, F1: 0.4810
+
+Pointnet with 52 patients and 52 controls
+AROC: 0.5368, spec: 0.4615, sens: 0.5962, F1: 0.5586
+
+Random Forest with 52 patients and 52 controls
+AROC: 0.5806, spec: 0.6154, sens: 0.4423, F1: 0.4842
+
+Ensemble classifier mean and mode 
+AROC: 0.6483, spec: 0.7308, sens: 0.4038, F1: 0.4828
+
+Syndrome: SON
+Deepface with 18 patients and 18 controls
+AROC: 0.9846, spec: 0.9444, sens: 1.0000, F1: 0.9730
+
+Deepface with 9 patients and 9 controls
+AROC: 0.9136, spec: 0.6667, sens: 0.7778, F1: 0.7368
+
+Pointnet with 9 patients and 9 controls
+AROC: 0.6111, spec: 1.0000, sens: 0.2222, F1: 0.3636
+
+Random Forest with 9 patients and 9 controls
+AROC: 0.5185, spec: 0.5556, sens: 0.4444, F1: 0.4706
+
+Ensemble classifier mean and mode 
+AROC: 0.8272, spec: 0.7778, sens: 0.4444, F1: 0.5333
+
+Syndrome: WAC
+Deepface with 12 patients and 12 controls
+AROC: 0.8958, spec: 0.5833, sens: 0.9167, F1: 0.7857
+
+Deepface with 10 patients and 10 controls
+AROC: 0.9800, spec: 0.9000, sens: 0.8000, F1: 0.8421
+
+Pointnet with 10 patients and 10 controls
+AROC: 0.3900, spec: 0.6000, sens: 0.1000, F1: 0.1333
+
+Random Forest with 10 patients and 10 controls
+AROC: 0.9200, spec: 0.8000, sens: 0.7000, F1: 0.7368
+
+Ensemble classifier mean and mode 
+AROC: 0.9200, spec: 1.0000, sens: 0.7000, F1: 0.8235
+
+Syndrome: YY1
+Deepface with 10 patients and 10 controls
+AROC: 0.9100, spec: 0.9000, sens: 1.0000, F1: 0.9524
+
+Deepface with 6 patients and 6 controls
+AROC: 0.9444, spec: 0.6667, sens: 1.0000, F1: 0.8571
+
+Pointnet with 6 patients and 6 controls
+AROC: 0.6944, spec: 0.6667, sens: 0.6667, F1: 0.6667
+
+Random Forest with 6 patients and 6 controls
+AROC: 0.6250, spec: 0.8333, sens: 0.6667, F1: 0.7273
+
+Ensemble classifier mean and mode 
+AROC: 0.7500, spec: 0.6667, sens: 0.8333, F1: 0.7692
+

@@ -8,12 +8,17 @@
 <table style="width:100%">
 	<tr>
 		<th>Syndrome</th> 
-		<th>Probability</th>
+		<th>Probability - DeepFace knn </th>
+		<th>Probability - Pointnet </th>
+		<th>Probability - RandomForest  </th>
+
 	</tr>
 	{% for index in indices %}
 		<tr>
-			<td>{{ syndromes[index] }} </td>
-			<td>{{ probabilities[index] }} </td>
+			<td>{{ syns[index] }} </td>
+			<td>{{ probs_df[index] }} </td>
+			<td>{{ probs_pn[index] }} </td>
+			<td>{{ probs_rf[index] }} </td>
 		</tr>
 	{% endfor %}
 </table>
