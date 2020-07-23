@@ -5,11 +5,13 @@
 
 	<div> Syndromes </div>
 	<form method="POST" action = "/" enctype=multipart/form-data>
-		<div>ADNP <input type="checkbox", value="ADNP", name="syn"></div>
-		<div>ANKRD11 <input type="checkbox", value="ANKRD11", name="syn"></div>
-		<div>DEAF1 <input type="checkbox", value="DEAF1", name="syn"></div>
-		<div>DYRK1A <input type="checkbox", value="DYRK1A", name="syn"></div>
-		<input type="file" name="file">
+		<select name="syns"  method="GET" action="/">
+			{% for syn in syns %}
+			<option value= "{{syn}}" SELECTED>{{syn}}</option>"
+			{% endfor %}
+		</select>
+
+		<div><input type="file" name="file"></div>
 
 
 		<div><input type="submit", value="Analyze Image"></div>
