@@ -1,40 +1,31 @@
-#!/usr/bin/env python
-# coding: utf-8
+# syndrome image data should be in: GENERAL_DIR\syn\syn-all-photos and is save to GENERAL_DIR\syn\syn-patients
+# control image data should be in: GENERAL_DIR\ID-controls
+# syndrome excel info should be in GENERAL_DIR\syn\syn_Database.csv
+# control excel info should be in GENERAL_DIR\ID-controls\all_ID_controls_info_complete.csv"
 
 import pandas as pd
 import os
-import os.path
 from os import listdir
 from os.path import isfile, join
 import numpy as np
 import random
-from PIL import Image
+import cv2
 import matplotlib.pyplot as plt
 import openpyxl
-from tqdm import tqdm
 
-def open_syn_excel(syn_name, GENERAL_DIR):
-    syn_file = GENERAL_DIR + "\\{}\\{}_Database.csv".format(syn_name, syn_name)
+# open syn excel sheet
+def open_syn_excel(GENERAL_DIR, syn):
+    syn_file = GENERAL_DIR + "\\{}\\{}_Database.csv".format(syn, syn)
     assert os.path.exists(syn_file), "This path doesn't exist: {}".format(syn_file)
 
     df_syn = pd.read_csv(syn_file, sep =';')
     df_syn = df_syn[['Patient', 'Age on photo', 'Gender']]
-    df_syn.rename(columns={'Patient':'image','Age on photo':'age', 'Gender':'gender'},inplace=True)
-    
+    df_syn.rename(columns={'Patient':'image','Age on photo':'age', 'Gender':'gender'},inplace=True)  
     return df_syn
 
 
-# Make a histogram of all ages
-def make_hist(df_syn):
-    ages_syn = df_syn.age.values
-    plt.hist(ages_syn)
-    plt.xlabel("Age")
-    plt.title("Syndromic patients patients")
-    plt.show()
-
-
 # open ID control excel sheet
-def open_control_excel(syn_name, GENERAL_DIR):
+def open_control_excel(GENERAL_DIR, syn):
     ID_file = GENERAL_DIR + "\\ID-controls\\all_ID_controls_info_complete.csv"
     assert os.path.exists(ID_file), "This path doesn't exist: {}".format(ID_file)
 
@@ -42,27 +33,34 @@ def open_control_excel(syn_name, GENERAL_DIR):
     df_ID = df_ID[['pnummer', 'frontal face image', 'agecorrected', 'gender']]
     df_ID = df_ID[df_ID['frontal face image'].notnull()]
     df_ID = df_ID.rename(columns={"frontal face image": "image", "agecorrected": "age"})
-
     return df_ID
 
+
+# # Make a histogram of all ages
+# def make_hist(df_syn):
+#     ages_syn = df_syn.age.values
+#     plt.hist(ages_syn)
+#     plt.xlabel("Age")
+#     plt.title("Syndromic patients patients")
+#     plt.show()
+   
+    
+# get list of possible age differences (1/3 higher or lower)
 def get_list_age_dif(age_syn):
     age_dif = int(float(age_syn)/3.0)
     a = list(range(-age_dif, 0))
     a.reverse()
     b = list(range(0, age_dif + 1))
     c = list(zip(b, a))
-    
     return np.array(c).flatten().tolist()
     
     
-
-def select_controls(df_syn, df_ID):
-    # empty object
+# for each patient select a suitable control
+def select_controls(GENERAL_DIR, syn, df_syn, df_ID):
     df_select_syn = pd.DataFrame(columns=['image', 'age', 'gender'])
     df_select_ID = pd.DataFrame(columns=['image', 'age', 'gender'])
     
-    print("there are {} patients".format(df_syn.shape))
-    # find control ID for each syndromic patients
+    # for each patient, find a control
     for index, row in df_syn.iterrows():
         if isinstance(row['age'], int) : 
             age_syn = row['age']
@@ -71,22 +69,34 @@ def select_controls(df_syn, df_ID):
             # find a control ID with exact same age
             matches_ID = df_ID.loc[(df_ID['age'] == age_syn) & (df_ID['gender'] == gender_syn)]
 
-            # try different age differences
+            # get possible age difference list
             age_dif = get_list_age_dif(age_syn)
 
-            i = 0   
-            while matches_ID.shape[0] == 0:
-                matches_ID = df_ID.loc[(df_ID['age'] == age_syn + age_dif[i]) & (df_ID['gender'] == gender_syn)]
-                i+= 1
-                if i == len(age_dif):
+            # if no control is found with the same age, try the age difference list
+            for dif in age_dif:
+                matches_ID = df_ID.loc[(df_ID['age'] == age_syn + dif) & (df_ID['gender'] == gender_syn)]
+                # stop loop if at least one control is found
+                if matches_ID.shape[0] != 0:
                     break
-
-            if(matches_ID.shape[0] ==0):
+            
+            # if no control can be found, skip this patient
+            if(matches_ID.shape[0] == 0):
                 print("For patient {}, gender: {}, age: {}".format(row['image'], row['gender'], row['age']))
                 print("No match found within {} and {} years".format(max(age_dif), min(age_dif)))
+                
+                # save to unselected patient   
+                directory = GENERAL_DIR + "\\{}\\{}-unselected".format(syn, syn)
+                if not os.path.exists(directory):
+                    os.makedirs(directory)
+                
+                # open image
+                img = cv2.imread(GENERAL_DIR + "\\{}\\{}-patients\\{}.jpg".format(syn, syn, row['image']))
+                                 
+                # save it to new dir
+                cv2.imwrite(directory + "\\{}.jpg".format(row['image']), img)
                 continue
 
-            # a match is found, so append sy patient
+            # control is found, so add patient to dataframe
             df_select_syn = df_select_syn.append({'image': str(row.image) + ".jpg", 'age':row.age, 'gender':row.gender}, ignore_index=True) 
 
             # pick a random control from this list to append to selected controls
@@ -94,42 +104,52 @@ def select_controls(df_syn, df_ID):
             select_ID = matches_ID.iloc[random_index]
             df_select_ID = df_select_ID.append({'image':str(select_ID.pnummer) + '_small_'+ str(select_ID.image), 'age': select_ID.age, 'gender': select_ID.gender}, ignore_index=True)               
 
-            # remove selected row from set of all controls 
+            # remove this one control from all controls
             i = df_ID[(df_ID.image == select_ID.image) & (df_ID.pnummer == select_ID.pnummer)].index
 
-            OG_shape = df_ID.shape
+            original_shape = df_ID.shape
             df_ID = df_ID.drop(i)
             new_shape = df_ID.shape  
+            
+            assert original_shape[0] - new_shape[0] == 1, "More than one control removed from control Dataframe"
 
-            if(OG_shape[0] - new_shape[0]> 1):
-                print("Error")
+    # save unselected controls to file
+    directory = GENERAL_DIR + "\\{}\\{}-unselected-controls".format(syn, syn)
+    if not os.path.exists(directory):
+        os.makedirs(directory)  
+    
+    for index, row in df_ID.iterrows():
+        # open image
+        img = cv2.imread(GENERAL_DIR + "\\ID-controls\\{}.jpg".format(row['image']))
 
-    print("Done finding all ID controls.")
+        # save it to new dir
+        cv2.imwrite(directory + "\\{}.jpg".format(row['image']), img)            
+                                 
     return df_select_syn, df_select_ID
 
-
-def save_info(syn_name, df_select_syn, df_select_ID, GENERAL_DIR):
-    syn_info_save = GENERAL_DIR + "\\{}\\{}_patients_info.xlsx".format(syn_name, syn_name)
-    ID_info_save = GENERAL_DIR + "\\{}\\{}_matched_ID_controls_info.xlsx".format(syn_name, syn_name)
+                         
+# save the info about the selected patients in two excel files
+def save_info_to_excel(GENERAL_DIR, syn, df_select_syn, df_select_ID):
+    syn_info_save = GENERAL_DIR + "\\{}\\{}_patients_info.xlsx".format(syn, syn)
+    ID_info_save = GENERAL_DIR + "\\{}\\{}_matched_ID_controls_info.xlsx".format(syn, syn)
     df_select_syn.to_excel(syn_info_save)
     df_select_ID.to_excel(ID_info_save)
 
-
+                         
+# empty directory, before writing images to it
 def empty_dir(directory):
     files = [join(directory, f) for f in listdir(directory)]
-
     for file in files:
         os.remove(file)
 
 
-### Open Excel files and write the found images to a new directory
-
-def save_img_from_excel_controls(syn_name, GENERAL_DIR):
+# open excel files and write selected control images to a new directory
+def save_img_from_excel_controls(GENERAL_DIR, syn):
     ID_dir = GENERAL_DIR + "\\ID-controls"
-    select_ID_dir = GENERAL_DIR + "\\{}\\{}-selected-ID-controls".format(syn_name, syn_name)
-    empty_dir(select_ID_dir)
+    select_ID_dir = GENERAL_DIR + "\\{}\\{}-selected-ID-controls".format(syn, syn)
+    empty_dir(select_ID_dir) 
     
-    ID_info_save = GENERAL_DIR + "\\{}\\{}_matched_ID_controls_info.xlsx".format(syn_name, syn_name)
+    ID_info_save = GENERAL_DIR + "\\{}\\{}_matched_ID_controls_info.xlsx".format(syn, syn)
     df_ID = pd.read_excel(ID_info_save)
 
     for index,rows in df_ID.iterrows():
@@ -137,71 +157,76 @@ def save_img_from_excel_controls(syn_name, GENERAL_DIR):
 
         files = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f)) & (image in f))]
         if(len(files)==1):
-            im = Image.open(join(ID_dir, files[0]))
-            im.save(join(select_ID_dir, files[0]))
+            img = cv2.imread(join(ID_dir, files[0]))
+            cv2.imwrite(join(select_ID_dir, files[0]), img)
         else: 
-            print("Manually find image for  {}".format(image))  
-            print("in " + str(ID_dir))
+            print("Manually find image for {} in {}".format(image, ID_dir))  
 
-def save_img_from_excel_patients(syn_name, GENERAL_DIR):
-    
-    syn_dir = GENERAL_DIR + "\\{}\\{}-all-photos".format(syn_name, syn_name)
-    select_syn_dir = GENERAL_DIR + "\\{}\\{}-patients".format(syn_name, syn_name)
+
+# open excel files and write selected patient images to a new directory
+def save_img_from_excel_patients(GENERAL_DIR, syn):
+    syn_dir = GENERAL_DIR + "\\{}\\{}-all-photos".format(syn, syn)
+    select_syn_dir = GENERAL_DIR + "\\{}\\{}-patients".format(syn, syn)
     empty_dir(select_syn_dir)    
     
-    syn_info_save = GENERAL_DIR + "\\{}\\{}_patients_info.xlsx".format(syn_name, syn_name)
+    syn_info_save = GENERAL_DIR + "\\{}\\{}_patients_info.xlsx".format(syn, syn)
     df_syn = pd.read_excel(syn_info_save)
 
     for index,rows in df_syn.iterrows():
         image = rows['image']
         files = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)) and image in f)]
         if(len(files)==1):
-            im = Image.open(join(syn_dir, files[0]))
-            im.save(join(select_syn_dir, files[0]))
+            img = cv2.imread(join(syn_dir, files[0]))
+            cv2.imwrite(join(select_syn_dir, files[0]), img)
         else: 
-            print("Manually find image for image: {}".format(image))
+            print("Manually find image for {} in {}".format(image, syn_dir))
 
-## Write syndrome files and control files to txt 
-
-def save_control_patients_info(syn_name, trial_nr, GENERAL_DIR):    
-    control_dir = GENERAL_DIR + "\\{}\\{}-selected-ID-controls".format(syn_name, syn_name)
-    control_files = [f for f in listdir(join(control_dir)) if isfile(join(control_dir, f)) and ".jpg" in f ]
+                         
+# write chosen patients/controls to a txt file
+def save_selection_info(GENERAL_DIR, syn, trial):    
+    ID_dir = GENERAL_DIR + "\\{}\\{}-selected-ID-controls".format(syn, syn)
+    ID_files = [f for f in listdir(join(ID_dir)) if isfile(join(ID_dir, f)) and ".jpg" in f ]
    
-    syn_dir = GENERAL_DIR + "\\{}\\{}-patients".format(syn_name, syn_name)
+    syn_dir = GENERAL_DIR + "\\{}\\{}-patients".format(syn, syn)
     syn_files = [f for f in listdir(join(syn_dir)) if isfile(join(syn_dir, f)) and ".jpg" in f ]
    
-    control_patient_info = open("results/{}/{}-patient-control-info-run-{}.txt".format(syn_name, syn_name, trial_nr), "w")
-    
-    control_patient_info.write("Patients for syndrome {}\n".format(syn_name))
+    selection_info = open("results/{}/{}-selection-info-run-{}.txt".format(syn, syn, trial), "w")   
+                         
+    selection_info.write("Patients for syndrome {}\n".format(syn))                        
     for syn in syn_files:
-        control_patient_info.write(syn + "\n")
+        selection_info.write(syn + "\n")
    
-    control_patient_info.write("\nControls for syndrome {}\n".format(syn_name))
-    for control in control_files:
-        control_patient_info.write(control + "\n")
-    control_patient_info.close()
+    selection_info.write("\nControls for syndrome {}\n".format(syn))
+    for ID in ID_files:
+        selection_info.write(ID + "\n")
+                         
+    selection_info.close()
 
 
-
-def main(GENERAL_DIR, syn_list, trial_nr):
+def main(GENERAL_DIR, syn_list, trial):
     
-
-    print("Selecting controls for trial {} \nfor syndroms: {}".format(trial_nr, syn_list))
-    
-    for syn_name in tqdm(syn_list):
-        df_syn = open_syn_excel(syn_name, GENERAL_DIR)
-        df_ID = open_control_excel(syn_name, GENERAL_DIR)
+    print("Selecting controls for trial {} \nfor syndroms: {}\n".format(trial, syn_list))
+     
+    for syn in syn_list:
+                         
+        # open relevant excel files
+        df_syn = open_syn_excel(GENERAL_DIR, syn)
+        df_ID = open_control_excel(GENERAL_DIR, syn)
         #make_hist(df_syn)
-
-        df_select_syn, df_select_ID = select_controls(df_syn, df_ID)
-        print("Syndrome {} \nShape of patient data {}, shape of control data {}".format(syn_name, df_select_syn.shape, df_select_ID.shape))
-
-        save_info(syn_name, df_select_syn, df_select_ID, GENERAL_DIR)
-
-        save_img_from_excel_controls(syn_name, GENERAL_DIR)
-        save_img_from_excel_patients(syn_name, GENERAL_DIR)
-
-        save_control_patients_info(syn_name, trial_nr, GENERAL_DIR)    
+        
+        # select controls 
+        df_select_syn, df_select_ID = select_controls(GENERAL_DIR, syn, df_syn, df_ID)
+        print("Syndrome {} \nShape of patient data {}, shape of found control data {}".format(syn, df_select_syn.shape, df_select_ID.shape))
+        
+        # write selected patients/controls to excel files 
+        save_info_to_excel(GENERAL_DIR, syn, df_select_syn, df_select_ID)
+        
+        # save images from excel file to correct directories
+        save_img_from_excel_controls(GENERAL_DIR, syn)
+        save_img_from_excel_patients(GENERAL_DIR, syn)
+        
+        # save info about which patient/controls were selected in this run
+        save_selection_info(GENERAL_DIR, syn, trial)    
                 
     print("Done running ID_control_selection.py")
 

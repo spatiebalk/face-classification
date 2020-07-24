@@ -22,11 +22,8 @@ def facereader_reps(GENERAL_DIR, syn_name):
     
     print("Syn_list: {}, ID_list: {}".format(len(files_syn), len(files_ID)))
 
-
     syn_csv = GENERAL_DIR + "\\features_facereader_patient_groups.csv"    
    
-    syn_rep = []
-    
     with open (syn_csv, newline='') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:
@@ -34,9 +31,7 @@ def facereader_reps(GENERAL_DIR, syn_name):
                 syn_rep.append(row) 
             
     ID_csv = GENERAL_DIR + "\\features_facereader_all_controls.csv"    
-   
-    ID_rep = []
-    
+       
     with open (ID_csv, newline='') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:
@@ -76,21 +71,14 @@ def facereader_landmarks_reps(GENERAL_DIR, syn_name):
     
     print("Syn_list: {}, ID_list: {}".format(len(files_syn), len(files_ID)))
 
-
-    syn_csv = GENERAL_DIR + "\\features_facereader_landmarks_distances_patient_groups.csv"    
-   
-    syn_rep = []
-    
+    syn_csv = GENERAL_DIR + "\\features_facereader_landmarks_distances_patient_groups.csv"      
     with open (syn_csv, newline='') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:
             if row[0] in files_syn:
                 syn_rep.append(row) 
             
-    ID_csv = GENERAL_DIR + "\\features_facereader_landmarks_distances_all_controls.csv"    
-   
-    ID_rep = []
-    
+    ID_csv = GENERAL_DIR + "\\features_facereader_landmarks_distances_all_controls.csv"        
     with open (ID_csv, newline='') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:

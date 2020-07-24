@@ -70,6 +70,16 @@ def create_deepface():
     return model2
 
 
+def segment_face(img):
+    
+    
+    
+    
+    
+    
+    
+    return img 
+
 def deepface_reps(GENERAL_DIR, syn_name):
 
     model = create_deepface()
@@ -85,6 +95,7 @@ def deepface_reps(GENERAL_DIR, syn_name):
     # for each kdv image save deepface rep as list:
     for filename in tqdm(files_syn):  
         im = cv2.imread(join(syn_dir, filename))
+        im = segment_face(im)
         im = cv2.resize(im, (IMAGE_SIZE))               
         im = np.expand_dims(im, axis=0)
         im = np.array(im, dtype=np.float64)
@@ -96,6 +107,8 @@ def deepface_reps(GENERAL_DIR, syn_name):
     # for each ID image save deepface rep as list:
     for filename in tqdm(files_ID):
         im = cv2.imread(join(ID_dir, filename))
+        im = segment_face(im)
+
         im = cv2.resize(im, (IMAGE_SIZE))               
         im = np.expand_dims(im, axis=0)
         im = np.array(im, dtype=np.float64)
