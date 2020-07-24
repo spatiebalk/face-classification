@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import cfps_openface
+import openface_cfps
 import deepface
 import facereader
 
@@ -12,11 +12,11 @@ def main(GENERAL_DIR, syn_list):
         
         print ("\nopenface and cfps")
         # openface and cfps
-        cfps_openface.openface_cfps_reps(GENERAL_DIR, syn)
+        openface_cfps.openface_cfps_reps(GENERAL_DIR, syn)
 
-#         print ("\ndeepface")
-#         # deepface
-#         deepface.deepface_reps(GENERAL_DIR, syn)
+        print ("\ndeepface")
+        # deepface
+        deepface.deepface_reps(GENERAL_DIR, syn)
         
 #         print ("\nfacereader")
 #         # facereader
