@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 import openpyxl
 from tqdm import tqdm
 
+# open syn csv sheet
 def open_syn_data(syn_name, GENERAL_DIR):
     syn_file = GENERAL_DIR + "\\{}\\{}_Database.csv".format(syn_name, syn_name)
     assert os.path.exists(syn_file), "This path doesn't exist: {}".format(syn_file)
@@ -25,26 +26,6 @@ def open_syn_data(syn_name, GENERAL_DIR):
     return df_syn
 
 
-# Make a histogram of all ages
-def make_hist(df_syn):
-    ages_syn = df_syn.age.values
-    plt.hist(ages_syn)
-    plt.xlabel("Age")
-    plt.title("Syndromic patients patients")
-    plt.show()
-
-
-# open ID control excel sheet
-def open_control_excel(control, GENERAL_DIR):
-    ID_file = GENERAL_DIR + "\\ID-controls\\all_ID_controls_info_complete.csv"
-    assert os.path.exists(ID_file), "This path doesn't exist: {}".format(ID_file)
-
-    df_ID = pd.read_csv(ID_file, sep=';')
-    df_ID = df_ID[['pnummer', 'frontal face image', 'agecorrected', 'gender']]
-    df_ID = df_ID[df_ID['frontal face image'].notnull()]
-    df_ID = df_ID.rename(columns={"frontal face image": "image", "agecorrected": "age"})
-
-    return df_ID
 
 def get_list_age_dif(age_syn):
     if age_syn < 6:
@@ -108,7 +89,6 @@ def select_controls(df_syn, df_ID):
             if(OG_shape[0] - new_shape[0]> 1):
                 print("Error")
 
-    print("Done finding all ID controls.")
     return df_select_syn, df_select_ID
 
 
@@ -211,9 +191,6 @@ def main(GENERAL_DIR, syn_name, control, trial_nr):
     
     df_syn = open_syn_data(syn_name, GENERAL_DIR)
     df_ID = open_syn_data(control, GENERAL_DIR)
-#     make_hist(df_syn)
-    
-#     make_hist(df_ID)
 
     df_select_syn, df_select_ID = select_controls(df_syn, df_ID)
     print("Syndrome {} \nShape of patient data {}, shape of {} control data {}".format(syn_name, df_select_syn.shape, control, df_select_ID.shape))

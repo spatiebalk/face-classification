@@ -31,6 +31,7 @@ EHMT1 controls for syndrome ADNP
 EHMT1_11_1.jpg
 EHMT1_12.jpg
 EHMT1_17.jpg
+EHMT1_18_1.jpg
 EHMT1_19.jpg
 EHMT1_20_1.jpg
 EHMT1_21.jpg
@@ -41,6 +42,7 @@ EHMT1_27_1.jpg
 EHMT1_31_2.jpg
 EHMT1_32_1.jpg
 EHMT1_34.jpg
+EHMT1_35_1.jpg
 EHMT1_4.jpg
 EHMT1_43.jpg
 EHMT1_44.jpg
@@ -51,7 +53,5 @@ EHMT1_60_1.jpg
 EHMT1_63_1.jpg
 EHMT1_65_1.jpg
 EHMT1_66_1.jpg
-EHMT1_68_1.jpg
 EHMT1_6_1.jpg
-EHMT1_7.jpg
 EHMT1_8_2.jpg

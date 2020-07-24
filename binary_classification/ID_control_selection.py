@@ -13,7 +13,7 @@ import cv2
 import matplotlib.pyplot as plt
 import openpyxl
 
-# open syn excel sheet
+# open syn csv sheet
 def open_syn_excel(GENERAL_DIR, syn):
     syn_file = GENERAL_DIR + "\\{}\\{}_Database.csv".format(syn, syn)
     assert os.path.exists(syn_file), "This path doesn't exist: {}".format(syn_file)

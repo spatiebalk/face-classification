@@ -17,8 +17,7 @@ import numpy as np
 def openface_cfps_reps(GENERAL_DIR, syn):
     
     # for each method
-    for method in ["openface", "cfps"]:
-        
+    for method in ["openface", "cfps"]:      
         syn_rep, ID_rep = [], []
 
         # open directories with image

@@ -85,6 +85,7 @@ def deepface_reps(GENERAL_DIR, syn):
     # get list of image filenames
     files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and ".jpg" in f]
     files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".jpg" in f]
+    print("Syn_files: {}, ID_files: {}".format(len(files_syn), len(files_ID)))
 
     # for each patient image save deepface rep
     for filename in files_syn:  
@@ -121,6 +122,8 @@ def deepface_reps(GENERAL_DIR, syn):
     with open(csv_file_ID, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(ID_rep)
+
+    del model
 
 
 

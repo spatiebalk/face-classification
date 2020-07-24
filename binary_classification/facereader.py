@@ -15,15 +15,15 @@ import xlrd
 import numpy as np
 
 # function is unused for now as it takes the 93 feature vector of Facereader
-def facereader_reps(GENERAL_DIR, syn_name):
+def facereader_reps(GENERAL_DIR, syn):
     syn_rep, ID_rep = [], []
 
     # open directories
-    syn_dir = GENERAL_DIR + "\{}\{}-patients".format(syn_name, syn_name)
-    ID_dir = GENERAL_DIR + "\{}\{}-selected-ID-controls".format(syn_name, syn_name)
+    syn_dir = GENERAL_DIR + "\{}\{}-patients".format(syn, syn)
+    ID_dir = GENERAL_DIR + "\{}\{}-selected-ID-controls".format(syn, syn)
 
     # get list of filenames
-    files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn_name in f]
+    files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn in f]
     files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".jpg" in f]
     print("Syn_list: {}, ID_list: {}".format(len(files_syn), len(files_ID)))
 
@@ -44,8 +44,8 @@ def facereader_reps(GENERAL_DIR, syn_name):
     print("Syn_reps: {}, ID_reps: {}\n".format(len(syn_rep), len(ID_rep)))
 
     # location to save representation
-    csv_syn_selected = GENERAL_DIR+ "\\{}\\representations\{}-patients-facereader.csv".format(syn_name, syn_name)
-    csv_ID_selected = GENERAL_DIR+ "\\{}\\representations\ID-controls-facereader.csv".format(syn_name)
+    csv_syn_selected = GENERAL_DIR+ "\\{}\\representations\{}-patients-facereader.csv".format(syn, syn)
+    csv_ID_selected = GENERAL_DIR+ "\\{}\\representations\ID-controls-facereader.csv".format(syn)
 
     # save representation of kdv patients
     with open(csv_syn_selected, "w", newline="") as f:
@@ -115,14 +115,14 @@ def facereader_landmarks_dis_reps(GENERAL_DIR, syn):
     files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".jpg" in f]  
     print("Syn_list: {}, ID_list: {}".format(len(files_syn), len(files_ID)))
 
-    syn_csv = GENERAL_DIR + "\\features_facereader_landmarks_distances_patient_groups.csv"      
+    syn_csv = GENERAL_DIR + "\\features_facereader_landmarks_distances_patient_groups_left_right.csv"      
     with open (syn_csv, newline='') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:
             if row[0] in files_syn:
                 syn_rep.append(row) 
             
-    ID_csv = GENERAL_DIR + "\\features_facereader_landmarks_distances_all_controls.csv"        
+    ID_csv = GENERAL_DIR + "\\features_facereader_landmarks_distances_all_controls_left_right.csv"        
     with open (ID_csv, newline='') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:

@@ -20,6 +20,7 @@ ADNP_8.jpg
 
 CDK13 controls for syndrome ADNP
 CDK13_10_1.jpg
+CDK13_11_1.jpg
 CDK13_12.jpg
 CDK13_13_1.jpg
 CDK13_14.jpg
@@ -34,6 +35,5 @@ CDK13_36.jpg
 CDK13_3_1.jpg
 CDK13_4.jpg
 CDK13_40.jpg
-CDK13_5_1.jpg
 CDK13_6.jpg
 CDK13_8.jpg
