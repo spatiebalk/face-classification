@@ -1,15 +1,17 @@
+# Representations are written to
+# GENERAL_DIR\syn\representations\syn-patients-deepface.csv
+# GENERAL_DIR\syn\representations\ID-controls-deepface.csv
+
 import numpy as np
 from os import path, listdir
 from os.path import isfile, join
 import cv2
-import tensorflow as tf
+import tensorflow as tf #2.0.0
 import csv
-import pandas as pd
-from tqdm import tqdm
 
 IMAGE_SIZE = (152, 152) # set by the model 
 CHANNELS = 3 # RGB image
-NUM_CLASSES = 8631 # classification layer will be removed 
+NUM_CLASSES = 8631 # classification layer, will be removed 
 LEARN_RATE = 0.01
 MOMENTUM = 0.9
 
@@ -44,6 +46,7 @@ def create_classifying_deepface(image_size=IMAGE_SIZE, channels=CHANNELS, num_cl
     return model
 
 
+# load the pretrained deepface weights
 def get_weights():
     filename = 'deepface.zip'
     downloaded_file_path = tf.keras.utils.get_file(filename, DOWNLOAD_PATH,
@@ -53,6 +56,7 @@ def get_weights():
     return downloaded_h5_file
 
 
+# create deefpace without the final two layers
 def create_deepface():
     model = create_classifying_deepface()
     model2 = tf.keras.Sequential()
@@ -70,20 +74,20 @@ def create_deepface():
     return model2
 
 
-def deepface_reps(GENERAL_DIR, syn_name):
-
+def deepface_reps(GENERAL_DIR, syn):
+    # create model 
     model = create_deepface()
     syn_rep, ID_rep = [], []
 
-    syn_dir = GENERAL_DIR + "\\{}\{}-patients".format(syn_name, syn_name)
-    ID_dir = GENERAL_DIR + "\\{}\{}-selected-ID-controls".format(syn_name, syn_name)
+    syn_dir = GENERAL_DIR + "\\{}\{}-patients".format(syn, syn)
+    ID_dir = GENERAL_DIR + "\\{}\{}-selected-ID-controls".format(syn, syn)
 
-    # get list of filenames
+    # get list of image filenames
     files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and ".jpg" in f]
     files_ID = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f))) and ".jpg" in f]
 
-    # for each kdv image save deepface rep as list:
-    for filename in tqdm(files_syn):  
+    # for each patient image save deepface rep
+    for filename in files_syn:  
         im = cv2.imread(join(syn_dir, filename))
         im = cv2.resize(im, (IMAGE_SIZE))               
         im = np.expand_dims(im, axis=0)
@@ -92,9 +96,8 @@ def deepface_reps(GENERAL_DIR, syn_name):
         output = model.predict(im)
         syn_rep.append([filename] + output[0].tolist())  
 
-
-    # for each ID image save deepface rep as list:
-    for filename in tqdm(files_ID):
+    # for each control image save deepface rep
+    for filename in files_ID:
         im = cv2.imread(join(ID_dir, filename))
         im = cv2.resize(im, (IMAGE_SIZE))               
         im = np.expand_dims(im, axis=0)
@@ -103,11 +106,11 @@ def deepface_reps(GENERAL_DIR, syn_name):
         output = model.predict(im)
         ID_rep.append([filename] + output[0].tolist())
 
-    print("Syn_reps: {}, ID_reps: {}".format(len(syn_rep), len(ID_rep)))
+    print("Syn_reps: {}, ID_reps: {}\n".format(len(syn_rep), len(ID_rep)))
 
     # location to save representation
-    csv_file_syn = GENERAL_DIR + "\\{}\\representations\\{}-patients-deepface.csv".format(syn_name, syn_name)
-    csv_file_ID = GENERAL_DIR + "\\{}\\representations\\ID-controls-deepface.csv".format(syn_name)
+    csv_file_syn = GENERAL_DIR + "\\{}\\representations\\{}-patients-deepface.csv".format(syn, syn)
+    csv_file_ID = GENERAL_DIR + "\\{}\\representations\\ID-controls-deepface.csv".format(syn)
     
     # save representation of kdv patients
     with open(csv_file_syn, "w", newline="") as f:
@@ -118,9 +121,6 @@ def deepface_reps(GENERAL_DIR, syn_name):
     with open(csv_file_ID, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(ID_rep)
-
-    print("Done with saving all deepface representations for {}.".format(syn_name))
-
 
 
 

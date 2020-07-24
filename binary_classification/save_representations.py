@@ -8,22 +8,16 @@ import facereader
 def main(GENERAL_DIR, syn_list):
 
     for syn in syn_list:
-        print(syn)
+        print(syn, "\n")
         
-        print ("\nopenface and cfps")
-        # openface and cfps
+        print ("openface and cfps")
         openface_cfps.openface_cfps_reps(GENERAL_DIR, syn)
 
-        print ("\ndeepface")
-        # deepface
+        print ("deepface")
         deepface.deepface_reps(GENERAL_DIR, syn)
-        
-#         print ("\nfacereader")
-#         # facereader
-#         facereader.facereader_reps(GENERAL_DIR, syn) 
-#         print ("\nfacereader-landmarks")
-#         # facereader
-#         facereader.facereader_landmarks_reps(GENERAL_DIR, syn) 
+    
+        print ("facereader-landmarks")
+        facereader.facereader_landmarks_reps(GENERAL_DIR, syn) 
 
     print("Done running save_representations.py")
 
