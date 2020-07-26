@@ -1,0 +1,17 @@
+conda create -n ai-thesis python=3.6
+conda install tensorflow==2.0.0
+conda install pandas
+conda install scikit-learn
+conda install tqdm
+conda install flask
+conda install matplotlib
+conda install notebook
+conda install openpyxl
+conda install opencv
+conda install seaborn
+conda install xlrd
+conda install git
+
+pip install pythonnet
+pip install pickle5
+pip install astunparse

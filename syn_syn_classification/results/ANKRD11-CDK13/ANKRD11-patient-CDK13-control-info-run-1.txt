@@ -14,11 +14,11 @@ ANKRD11_7.jpg
 ANKRD11_9_1.jpg
 
 CDK13 controls for syndrome ANKRD11
-CDK13_11_1.jpg
 CDK13_12.jpg
 CDK13_17_1.jpg
 CDK13_18_1.jpg
 CDK13_2.jpg
+CDK13_22.jpg
 CDK13_26.jpg
 CDK13_30.jpg
 CDK13_32.jpg

@@ -11,7 +11,6 @@ import csv
 from os.path import join, isfile
 from os import listdir
 import pandas as pd
-import xlrd
 import numpy as np
 
 #currently unused
@@ -19,8 +18,8 @@ def facereader_reps(GENERAL_DIR, syn, control):
     syn_rep, ID_rep = [], []
 
     # open directories
-    syn_dir = GENERAL_DIR + "\\{}-{}\\{}-patients".format(syn, control, syn)
-    ID_dir = GENERAL_DIR + "\\{}-{}\\{}-selected-{}-controls".format(syn, control, syn, control)
+    syn_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-patients".format(syn, control, syn)
+    ID_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-selected-{}-controls".format(syn, control, syn, control)
 
     # get list of filenames
     files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn in f]
@@ -45,8 +44,8 @@ def facereader_reps(GENERAL_DIR, syn, control):
     print("Syn_reps: {}, ID_reps: {}".format(len(syn_rep), len(ID_rep)))
 
     # location to save representation
-    csv_file_syn = GENERAL_DIR+ "\\{}-{}\\representations\{}-patients-facereader.csv".format(syn, control, syn)
-    csv_file_ID = GENERAL_DIR+ "\\{}-{}\\representations\{}-controls-facereader.csv".format(syn, control, control)
+    csv_file_syn = GENERAL_DIR+ "\\syn_vs_syn\\{}-{}\\representations\{}-patients-facereader.csv".format(syn, control, syn)
+    csv_file_ID = GENERAL_DIR+ "\\syn_vs_syn\\{}-{}\\representations\{}-controls-facereader.csv".format(syn, control, control)
 
     # save representation of kdv patients
     with open(csv_file_syn, "w", newline="") as f:
@@ -65,8 +64,8 @@ def facereader_landmarks_reps(GENERAL_DIR, syn, control):
     syn_rep, ID_rep = [], []
 
     # open directories
-    syn_dir = GENERAL_DIR + "\\{}-{}\\{}-patients".format(syn, control, syn)
-    ID_dir = GENERAL_DIR + "\\{}-{}\\{}-selected-{}-controls".format(syn, control, syn, control)
+    syn_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-patients".format(syn, control, syn)
+    ID_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-selected-{}-controls".format(syn, control, syn, control)
 
     # get list of filenames
     files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn in f]
@@ -87,11 +86,11 @@ def facereader_landmarks_reps(GENERAL_DIR, syn, control):
             if row[0] in files_ID:
                 ID_rep.append(row)                    
 
-    print("Syn_reps: {}, ID_reps: {}".format(len(syn_rep), len(ID_rep)))
+    print("Syn_reps: {}, ID_reps: {}\n".format(len(syn_rep), len(ID_rep)))
 
     # location to save representation
-    csv_file_syn = GENERAL_DIR+ "\\{}-{}\\representations\{}-patients-facereader-landmarks.csv".format(syn, control, syn)
-    csv_file_ID = GENERAL_DIR+ "\\{}-{}\\representations\{}-controls-facereader-landmarks.csv".format(syn, control, control)
+    csv_file_syn = GENERAL_DIR+ "\\syn_vs_syn\\{}-{}\\representations\{}-patients-facereader-landmarks.csv".format(syn, control, syn)
+    csv_file_ID = GENERAL_DIR+ "\\syn_vs_syn\\{}-{}\\representations\{}-controls-facereader-landmarks.csv".format(syn, control, control)
 
     # save representation of kdv patients
     with open(csv_file_syn, "w", newline="") as f:
@@ -108,8 +107,8 @@ def facereader_landmarks_dis_reps(GENERAL_DIR, syn, control):
     syn_rep, ID_rep = [], []
 
     # open directories
-    syn_dir = GENERAL_DIR + "\\{}-{}\\{}-patients".format(syn, control, syn)
-    ID_dir = GENERAL_DIR + "\\{}-{}\\{}-selected-{}-controls".format(syn, control, syn, control)
+    syn_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-patients".format(syn, control, syn)
+    ID_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-selected-{}-controls".format(syn, control, syn, control)
 
     # get list of filenames
     files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn in f]
@@ -130,11 +129,11 @@ def facereader_landmarks_dis_reps(GENERAL_DIR, syn, control):
             if row[0] in files_ID:
                 ID_rep.append(row)                    
 
-    print("Syn_reps: {}, ID_reps: {}".format(len(syn_rep), len(ID_rep)))
+    print("Syn_reps: {}, ID_reps: {}\n".format(len(syn_rep), len(ID_rep)))
 
     # location to save representation
-    csv_file_syn = GENERAL_DIR+ "\\{}-{}\\representations\{}-patients-facereader-landmarks-distances.csv".format(syn, control, syn)
-    csv_file_ID = GENERAL_DIR+ "\\{}-{}\\representations\{}-controls-facereader-landmarks-distances.csv".format(syn, control, control)
+    csv_file_syn = GENERAL_DIR+ "\\syn_vs_syn\\{}-{}\\representations\{}-patients-facereader-landmarks-distances.csv".format(syn, control, syn)
+    csv_file_ID = GENERAL_DIR+ "\\syn_vs_syn\\{}-{}\\representations\{}-controls-facereader-landmarks-distances.csv".format(syn, control, control)
 
     # save representation of kdv patients
     with open(csv_file_syn, "w", newline="") as f:

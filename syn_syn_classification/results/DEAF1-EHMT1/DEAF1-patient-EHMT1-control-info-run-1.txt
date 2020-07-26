@@ -17,9 +17,9 @@ DEAF1_8.jpg
 DEAF1_9.jpg
 
 EHMT1 controls for syndrome DEAF1
+EHMT1_17.jpg
 EHMT1_21.jpg
 EHMT1_24_1.jpg
-EHMT1_27_1.jpg
 EHMT1_30.jpg
 EHMT1_32_1.jpg
 EHMT1_35_1.jpg
@@ -27,7 +27,7 @@ EHMT1_4.jpg
 EHMT1_45_1.jpg
 EHMT1_47.jpg
 EHMT1_50.jpg
-EHMT1_60_1.jpg
+EHMT1_5_2.jpg
 EHMT1_63_1.jpg
 EHMT1_65_1.jpg
 EHMT1_66_1.jpg

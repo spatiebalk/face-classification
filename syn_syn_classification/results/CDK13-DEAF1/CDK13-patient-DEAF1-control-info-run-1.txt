@@ -16,6 +16,7 @@ CDK13_6.jpg
 CDK13_8.jpg
 
 DEAF1 controls for syndrome CDK13
+DEAF1_1.jpg
 DEAF1_10.jpg
 DEAF1_11_1.jpg
 DEAF1_12.jpg
@@ -24,10 +25,9 @@ DEAF1_14.jpg
 DEAF1_15.jpg
 DEAF1_16_1.jpg
 DEAF1_17.jpg
-DEAF1_18.jpg
 DEAF1_19.jpg
 DEAF1_2.jpg
-DEAF1_20_1.jpg
 DEAF1_4.jpg
+DEAF1_6.jpg
 DEAF1_8.jpg
 DEAF1_9.jpg

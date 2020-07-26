@@ -16,12 +16,12 @@ DYRK1A_9_1.jpg
 
 EHMT1 controls for syndrome DYRK1A
 EHMT1_18_1.jpg
-EHMT1_19.jpg
 EHMT1_27_1.jpg
 EHMT1_32_1.jpg
 EHMT1_35_1.jpg
 EHMT1_36.jpg
 EHMT1_45_1.jpg
+EHMT1_46_1.jpg
 EHMT1_47.jpg
 EHMT1_49.jpg
 EHMT1_5_2.jpg

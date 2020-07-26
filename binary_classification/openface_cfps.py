@@ -42,7 +42,7 @@ def openface_cfps_reps(GENERAL_DIR, syn):
 
             if filename +".jpg" in files_syn:
                 rep_syn = row_rep.iloc[5:].tolist()
-                syn_rep.append([filename] + rep_syn)
+                syn_rep.append([filename + ".jpg"] + rep_syn)
 
         # for each row, if this control image is relevant save rep
         for index_ID, row_ID in  df_ID.iterrows():
@@ -50,7 +50,7 @@ def openface_cfps_reps(GENERAL_DIR, syn):
 
             if filename +".jpg" in files_ID:
                 rep_ID = row_ID.iloc[5:].tolist()
-                ID_rep.append([filename] + rep_ID)
+                ID_rep.append([filename + ".jpg"] + rep_ID)
 
         print("{}: syn_reps: {}, ID_reps: {} \n".format(method, len(syn_rep), len(ID_rep)))
 

@@ -8,10 +8,10 @@ from os import listdir
 from os.path import isfile, join
 import numpy as np
 import random
-from PIL import Image
 import matplotlib.pyplot as plt
 import openpyxl
 from tqdm import tqdm
+import cv2
 
 # open syn csv sheet
 def open_syn_data(syn_name, GENERAL_DIR):
@@ -93,8 +93,8 @@ def select_controls(df_syn, df_ID):
 
 
 def save_info(syn_name, control, df_select_syn, df_select_ID, GENERAL_DIR):
-    syn_info_save = GENERAL_DIR + "\\{}-{}\\{}_patients_info.xlsx".format(syn_name, control, syn_name)
-    ID_info_save = GENERAL_DIR + "\\{}-{}\\{}_matched_{}_controls_info.xlsx".format(syn_name, control, syn_name, control)
+    syn_info_save = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}_patients_info.xlsx".format(syn_name, control, syn_name)
+    ID_info_save = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}_matched_{}_controls_info.xlsx".format(syn_name, control, syn_name, control)
     df_select_syn.to_excel(syn_info_save)
     df_select_ID.to_excel(ID_info_save)
 
@@ -110,10 +110,10 @@ def empty_dir(directory):
 
 def save_img_from_excel_controls(syn_name, control, GENERAL_DIR):
     ID_dir = GENERAL_DIR + "\\{}\\{}-all-photos".format(control, control)
-    select_ID_dir = GENERAL_DIR + "\\{}-{}\\{}-selected-{}-controls".format(syn_name, control, syn_name, control)
+    select_ID_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-selected-{}-controls".format(syn_name, control, syn_name, control)
     empty_dir(select_ID_dir)
     
-    ID_info_save = GENERAL_DIR + "\\{}-{}\\{}_matched_{}_controls_info.xlsx".format(syn_name, control, syn_name, control)
+    ID_info_save = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}_matched_{}_controls_info.xlsx".format(syn_name, control, syn_name, control)
     df_ID = pd.read_excel(ID_info_save)
 
     for index,rows in df_ID.iterrows():
@@ -121,8 +121,8 @@ def save_img_from_excel_controls(syn_name, control, GENERAL_DIR):
 
         files = [f for f in listdir(ID_dir) if (isfile(join(ID_dir, f)) & (image in f))]
         if(len(files)==1):
-            im = Image.open(join(ID_dir, files[0]))
-            im.save(join(select_ID_dir, files[0]))
+            im = cv2.imread(join(ID_dir, files[0]))
+            cv2.imwrite(join(select_ID_dir, files[0]), im)
         else: 
             print("Manually find image for  {}".format(image))  
             print("in " + str(ID_dir))
@@ -130,28 +130,28 @@ def save_img_from_excel_controls(syn_name, control, GENERAL_DIR):
 def save_img_from_excel_patients(syn_name, control, GENERAL_DIR):
     
     syn_dir = GENERAL_DIR + "\\{}\\{}-all-photos".format(syn_name, syn_name)
-    select_syn_dir = GENERAL_DIR + "\\{}-{}\\{}-patients".format(syn_name, control, syn_name)
+    select_syn_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-patients".format(syn_name, control, syn_name)
     empty_dir(select_syn_dir)    
     
-    syn_info_save = GENERAL_DIR + "\\{}-{}\\{}_patients_info.xlsx".format(syn_name, control, syn_name)
+    syn_info_save = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}_patients_info.xlsx".format(syn_name, control, syn_name)
     df_syn = pd.read_excel(syn_info_save)
 
     for index,rows in df_syn.iterrows():
         image = rows['image']
         files = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)) and image in f)]
         if(len(files)==1):
-            im = Image.open(join(syn_dir, files[0]))
-            im.save(join(select_syn_dir, files[0]))
+            im = cv2.imread(join(syn_dir, files[0]))
+            cv2.imwrite(join(select_syn_dir, files[0]), im)
         else: 
             print("Manually find image for image: {}".format(image))
 
 ## Write syndrome files and control files to txt 
 
 def save_control_patients_info(syn_name, control, trial_nr, GENERAL_DIR):    
-    control_dir = GENERAL_DIR + "\\{}-{}\\{}-selected-{}-controls".format(syn_name, control, syn_name, control)
+    control_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-selected-{}-controls".format(syn_name, control, syn_name, control)
     control_files = [f for f in listdir(join(control_dir)) if isfile(join(control_dir, f)) and ".jpg" in f ]
    
-    syn_dir = GENERAL_DIR + "\\{}-{}\\{}-patients".format(syn_name, control, syn_name)
+    syn_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-patients".format(syn_name, control, syn_name)
     syn_files = [f for f in listdir(join(syn_dir)) if isfile(join(syn_dir, f)) and ".jpg" in f ]
    
     control_patient_info = open("results/{}-{}/{}-patient-{}-control-info-run-{}.txt".format(syn_name, control, syn_name, control, trial_nr), "w")
@@ -167,17 +167,17 @@ def save_control_patients_info(syn_name, control, trial_nr, GENERAL_DIR):
 
 def make_dirs(GENERAL_DIR, syn_name, control):
 
-    if not os.path.exists(GENERAL_DIR + "\\{}-{}".format(syn_name, control)):
-        os.mkdir(GENERAL_DIR + "\\{}-{}".format(syn_name, control))
+    if not os.path.exists(GENERAL_DIR + "\\syn_vs_syn\\{}-{}".format(syn_name, control)):
+        os.mkdir(GENERAL_DIR + "\\syn_vs_syn\\{}-{}".format(syn_name, control))
             
-    if not os.path.exists(GENERAL_DIR + "\\{}-{}\\{}-selected-{}-controls".format(syn_name, control, syn_name, control)):
-        os.mkdir(GENERAL_DIR + "\\{}-{}\\{}-selected-{}-controls".format(syn_name, control, syn_name, control))
+    if not os.path.exists(GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-selected-{}-controls".format(syn_name, control, syn_name, control)):
+        os.mkdir(GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-selected-{}-controls".format(syn_name, control, syn_name, control))
 
-    if not os.path.exists(GENERAL_DIR + "\\{}-{}\\{}-patients".format(syn_name, control, syn_name)):
-        os.mkdir(GENERAL_DIR + "\\{}-{}\\{}-patients".format(syn_name, control, syn_name))
+    if not os.path.exists(GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-patients".format(syn_name, control, syn_name)):
+        os.mkdir(GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-patients".format(syn_name, control, syn_name))
     
-    if not os.path.exists(GENERAL_DIR + "\\{}-{}\\representations".format(syn_name, control)):
-        os.mkdir(GENERAL_DIR + "\\{}-{}\\representations".format(syn_name, control))
+    if not os.path.exists(GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\representations".format(syn_name, control)):
+        os.mkdir(GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\representations".format(syn_name, control))
         
     if not os.path.exists("results\\{}-{}".format(syn_name, control)):
         os.mkdir("results\\{}-{}".format(syn_name, control))

@@ -15,10 +15,10 @@ EHMT1_63_1.jpg
 EHMT1_8_2.jpg
 
 SON controls for syndrome EHMT1
+SON_11.jpg
 SON_14.jpg
 SON_16.jpg
 SON_17.jpg
-SON_19.jpg
 SON_2.jpg
 SON_20.jpg
 SON_24.jpg

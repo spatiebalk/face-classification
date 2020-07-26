@@ -24,7 +24,6 @@ ANKRD11_8.jpg
 ANKRD11_9_1.jpg
 
 KDVS controls for syndrome ANKRD11
-KDVS_1.jpg
 KDVS_12.jpg
 KDVS_13.jpg
 KDVS_14.jpg
@@ -33,17 +32,18 @@ KDVS_21.jpg
 KDVS_22.jpg
 KDVS_24.jpg
 KDVS_28.jpg
-KDVS_33.jpg
 KDVS_35.jpg
 KDVS_36.jpg
 KDVS_39.jpg
-KDVS_43.jpg
+KDVS_50.jpg
+KDVS_51.jpg
 KDVS_52.jpg
 KDVS_55.jpg
-KDVS_56.jpg
 KDVS_60.jpg
 KDVS_61.jpg
 KDVS_65.jpg
 KDVS_66.jpg
 KDVS_67.jpg
+KDVS_68.jpg
+KDVS_72.jpg
 KDVS_8.jpg

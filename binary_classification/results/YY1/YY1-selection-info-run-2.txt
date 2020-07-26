@@ -1,0 +1,23 @@
+Patients for syndrome YY1
+YY1_1.jpg
+YY1_10.jpg
+YY1_19.jpg
+YY1_2.jpg
+YY1_22.jpg
+YY1_4.jpg
+YY1_5.jpg
+YY1_7.jpg
+YY1_8.jpg
+YY1_9.jpg
+
+Controls for syndrome YY1_9.jpg
+P05-2857_small_DSCN8305.jpg
+P06-1733_small_DSCN9339.jpg
+P07-0958_small_RIMG0228.jpg
+P07-2834_small_RIMG0334.jpg
+P08-1142_small_RIMG0523.jpg
+P08-3597_small_P08-3597_F2_2008Y_.jpg
+P09-0143_small_P09-0143_F1_2015Y_.jpg
+P09-3161_small_IMG_0278.jpg
+P11-1179_small_P11-1179_F1_.jpg
+P17-0174_small_DSCN2663.jpg

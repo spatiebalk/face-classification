@@ -19,5 +19,3 @@ def main(GENERAL_DIR, syn, control):
     print ("facereader-landmarks-distances")
     facereader.facereader_landmarks_dis_reps(GENERAL_DIR, syn, control) 
 
-    print("Done running save_representations.py")
-

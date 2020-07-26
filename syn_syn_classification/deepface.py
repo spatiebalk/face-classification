@@ -79,8 +79,8 @@ def deepface_reps(GENERAL_DIR, syn, control):
     model = create_deepface()
     syn_rep, ID_rep = [], []
 
-    syn_dir = GENERAL_DIR + "\\{}-{}\\{}-patients".format(syn, control, syn)
-    ID_dir = GENERAL_DIR + "\\{}-{}\\{}-selected-{}-controls".format(syn, control, syn, control)
+    syn_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-patients".format(syn, control, syn)
+    ID_dir = GENERAL_DIR + "\\syn_vs_syn\\{}-{}\\{}-selected-{}-controls".format(syn, control, syn, control)
 
     # get list of filenames
     files_syn = [f for f in listdir(syn_dir) if (isfile(join(syn_dir, f)))and syn in f]
@@ -93,7 +93,7 @@ def deepface_reps(GENERAL_DIR, syn, control):
         im = cv2.imread(join(syn_dir, filename))
         im = cv2.resize(im, (IMAGE_SIZE))               
         im = np.expand_dims(im, axis=0)
-        im = np.array(im, dtype=np.float64)
+        im = np.array(im, dtype=np.float32)
         
         output = model.predict(im)
         syn_rep.append([filename] + output[0].tolist()) 
@@ -103,7 +103,7 @@ def deepface_reps(GENERAL_DIR, syn, control):
         im = cv2.imread(join(ID_dir, filename))
         im = cv2.resize(im, (IMAGE_SIZE))               
         im = np.expand_dims(im, axis=0)
-        im = np.array(im, dtype=np.float64)
+        im = np.array(im, dtype=np.float32)
         
         output = model.predict(im)
         ID_rep.append([filename] + output[0].tolist())
@@ -111,8 +111,8 @@ def deepface_reps(GENERAL_DIR, syn, control):
     print("Syn_reps: {}, ID_reps: {}\n".format(len(syn_rep), len(ID_rep)))
 
     # location to save representation
-    csv_file_syn = GENERAL_DIR+ "\\{}-{}\\representations\{}-patients-deepface.csv".format(syn, control, syn)
-    csv_file_ID = GENERAL_DIR+ "\\{}-{}\\representations\{}-controls-deepface.csv".format(syn, control, control)
+    csv_file_syn = GENERAL_DIR+ "\\syn_vs_syn\\{}-{}\\representations\{}-patients-deepface.csv".format(syn, control, syn)
+    csv_file_ID = GENERAL_DIR+ "\\syn_vs_syn\\{}-{}\\representations\{}-controls-deepface.csv".format(syn, control, control)
     
     # save representation of kdv patients
     with open(csv_file_syn, "w", newline="") as f:
@@ -125,5 +125,4 @@ def deepface_reps(GENERAL_DIR, syn, control):
         writer.writerows(ID_rep)
 
     del model
-
 
