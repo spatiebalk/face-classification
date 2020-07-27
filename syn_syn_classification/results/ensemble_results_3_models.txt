@@ -1,0 +1,7 @@
+Syndrome: ADNP - ANKRD11 
+Deepface with 15 patients and 15 controls
+AROC: 0.5222, spec: 0.6667, sens: 0.3333, F1: 0.4000
+
+Deepface with 7 patients and 7 controls
+AROC: 0.5714, spec: 1.0000, sens: 0.2857, F1: 0.4444
+
