@@ -1,0 +1,37 @@
+Patients for syndrome FBXO11
+FBXO11_1.jpg
+FBXO11_11.jpg
+FBXO11_12.jpg
+FBXO11_14.jpg
+FBXO11_15.jpg
+FBXO11_16_2.jpg
+FBXO11_17.jpg
+FBXO11_18.jpg
+FBXO11_2.jpg
+FBXO11_20.jpg
+FBXO11_20_2.jpg
+FBXO11_3.jpg
+FBXO11_4.jpg
+FBXO11_5.jpg
+FBXO11_6.jpg
+FBXO11_7.jpg
+FBXO11_9.jpg
+
+Controls for syndrome FBXO11_9.jpg
+P03-0789_small_DSCN2591.jpg
+P04-3256_small_DSCN6773.jpg
+P06-2852_small_RIMG0111.jpg
+P06-3239_small_P06-3239_F1_.jpg
+P06-3424_small_P06-3424_F1_2006Y_.jpg
+P07-0322_small_RIMG0082.jpg
+P07-0403_small_RIMG0076.jpg
+P07-0958_small_RIMG0228.jpg
+P07-1766_small_IMG_1027.jpg
+P07-2985_small_P07-2985_F3_2014Y_.jpg
+P08-1142_small_RIMG0523.jpg
+P08-1607_small_RIMG0561.jpg
+P08-1990_small_RIMG0607.jpg
+P08-2247_small_RIMG0711.jpg
+P08-2964_small_RIMG0610.jpg
+P11-2944_small_P11-2944_F1_.jpg
+P98-1229_small_DSCN0604.jpg
