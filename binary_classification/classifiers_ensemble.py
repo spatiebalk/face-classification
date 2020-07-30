@@ -89,22 +89,31 @@ def combine_openface_cfps(syn, data_dir):
     data_syn_cfps, data_ID_cfps = read_rep_oc(syn, syn_csv, ID_csv, data_dir)
        
     data_syn, data_ID = [], []
-    labels = []
+    data, labels = [], []
     indices_syn, indices_ID = [], []
     
-    for index, (openface_i, cfps_i) in enumerate(zip(data_syn_of, data_syn_cfps)):
-        if openface_i[0] == cfps_i[0]:
-            data_syn.append(openface_i[1:].tolist() + cfps_i[1:].tolist())
-            labels.append(1)
-            indices_syn.append(index)     
-        
-    for index, (openface_i, cfps_i) in enumerate(zip(data_ID_of, data_ID_cfps)):
-        if openface_i[0] == cfps_i[0]:
-            data_ID.append(openface_i[1:].tolist() + cfps_i[1:].tolist())
-            labels.append(0)
-            indices_ID.append(index)
+    for openface_i in data_syn_of:
+        img_name = openface_i[0]
+        if img_name in data_syn_cfps[:,0]:
+            index = data_syn_cfps[:,0].tolist().index(img_name)
+            
+            data_syn.append(openface_i[1:].tolist() + data_syn_cfps[index,1:].tolist())
     
+    
+    for openface_i in data_ID_of:
+        img_name = openface_i[0]
+        if img_name in data_ID_cfps[:,0]:
+            index = data_ID_cfps[:,0].tolist().index(img_name)
+            
+            data_ID.append(openface_i[1:].tolist() + data_ID_cfps[index,1:].tolist())
+    
+    if len(data_ID) > len(data_syn):
+        data_ID = data_ID[:len(data_syn)]
+    else:
+        data_syn = data_syn[:len(data_ID)]
+
     data = data_syn + data_ID
+    labels = np.ones(len(data_syn)).tolist() + np.zeros(len(data_ID)).tolist()
 
     return np.array(data), np.array(labels)
 
@@ -166,20 +175,28 @@ def load_data(syn, GENERAL_DIR, data_dir):
     syn_csv = data_dir+"\\representations\{}-patients-{}.csv".format(syn, method)
     ID_csv  = data_dir+"\\representations\ID-controls-{}.csv".format(method)
     data_syn_df, data_ID_df, labels_syn_df, labels_ID_df = read_rep(syn, syn_csv, ID_csv, data_dir)
+    print("data_syn_df", data_syn_df.shape)
+    print("data_ID_df", data_ID_df.shape)
     
     method = "facereader-landmarks"
-    syn_csv = GENERAL_DIR+ "\\features_facereader_landmarks_patient_groups.csv"
-    ID_csv = GENERAL_DIR+ "\\features_facereader_landmarks_all_controls.csv" 
+    syn_csv = data_dir+"\\representations\{}-patients-{}.csv".format(syn, method)
+    ID_csv  = data_dir+"\\representations\ID-controls-{}.csv".format(method)
     data_syn_fr, data_ID_fr, _, _ = read_rep_landmarks(syn, syn_csv, ID_csv, data_dir)    
+    print("data_syn_fr", data_syn_fr.shape)
+    print("data_ID_fr", data_ID_fr.shape)
+    
     
     method = "facereader-landmarks-distances"
-    syn_csv = GENERAL_DIR+ "\\features_facereader_landmarks_distances_patient_groups_left_right.csv"
-    ID_csv = GENERAL_DIR+ "\\features_facereader_landmarks_distances_all_controls_left_right.csv"    
+    syn_csv = data_dir+"\\representations\{}-patients-{}.csv".format(syn, method)
+    ID_csv  = data_dir+"\\representations\ID-controls-{}.csv".format(method)    
     data_syn_dis, data_ID_dis, _,  _ = read_rep(syn, syn_csv, ID_csv, data_dir)  
+    print("data_syn_dis", data_syn_dis.shape)
+    print("data_ID_dis", data_ID_dis.shape)
     
     # openface + cfps
     data_oc, labels_oc = combine_openface_cfps(syn, data_dir)
-    
+    assert labels_oc.tolist().count(0) == labels_oc.tolist().count(1)
+
     indices_to_keep = []
     
     for index, rep in enumerate(data_syn_dis):
@@ -189,6 +206,8 @@ def load_data(syn, GENERAL_DIR, data_dir):
     # all deepface data
     data_df = data_syn_df.tolist() + data_ID_df.tolist()
     labels_df = labels_syn_df.tolist() + labels_ID_df.tolist()
+    assert labels_df.count(0) == labels_df.count(1)
+        
     
     # only deepface (that also has a facereader rep)
     data_syn_df_drop = data_syn_df[indices_to_keep]
@@ -209,6 +228,7 @@ def load_data(syn, GENERAL_DIR, data_dir):
     labels_syn_df = labels_syn_df[indices_to_keep]
     labels_ID_df = labels_ID_df[indices_to_keep]
     labels = labels_syn_df.tolist() + labels_ID_df.tolist() 
+    assert labels.count(0) == labels.count(1)
 
     return np.array(data_df), np.array(data_df_drop), np.array(data_fr), np.array(data_dis), np.array(data_oc).astype(np.float32), np.array(labels_df), np.array(labels), np.array(labels_oc)
 
@@ -318,27 +338,27 @@ def main(GENERAL_DIR, syn_list, trial):
         # DEEPFACE - KNN - all
         aroc_df_all, spec_df_all, sens_df_all, f1_df_all, _, _, _ = knn_classifier(data_df_all, labels_df_all)
         results_file.write("Deepface with {} patients and {} controls\n".format(labels_df_all.tolist().count(1), labels_df_all.tolist().count(0)))
-        results_file.write("AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}, F1: {:.4f}\n\n".format(aroc_df_all, spec_df_all, sens_df_all, f1_df_all))
+        results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_df_all, spec_df_all, sens_df_all, f1_df_all))
 
         # DEEPFACE - KNN 
         aroc_df, spec_df, sens_df, f1_df, y_true_df, y_probs_df, y_preds_df = knn_classifier(data_df, labels)
         results_file.write("Deepface with {} patients and {} controls\n".format(labels.tolist().count(1), labels.tolist().count(0)))
-        results_file.write("AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}, F1: {:.4f}\n\n".format(aroc_df, spec_df, sens_df, f1_df))
+        results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_df, spec_df, sens_df, f1_df))
 
         # POINTNET 
         aroc_pn, spec_pn, sens_pn, f1_pn, y_true_pn, y_probs_pn, y_preds_pn = pointnet_classifier(data_fr, labels)
         results_file.write("Pointnet with {} patients and {} controls\n".format(labels.tolist().count(1), labels.tolist().count(0)))
-        results_file.write("AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}, F1: {:.4f}\n\n".format(aroc_pn, spec_pn, sens_pn, f1_pn))
+        results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_pn, spec_pn, sens_pn, f1_pn))
 
         # RANDOM FOREST 
         aroc_rf, spec_rf, sens_rf, f1_rf, y_true_rf, y_probs_rf, y_preds_rf = randomforest_classifier(data_dis, labels)
         results_file.write("Random Forest with {} patients and {} controls\n".format(labels.tolist().count(1), labels.tolist().count(0)))
-        results_file.write("AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}, F1: {:.4f}\n\n".format(aroc_rf, spec_rf, sens_rf, f1_rf))
+        results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_rf, spec_rf, sens_rf, f1_rf))
 
         # OPENFACE-CFPS
         aroc_oc, spec_oc, sens_oc, f1_oc, _, _, _ = knn_classifier(data_oc, labels_oc)
-        results_file.write("Openface-CFPS with {} patients and {} controls\n".format(labels.tolist().count(1), labels.tolist().count(0)))
-        results_file.write("AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}, F1: {:.4f}\n\n".format(aroc_oc, spec_oc, sens_oc, f1_oc))
+        results_file.write("Openface-CFPS with {} patients and {} controls\n".format(labels_oc.tolist().count(1), labels_oc.tolist().count(0)))
+        results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_oc, spec_oc, sens_oc, f1_oc))
 
         #ensemble mean 
         ensemble_probs, ensemble_preds = [], []
@@ -356,7 +376,7 @@ def main(GENERAL_DIR, syn_list, trial):
         f1_ensemble = f1_score(y_true_df, ensemble_preds)
 
         results_file.write("Ensemble (deepface/pointnet/random_forest) classifier mean and mode \n".format(labels.tolist().count(1), labels.tolist().count(0)))
-        results_file.write("AROC: {:.4f}, spec: {:.4f}, sens: {:.4f}, F1: {:.4f}\n\n".format(aroc_ensemble, spec_ensemble, sens_ensemble, f1_ensemble))
+        results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_ensemble, spec_ensemble, sens_ensemble, f1_ensemble))
 
     results_file.close()
 

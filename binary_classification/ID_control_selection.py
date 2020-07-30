@@ -113,17 +113,17 @@ def select_controls(GENERAL_DIR, syn, df_syn, df_ID):
             
             assert original_shape[0] - new_shape[0] == 1, "More than one control removed from control Dataframe"
 
-    # save unselected controls to file
-    directory = GENERAL_DIR + "\\{}\\{}-unselected-controls".format(syn, syn)
-    if not os.path.exists(directory):
-        os.makedirs(directory)  
+#     # save unselected controls to file
+#     directory = GENERAL_DIR + "\\{}\\{}-unselected-controls".format(syn, syn)
+#     if not os.path.exists(directory):
+#         os.makedirs(directory)  
     
-    for index, row in df_ID.iterrows():
-        # open image
-        img = cv2.imread(GENERAL_DIR + "\\ID-controls\\{}.jpg".format(row['image']))
+#     for index, row in df_ID.iterrows():
+#         # open image
+#         img = cv2.imread(GENERAL_DIR + "\\ID-controls\\{}.jpg".format(row['image']))
 
-        # save it to new dir
-        cv2.imwrite(directory + "\\{}.jpg".format(row['image']), img)            
+#         # save it to new dir
+#         cv2.imwrite(directory + "\\{}.jpg".format(row['image']), img)            
                                  
     return df_select_syn, df_select_ID
 

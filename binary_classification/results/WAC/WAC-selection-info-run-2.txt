@@ -13,15 +13,15 @@ WAC_9_1.jpg
 WAC_9_2.jpg
 
 Controls for syndrome WAC_9_2.jpg
-P01-0038_small_P01-0038_F1_.jpg
 P01-0741_small_P01-0741_F1_.jpg
-P03-1325_small_DSCN2905.jpg
+P03-2056_small_DSCN0424.jpg
 P05-2254_small_DSCN7948.jpg
-P05-2612_small_DSCN8127.jpg
-P06-0932_small_DSCN9306.jpg
-P07-0563_small_P07-0563_F1_.jpg
-P07-3512_small_RIMG0335.jpg
-P08-0091_small_RIMG0527.jpg
-P08-3279_small_IMG_0215.jpg
+P05-2861_small_DSCN8318.jpg
+P07-3633_small_P07-3633_F1_.jpg
+P08-1586_small_RIMG0542.jpg
+P08-2543_small_RIMG0716.jpg
+P08-3590_small_IMG_3331.jpg
+P09-1765_small_RIMG0655.jpg
+P09-1866_small_RIMG0664.jpg
 P11-1179_small_P11-1179_F1_.jpg
-P15-3672_small_P15-3672_F2_.jpg
+P15-2029_small_P15-2029_B2_.jpg
