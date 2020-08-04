@@ -20,6 +20,7 @@ DEAF1_8.jpg
 DEAF1_9.jpg
 
 KDVS controls for syndrome DEAF1
+KDVS_1.jpg
 KDVS_14.jpg
 KDVS_16.jpg
 KDVS_2.jpg
@@ -27,15 +28,14 @@ KDVS_27.jpg
 KDVS_28.jpg
 KDVS_29.jpg
 KDVS_31.jpg
+KDVS_32.jpg
 KDVS_35.jpg
-KDVS_38.jpg
 KDVS_41.jpg
-KDVS_50.jpg
+KDVS_42.jpg
+KDVS_48.jpg
 KDVS_53.jpg
 KDVS_58.jpg
-KDVS_6.jpg
 KDVS_60.jpg
 KDVS_65.jpg
 KDVS_66.jpg
-KDVS_73.jpg
 KDVS_8.jpg

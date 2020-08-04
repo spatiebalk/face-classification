@@ -23,13 +23,13 @@ KDVS_15.jpg
 KDVS_24.jpg
 KDVS_28.jpg
 KDVS_31.jpg
-KDVS_39.jpg
 KDVS_4.jpg
 KDVS_44.jpg
 KDVS_45.jpg
 KDVS_5.jpg
 KDVS_52.jpg
-KDVS_60.jpg
+KDVS_56.jpg
 KDVS_65.jpg
+KDVS_66.jpg
 KDVS_67.jpg
 KDVS_8.jpg

@@ -11,6 +11,7 @@ ADNP_6.jpg
 ADNP_8.jpg
 
 DYRK1A controls for syndrome ADNP
+DYRK1A_1.jpg
 DYRK1A_10_1.jpg
 DYRK1A_11.jpg
 DYRK1A_12_1.jpg
@@ -20,4 +21,3 @@ DYRK1A_18_1.jpg
 DYRK1A_3.jpg
 DYRK1A_6.jpg
 DYRK1A_7.jpg
-DYRK1A_9_1.jpg

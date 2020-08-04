@@ -12,10 +12,10 @@ DEAF1_7.jpg
 DEAF1_8.jpg
 
 SON controls for syndrome DEAF1
+SON_11.jpg
 SON_12.jpg
 SON_14.jpg
 SON_17.jpg
-SON_19.jpg
 SON_20.jpg
 SON_23.jpg
 SON_24.jpg

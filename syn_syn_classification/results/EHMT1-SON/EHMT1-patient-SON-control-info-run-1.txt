@@ -19,6 +19,7 @@ SON_11.jpg
 SON_14.jpg
 SON_16.jpg
 SON_17.jpg
+SON_19.jpg
 SON_2.jpg
 SON_20.jpg
 SON_24.jpg
@@ -27,5 +28,4 @@ SON_28.jpg
 SON_3.jpg
 SON_5.jpg
 SON_6.jpg
-SON_7.jpg
 SON_9.jpg

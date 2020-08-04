@@ -31,10 +31,10 @@ CDK13_8.jpg
 
 KDVS controls for syndrome CDK13
 KDVS_16.jpg
-KDVS_2.jpg
+KDVS_18.jpg
 KDVS_20.jpg
 KDVS_21.jpg
-KDVS_27.jpg
+KDVS_25.jpg
 KDVS_28.jpg
 KDVS_30.jpg
 KDVS_31.jpg
@@ -44,11 +44,11 @@ KDVS_35.jpg
 KDVS_41.jpg
 KDVS_43.jpg
 KDVS_48.jpg
-KDVS_49.jpg
+KDVS_53.jpg
 KDVS_54.jpg
 KDVS_57.jpg
 KDVS_59.jpg
-KDVS_64.jpg
+KDVS_63.jpg
 KDVS_65.jpg
 KDVS_67.jpg
 KDVS_68.jpg
