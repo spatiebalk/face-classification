@@ -323,7 +323,7 @@ BATCH_SIZE = 8
 def main(GENERAL_DIR, syn_list, trial):
 
     ## open file 
-    results_file = open("results/ensemble_results_3_models_run_{}.txt".format(trial), "w")
+    results_file = open("results/ensemble_results_3_models_run_{}_22q11.txt".format(trial), "w")
 
     # read in all data (per syndrome) which has a facereader and deepface representation
     for syn in syn_list:
