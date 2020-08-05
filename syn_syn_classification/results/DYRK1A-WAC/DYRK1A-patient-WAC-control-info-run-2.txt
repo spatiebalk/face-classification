@@ -1,0 +1,17 @@
+Patients for syndrome DYRK1A
+DYRK1A_1.jpg
+DYRK1A_10_1.jpg
+DYRK1A_19.jpg
+DYRK1A_3.jpg
+DYRK1A_5.jpg
+DYRK1A_6.jpg
+DYRK1A_7.jpg
+
+WAC controls for syndrome DYRK1A
+WAC_10_1.jpg
+WAC_10_2.jpg
+WAC_13_2.jpg
+WAC_6_2.jpg
+WAC_8.jpg
+WAC_9_1.jpg
+WAC_9_2.jpg

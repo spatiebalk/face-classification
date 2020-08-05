@@ -1,0 +1,33 @@
+Patients for syndrome ADNP
+ADNP_10.jpg
+ADNP_12_1.jpg
+ADNP_14.jpg
+ADNP_2.jpg
+ADNP_21.jpg
+ADNP_39.jpg
+ADNP_4.jpg
+ADNP_40.jpg
+ADNP_45.jpg
+ADNP_46.jpg
+ADNP_48.jpg
+ADNP_50.jpg
+ADNP_52.jpg
+ADNP_6.jpg
+ADNP_8.jpg
+
+ANKRD11 controls for syndrome ADNP
+ANKRD11_11_1.jpg
+ANKRD11_12.jpg
+ANKRD11_14.jpg
+ANKRD11_15.jpg
+ANKRD11_17.jpg
+ANKRD11_20.jpg
+ANKRD11_21_1.jpg
+ANKRD11_22_1.jpg
+ANKRD11_23.jpg
+ANKRD11_25.jpg
+ANKRD11_26.jpg
+ANKRD11_27_1.jpg
+ANKRD11_4.jpg
+ANKRD11_8.jpg
+ANKRD11_9_1.jpg

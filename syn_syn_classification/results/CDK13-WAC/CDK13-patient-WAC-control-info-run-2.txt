@@ -1,0 +1,23 @@
+Patients for syndrome CDK13
+CDK13_10_1.jpg
+CDK13_13_1.jpg
+CDK13_17_1.jpg
+CDK13_2.jpg
+CDK13_23_1.jpg
+CDK13_30.jpg
+CDK13_33.jpg
+CDK13_4.jpg
+CDK13_5_1.jpg
+CDK13_8.jpg
+
+WAC controls for syndrome CDK13
+WAC_10_1.jpg
+WAC_10_2.jpg
+WAC_13_1.jpg
+WAC_16_1.jpg
+WAC_2.jpg
+WAC_3.jpg
+WAC_6_1.jpg
+WAC_6_2.jpg
+WAC_8.jpg
+WAC_9_1.jpg

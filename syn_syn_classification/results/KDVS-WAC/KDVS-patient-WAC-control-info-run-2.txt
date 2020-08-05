@@ -1,0 +1,27 @@
+Patients for syndrome KDVS
+KDVS_1.jpg
+KDVS_13.jpg
+KDVS_14.jpg
+KDVS_18.jpg
+KDVS_19.jpg
+KDVS_2.jpg
+KDVS_23.jpg
+KDVS_3.jpg
+KDVS_30.jpg
+KDVS_4.jpg
+KDVS_6.jpg
+KDVS_8.jpg
+
+WAC controls for syndrome KDVS
+WAC_10_1.jpg
+WAC_10_2.jpg
+WAC_13_1.jpg
+WAC_13_2.jpg
+WAC_16_1.jpg
+WAC_2.jpg
+WAC_3.jpg
+WAC_6_1.jpg
+WAC_6_2.jpg
+WAC_8.jpg
+WAC_9_1.jpg
+WAC_9_2.jpg
