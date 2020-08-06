@@ -1,0 +1,19 @@
+Syndrome: 22q11
+Deepface with 45 patients and 45 controls
+AROC: 0.760 spec: 0.644 sens: 0.800 F1: 0.742
+
+Deepface with 14 patients and 14 controls
+AROC: 0.597 spec: 0.571 sens: 0.714 F1: 0.667
+
+Pointnet with 14 patients and 14 controls
+AROC: 0.523 spec: 0.786 sens: 0.357 F1: 0.455
+
+Random Forest with 14 patients and 14 controls
+AROC: 0.574 spec: 0.643 sens: 0.500 F1: 0.538
+
+Openface-CFPS with 45 patients and 45 controls
+AROC: 0.738 spec: 0.733 sens: 0.622 F1: 0.659
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.645 spec: 0.786 sens: 0.500 F1: 0.583
+
