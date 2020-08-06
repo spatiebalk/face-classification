@@ -14,22 +14,20 @@ DYRK1A_5.jpg
 DYRK1A_6.jpg
 DYRK1A_7.jpg
 DYRK1A_8.jpg
-DYRK1A_9_1.jpg
 
-KDVS controls for syndrome DYRK1A
-KDVS_11.jpg
-KDVS_14.jpg
-KDVS_15.jpg
-KDVS_24.jpg
-KDVS_28.jpg
-KDVS_31.jpg
-KDVS_4.jpg
-KDVS_44.jpg
-KDVS_45.jpg
-KDVS_5.jpg
-KDVS_52.jpg
-KDVS_56.jpg
-KDVS_60.jpg
-KDVS_65.jpg
-KDVS_67.jpg
-KDVS_8.jpg
+22q11 controls for syndrome DYRK1A
+22q11_1.jpg
+22q11_10.jpg
+22q11_23.jpg
+22q11_28.jpg
+22q11_3.jpg
+22q11_33.jpg
+22q11_36.jpg
+22q11_4.jpg
+22q11_40.jpg
+22q11_45.jpg
+22q11_53.jpg
+22q11_57.jpg
+22q11_6.jpg
+22q11_67.jpg
+22q11_69.jpg

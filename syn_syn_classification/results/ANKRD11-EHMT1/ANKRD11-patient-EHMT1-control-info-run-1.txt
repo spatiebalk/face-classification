@@ -20,11 +20,11 @@ ANKRD11_9_1.jpg
 
 EHMT1 controls for syndrome ANKRD11
 EHMT1_11_1.jpg
-EHMT1_17.jpg
 EHMT1_20_1.jpg
 EHMT1_21.jpg
 EHMT1_27_1.jpg
 EHMT1_32_1.jpg
+EHMT1_34.jpg
 EHMT1_35_1.jpg
 EHMT1_36.jpg
 EHMT1_39.jpg

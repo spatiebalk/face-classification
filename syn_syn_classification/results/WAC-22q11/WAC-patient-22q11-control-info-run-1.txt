@@ -1,0 +1,23 @@
+Patients for syndrome WAC
+WAC_10_1.jpg
+WAC_10_2.jpg
+WAC_13_1.jpg
+WAC_13_2.jpg
+WAC_16_1.jpg
+WAC_2.jpg
+WAC_3.jpg
+WAC_8.jpg
+WAC_9_1.jpg
+WAC_9_2.jpg
+
+22q11 controls for syndrome WAC
+22q11_10.jpg
+22q11_2.jpg
+22q11_27.jpg
+22q11_3.jpg
+22q11_32.jpg
+22q11_34.jpg
+22q11_36.jpg
+22q11_40.jpg
+22q11_45.jpg
+22q11_51.jpg
