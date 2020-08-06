@@ -273,6 +273,17 @@ def pointnet_classifier(data, labels):
         y_train, _ = np.array(labels[train_index]), labels[test_index]
 
         model = pointnet_model.generate_model()
+        
+        print(type(X_train))
+        print(type(y_train))
+        print(X_train.shape)
+        print(y_train.shape)
+        for x in X_train:
+            if(np.array(x).shape[0] == 31):
+                print(x)
+                break
+            #print(np.array(x).shape)
+            
         model.fit(x=X_train, y=y_train, batch_size=BATCH_SIZE, epochs=4, shuffle=True)
 
         y_pred_array = model.predict(X_test)
