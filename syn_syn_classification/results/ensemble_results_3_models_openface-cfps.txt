@@ -1,0 +1,265 @@
+Syndrome: ADNP - ANKRD11 
+Openface-CFPS with 13 patients and 13 controls
+AROC: 0.5858, spec: 0.8462, sens: 0.2308, F1: 0.3333
+
+Syndrome: ADNP - CDK13 
+Openface-CFPS with 18 patients and 18 controls
+AROC: 0.7346, spec: 0.6667, sens: 0.6667, F1: 0.6667
+
+Syndrome: ADNP - DEAF1 
+Openface-CFPS with 14 patients and 14 controls
+AROC: 0.7219, spec: 0.7857, sens: 0.5000, F1: 0.5833
+
+Syndrome: ADNP - DYRK1A 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.5500, spec: 0.9000, sens: 0.3000, F1: 0.4286
+
+Syndrome: ADNP - EHMT1 
+Openface-CFPS with 27 patients and 27 controls
+AROC: 0.5857, spec: 0.5185, sens: 0.7407, F1: 0.6667
+
+Syndrome: ADNP - FBXO11 
+Openface-CFPS with 13 patients and 13 controls
+AROC: 0.7308, spec: 0.6154, sens: 0.6154, F1: 0.6154
+
+Syndrome: ADNP - KDVS 
+Openface-CFPS with 31 patients and 31 controls
+AROC: 0.7477, spec: 0.8387, sens: 0.5806, F1: 0.6667
+
+Syndrome: ADNP - SON 
+Openface-CFPS with 12 patients and 12 controls
+AROC: 0.4514, spec: 0.3333, sens: 0.7500, F1: 0.6207
+
+Syndrome: ADNP - WAC 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.8150, spec: 0.8000, sens: 0.6000, F1: 0.6667
+
+Syndrome: ADNP - YY1 
+Openface-CFPS with 9 patients and 9 controls
+AROC: 0.7901, spec: 1.0000, sens: 0.4444, F1: 0.6154
+
+Syndrome: ADNP - 22q11 
+Openface-CFPS with 27 patients and 27 controls
+AROC: 0.7661, spec: 0.8889, sens: 0.5926, F1: 0.6957
+
+Syndrome: ANKRD11 - CDK13 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.9200, spec: 0.8000, sens: 0.9000, F1: 0.8571
+
+Syndrome: ANKRD11 - DEAF1 
+Openface-CFPS with 13 patients and 13 controls
+AROC: 0.6479, spec: 0.7692, sens: 0.5385, F1: 0.6087
+
+Syndrome: ANKRD11 - DYRK1A 
+Openface-CFPS with 12 patients and 12 controls
+AROC: 0.6389, spec: 0.5000, sens: 0.6667, F1: 0.6154
+
+Syndrome: ANKRD11 - EHMT1 
+Openface-CFPS with 14 patients and 14 controls
+AROC: 0.7857, spec: 0.7857, sens: 0.7857, F1: 0.7857
+
+Syndrome: ANKRD11 - FBXO11 
+Openface-CFPS with 9 patients and 9 controls
+AROC: 0.7593, spec: 0.6667, sens: 1.0000, F1: 0.8571
+
+Syndrome: ANKRD11 - KDVS 
+Openface-CFPS with 19 patients and 19 controls
+AROC: 0.8643, spec: 0.7895, sens: 0.7368, F1: 0.7568
+
+Syndrome: ANKRD11 - SON 
+Openface-CFPS with 8 patients and 8 controls
+AROC: 0.4062, spec: 0.2500, sens: 0.5000, F1: 0.4444
+
+Syndrome: ANKRD11 - WAC 
+Openface-CFPS with 7 patients and 7 controls
+AROC: 0.8673, spec: 1.0000, sens: 0.8571, F1: 0.9231
+
+Syndrome: ANKRD11 - YY1 
+Openface-CFPS with 7 patients and 7 controls
+AROC: 0.6531, spec: 1.0000, sens: 0.1429, F1: 0.2500
+
+Syndrome: ANKRD11 - 22q11 
+Openface-CFPS with 16 patients and 16 controls
+AROC: 0.8145, spec: 0.6875, sens: 0.7500, F1: 0.7273
+
+Syndrome: CDK13 - DEAF1 
+Openface-CFPS with 15 patients and 15 controls
+AROC: 0.6933, spec: 0.9333, sens: 0.3333, F1: 0.4762
+
+Syndrome: CDK13 - DYRK1A 
+Openface-CFPS with 11 patients and 11 controls
+AROC: 0.9215, spec: 1.0000, sens: 0.6364, F1: 0.7778
+
+Syndrome: CDK13 - EHMT1 
+Openface-CFPS with 23 patients and 23 controls
+AROC: 0.8582, spec: 0.9130, sens: 0.6522, F1: 0.7500
+
+Syndrome: CDK13 - FBXO11 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.4150, spec: 0.7000, sens: 0.4000, F1: 0.4706
+
+Syndrome: CDK13 - KDVS 
+Openface-CFPS with 28 patients and 28 controls
+AROC: 0.6990, spec: 0.6071, sens: 0.7143, F1: 0.6780
+
+Syndrome: CDK13 - SON 
+Openface-CFPS with 13 patients and 13 controls
+AROC: 0.8047, spec: 0.7692, sens: 0.6923, F1: 0.7200
+
+Syndrome: CDK13 - WAC 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.9800, spec: 1.0000, sens: 0.8000, F1: 0.8889
+
+Syndrome: CDK13 - YY1 
+Openface-CFPS with 7 patients and 7 controls
+AROC: 0.5000, spec: 0.5714, sens: 0.1429, F1: 0.1818
+
+Syndrome: CDK13 - 22q11 
+Openface-CFPS with 18 patients and 18 controls
+AROC: 0.7407, spec: 0.8889, sens: 0.5000, F1: 0.6207
+
+Syndrome: DEAF1 - DYRK1A 
+Openface-CFPS with 12 patients and 12 controls
+AROC: 0.6806, spec: 0.5000, sens: 0.7500, F1: 0.6667
+
+Syndrome: DEAF1 - EHMT1 
+Openface-CFPS with 16 patients and 16 controls
+AROC: 0.7227, spec: 0.5000, sens: 0.8125, F1: 0.7027
+
+Syndrome: DEAF1 - FBXO11 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.4600, spec: 0.0000, sens: 0.9000, F1: 0.6207
+
+Syndrome: DEAF1 - KDVS 
+Openface-CFPS with 18 patients and 18 controls
+AROC: 0.7099, spec: 0.4444, sens: 0.9444, F1: 0.7556
+
+Syndrome: DEAF1 - SON 
+Openface-CFPS with 11 patients and 11 controls
+AROC: 0.7107, spec: 0.1818, sens: 1.0000, F1: 0.7097
+
+Syndrome: DEAF1 - WAC 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.7900, spec: 0.7000, sens: 0.8000, F1: 0.7619
+
+Syndrome: DEAF1 - YY1 
+Openface-CFPS with 6 patients and 6 controls
+AROC: 0.0278, spec: 0.0000, sens: 0.1667, F1: 0.1538
+
+Syndrome: DEAF1 - 22q11 
+Openface-CFPS with 18 patients and 18 controls
+AROC: 0.5556, spec: 0.3333, sens: 0.7778, F1: 0.6364
+
+Syndrome: DYRK1A - EHMT1 
+Openface-CFPS with 14 patients and 14 controls
+AROC: 0.6020, spec: 0.4286, sens: 0.7857, F1: 0.6667
+
+Syndrome: DYRK1A - FBXO11 
+Openface-CFPS with 8 patients and 8 controls
+AROC: 0.2969, spec: 0.2500, sens: 0.7500, F1: 0.6000
+
+Syndrome: DYRK1A - KDVS 
+Openface-CFPS with 14 patients and 14 controls
+AROC: 0.7959, spec: 0.8571, sens: 0.6429, F1: 0.7200
+
+Syndrome: DYRK1A - SON 
+Openface-CFPS with 9 patients and 9 controls
+AROC: 0.7099, spec: 0.3333, sens: 0.7778, F1: 0.6364
+
+Syndrome: DYRK1A - WAC 
+Openface-CFPS with 7 patients and 7 controls
+AROC: 0.8163, spec: 0.7143, sens: 0.4286, F1: 0.5000
+
+Syndrome: DYRK1A - YY1 
+Openface-CFPS with 7 patients and 7 controls
+AROC: 0.6735, spec: 0.8571, sens: 0.2857, F1: 0.4000
+
+Syndrome: DYRK1A - 22q11 
+Openface-CFPS with 15 patients and 15 controls
+AROC: 0.6733, spec: 0.8667, sens: 0.4667, F1: 0.5833
+
+Syndrome: EHMT1 - FBXO11 
+Openface-CFPS with 13 patients and 13 controls
+AROC: 0.6627, spec: 0.6154, sens: 0.7692, F1: 0.7143
+
+Syndrome: EHMT1 - KDVS 
+Openface-CFPS with 35 patients and 35 controls
+AROC: 0.8812, spec: 0.8571, sens: 0.7143, F1: 0.7692
+
+Syndrome: EHMT1 - SON 
+Openface-CFPS with 14 patients and 14 controls
+AROC: 0.7959, spec: 0.7857, sens: 0.6429, F1: 0.6923
+
+Syndrome: EHMT1 - WAC 
+Openface-CFPS with 12 patients and 12 controls
+AROC: 0.8750, spec: 1.0000, sens: 0.5000, F1: 0.6667
+
+Syndrome: EHMT1 - YY1 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.9300, spec: 1.0000, sens: 0.7000, F1: 0.8235
+
+Syndrome: EHMT1 - 22q11 
+Openface-CFPS with 32 patients and 32 controls
+AROC: 0.7192, spec: 0.8750, sens: 0.5000, F1: 0.6154
+
+Syndrome: FBXO11 - KDVS 
+Openface-CFPS with 16 patients and 16 controls
+AROC: 0.7051, spec: 0.8750, sens: 0.4375, F1: 0.5600
+
+Syndrome: FBXO11 - SON 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.6050, spec: 0.4000, sens: 0.7000, F1: 0.6087
+
+Syndrome: FBXO11 - WAC 
+Openface-CFPS with 4 patients and 4 controls
+AROC: 0.7500, spec: 0.7500, sens: 0.5000, F1: 0.5714
+
+Syndrome: FBXO11 - YY1 
+Openface-CFPS with 4 patients and 4 controls
+AROC: 0.5000, spec: 0.7500, sens: 0.0000, F1: 0.0000
+
+Syndrome: FBXO11 - 22q11 
+Openface-CFPS with 17 patients and 17 controls
+AROC: 0.5346, spec: 0.4706, sens: 0.4706, F1: 0.4706
+
+Syndrome: KDVS - SON 
+Openface-CFPS with 17 patients and 17 controls
+AROC: 0.9343, spec: 0.7647, sens: 1.0000, F1: 0.8947
+
+Syndrome: KDVS - WAC 
+Openface-CFPS with 11 patients and 11 controls
+AROC: 0.9669, spec: 0.9091, sens: 0.9091, F1: 0.9091
+
+Syndrome: KDVS - YY1 
+Openface-CFPS with 9 patients and 9 controls
+AROC: 0.4568, spec: 0.5556, sens: 0.3333, F1: 0.3750
+
+Syndrome: KDVS - 22q11 
+Openface-CFPS with 39 patients and 39 controls
+AROC: 0.5884, spec: 0.4103, sens: 0.6154, F1: 0.5581
+
+Syndrome: SON - WAC 
+Openface-CFPS with 8 patients and 8 controls
+AROC: 0.6484, spec: 1.0000, sens: 0.2500, F1: 0.4000
+
+Syndrome: SON - YY1 
+Openface-CFPS with 7 patients and 7 controls
+AROC: 0.3061, spec: 0.5714, sens: 0.1429, F1: 0.1818
+
+Syndrome: SON - 22q11 
+Openface-CFPS with 14 patients and 14 controls
+AROC: 0.6071, spec: 0.7857, sens: 0.5000, F1: 0.5833
+
+Syndrome: WAC - YY1 
+Openface-CFPS with 5 patients and 5 controls
+AROC: 0.4200, spec: 0.2000, sens: 1.0000, F1: 0.7143
+
+Syndrome: WAC - 22q11 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.9900, spec: 0.9000, sens: 0.9000, F1: 0.9000
+
+Syndrome: YY1 - 22q11 
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.3950, spec: 0.5000, sens: 0.2000, F1: 0.2353
+
+This script took 0.2803 hours
