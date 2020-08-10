@@ -1,16 +1,10 @@
 # # Implementation of DeepFace using Keras
-import keras
 import numpy as np
-from os import path
-from os import listdir
+from os import path, listdir
 from os.path import isfile, join
-from PIL import Image 
-from keras.models import Model
 import tensorflow as tf
 import csv
 import pandas as pd
-from tqdm import tqdm
-import keras.initializers
 
 IMAGE_SIZE = (152, 152) # set by the model 
 CHANNELS = 3 # RGB image
@@ -77,13 +71,26 @@ def create_deepface():
     return model2
 
 
-def get_deepface_rep(filename):
+def get_deepface_rep(model, filename):
 
-    model = create_deepface()
-    im = Image.open(filename)
-    im = im.resize(IMAGE_SIZE)
-    im = np.array(im, dtype=np.float32)
-    output = model.predict(np.expand_dims(im, axis=0))
+    #model = create_deepface()
+    
+    im = cv2.imread(filename)       
+    (height, width, channels) = im.shape
+
+    if width != height:      
+        if width < height:
+            half  = int((height - width) / 2)
+            im = cv2.copyMakeBorder(im, 0, 0, half, half, cv2.BORDER_REPLICATE) 
+        else:
+            half  = int((width - height) / 2)
+            im = cv2.copyMakeBorder(im, half, half, 0, 0, cv2.BORDER_REPLICATE) 
+                
+    im = cv2.resize(im, (IMAGE_SIZE)) 
+    im = np.expand_dims(im, axis=0)
+    im = np.array(im, dtype=np.float64) 
+    
+    output = model.predict(im)
 
     return output
 

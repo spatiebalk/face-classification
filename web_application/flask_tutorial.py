@@ -5,7 +5,6 @@ import pickle5 as pickle
 import os
 from os.path import isfile, join
 import numpy as np
-import keras
 import tensorflow as tf 
 from statistics import mode
 
@@ -17,6 +16,7 @@ import landmarks_distances
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 syns = ['ADNP', 'ANKRD11','CDK13', 'DEAF1', 'DYRK1A', 'EHMT1', 'FBXO11', 'KDVS', 'SON', 'WAC', 'YY1']
+deepface_model = None
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -29,6 +29,11 @@ def allowed_file(filename):
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/home", methods=['GET', 'POST'])
 def home():
+    global deepface_model
+    if deepface_model == None:
+       print("creating deepface")
+       deepface_model = deepface.create_deepface()
+       
     if request.method == 'POST':
         syn = request.form.get('syns')
         
@@ -57,7 +62,7 @@ def contact():
 
 @app.route("/analyze")
 def analyze(syn, filename):
-    deepface_rep = deepface.get_deepface_rep(join(UPLOAD_FOLDER, filename))
+    deepface_rep = deepface.get_deepface_rep(deepface_model, join(UPLOAD_FOLDER, filename))
     facereader_rep = facereader.get_facereader_rep(join(UPLOAD_FOLDER, filename))
     
     prob_df, pred_df, prob_pn, pred_pn, prob_rf, pred_rf, mean_prob, mode_pred = 0, 0, 0, 0, 0, 0, 0, 0 
