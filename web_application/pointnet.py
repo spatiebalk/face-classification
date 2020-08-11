@@ -2,9 +2,7 @@ from os import listdir
 from os.path import join, isfile
 import numpy as np #1.16.4 otherwise futurewarning tensorflow
 import tensorflow as tf
-import matplotlib.pyplot as plt
 import csv
-from tqdm import tqdm
 from sklearn.model_selection import LeaveOneOut
 
 NUM_CLASSES = 2

@@ -44,7 +44,7 @@ def create_classifying_deepface(image_size=IMAGE_SIZE, channels=CHANNELS, num_cl
 
 def get_weights():
     filename = 'deepface.zip'
-    downloaded_file_path = keras.utils.get_file(filename, DOWNLOAD_PATH,
+    downloaded_file_path = tf.keras.utils.get_file(filename, DOWNLOAD_PATH,
         md5_hash=MD5_HASH, extract=True)
     downloaded_h5_file = path.join(path.dirname(downloaded_file_path),
         path.basename(DOWNLOAD_PATH).rstrip('.zip'))
