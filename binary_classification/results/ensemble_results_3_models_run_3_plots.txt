@@ -1,0 +1,228 @@
+Syndrome: ADNP
+Deepface with 33 patients and 33 controls
+AROC: 0.691 spec: 0.788 sens: 0.394 F1: 0.491
+
+Deepface with 13 patients and 13 controls
+AROC: 0.515 spec: 0.923 sens: 0.231 F1: 0.353
+
+Pointnet with 13 patients and 13 controls
+AROC: 0.500 spec: 0.846 sens: 0.154 F1: 0.235
+
+Random Forest with 13 patients and 13 controls
+AROC: 0.364 spec: 0.615 sens: 0.231 F1: 0.286
+
+Openface-CFPS with 33 patients and 33 controls
+AROC: 0.691 spec: 0.727 sens: 0.545 F1: 0.600
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.456 spec: 1.000 sens: 0.154 F1: 0.267
+
+Syndrome: ANKRD11
+Deepface with 25 patients and 25 controls
+AROC: 0.771 spec: 0.720 sens: 0.720 F1: 0.720
+
+Deepface with 18 patients and 18 controls
+AROC: 0.793 spec: 0.722 sens: 0.667 F1: 0.686
+
+Pointnet with 18 patients and 18 controls
+AROC: 0.566 spec: 0.667 sens: 0.389 F1: 0.452
+
+Random Forest with 18 patients and 18 controls
+AROC: 0.756 spec: 0.722 sens: 0.778 F1: 0.757
+
+Openface-CFPS with 21 patients and 21 controls
+AROC: 0.857 spec: 0.762 sens: 0.810 F1: 0.791
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.775 spec: 0.722 sens: 0.667 F1: 0.686
+
+Syndrome: CDK13
+Deepface with 30 patients and 30 controls
+AROC: 0.525 spec: 0.467 sens: 0.533 F1: 0.516
+
+Deepface with 17 patients and 17 controls
+AROC: 0.355 spec: 0.294 sens: 0.529 F1: 0.474
+
+Pointnet with 17 patients and 17 controls
+AROC: 0.588 spec: 1.000 sens: 0.176 F1: 0.300
+
+Random Forest with 17 patients and 17 controls
+AROC: 0.742 spec: 0.824 sens: 0.647 F1: 0.710
+
+Openface-CFPS with 30 patients and 30 controls
+AROC: 0.888 spec: 0.733 sens: 0.867 F1: 0.812
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.737 spec: 0.941 sens: 0.471 F1: 0.615
+
+Syndrome: DEAF1
+Deepface with 19 patients and 19 controls
+AROC: 0.596 spec: 0.684 sens: 0.579 F1: 0.611
+
+Deepface with 15 patients and 15 controls
+AROC: 0.584 spec: 0.667 sens: 0.667 F1: 0.667
+
+Pointnet with 15 patients and 15 controls
+AROC: 0.616 spec: 0.667 sens: 0.667 F1: 0.667
+
+Random Forest with 15 patients and 15 controls
+AROC: 0.516 spec: 0.667 sens: 0.467 F1: 0.519
+
+Openface-CFPS with 19 patients and 19 controls
+AROC: 0.641 spec: 0.579 sens: 0.842 F1: 0.744
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.689 spec: 0.667 sens: 0.667 F1: 0.667
+
+Syndrome: DYRK1A
+Deepface with 16 patients and 16 controls
+AROC: 0.812 spec: 0.875 sens: 0.438 F1: 0.560
+
+Deepface with 10 patients and 10 controls
+AROC: 0.685 spec: 0.800 sens: 0.500 F1: 0.588
+
+Pointnet with 10 patients and 10 controls
+AROC: 0.595 spec: 0.800 sens: 0.200 F1: 0.286
+
+Random Forest with 10 patients and 10 controls
+AROC: 0.730 spec: 0.800 sens: 0.800 F1: 0.800
+
+Openface-CFPS with 16 patients and 16 controls
+AROC: 0.750 spec: 0.688 sens: 0.625 F1: 0.645
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.710 spec: 0.800 sens: 0.400 F1: 0.500
+
+Syndrome: EHMT1
+Deepface with 39 patients and 39 controls
+AROC: 0.827 spec: 0.872 sens: 0.615 F1: 0.706
+
+Deepface with 15 patients and 15 controls
+AROC: 0.842 spec: 0.733 sens: 0.800 F1: 0.774
+
+Pointnet with 15 patients and 15 controls
+AROC: 0.551 spec: 0.667 sens: 0.533 F1: 0.571
+
+Random Forest with 15 patients and 15 controls
+AROC: 0.882 spec: 0.867 sens: 0.733 F1: 0.786
+
+Openface-CFPS with 39 patients and 39 controls
+AROC: 0.867 spec: 0.846 sens: 0.718 F1: 0.767
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.924 spec: 0.867 sens: 0.733 F1: 0.786
+
+Syndrome: FBXO11
+Deepface with 17 patients and 17 controls
+AROC: 0.446 spec: 0.588 sens: 0.235 F1: 0.286
+
+Deepface with 15 patients and 15 controls
+AROC: 0.533 spec: 0.667 sens: 0.267 F1: 0.333
+
+Pointnet with 15 patients and 15 controls
+AROC: 0.500 spec: 0.533 sens: 0.467 F1: 0.483
+
+Random Forest with 15 patients and 15 controls
+AROC: 0.524 spec: 0.733 sens: 0.333 F1: 0.417
+
+Openface-CFPS with 17 patients and 17 controls
+AROC: 0.585 spec: 0.471 sens: 0.647 F1: 0.595
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.547 spec: 0.733 sens: 0.333 F1: 0.417
+
+Syndrome: KDVS
+Deepface with 75 patients and 75 controls
+AROC: 0.709 spec: 0.587 sens: 0.720 F1: 0.675
+
+Deepface with 52 patients and 52 controls
+AROC: 0.711 spec: 0.615 sens: 0.673 F1: 0.654
+
+Pointnet with 52 patients and 52 controls
+AROC: 0.408 spec: 0.538 sens: 0.423 F1: 0.449
+
+Random Forest with 52 patients and 52 controls
+AROC: 0.525 spec: 0.654 sens: 0.423 F1: 0.478
+
+Openface-CFPS with 70 patients and 70 controls
+AROC: 0.764 spec: 0.729 sens: 0.671 F1: 0.691
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.578 spec: 0.635 sens: 0.519 F1: 0.551
+
+Syndrome: SON
+Deepface with 18 patients and 18 controls
+AROC: 0.688 spec: 0.444 sens: 0.611 F1: 0.564
+
+Deepface with 10 patients and 10 controls
+AROC: 0.630 spec: 0.600 sens: 0.700 F1: 0.667
+
+Pointnet with 10 patients and 10 controls
+AROC: 0.405 spec: 0.500 sens: 0.300 F1: 0.333
+
+Random Forest with 10 patients and 10 controls
+AROC: 0.590 spec: 0.400 sens: 0.500 F1: 0.476
+
+Openface-CFPS with 18 patients and 18 controls
+AROC: 0.770 spec: 0.722 sens: 0.722 F1: 0.722
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.490 spec: 0.500 sens: 0.500 F1: 0.500
+
+Syndrome: WAC
+Deepface with 12 patients and 12 controls
+AROC: 0.438 spec: 0.667 sens: 0.500 F1: 0.545
+
+Deepface with 9 patients and 9 controls
+AROC: 0.432 spec: 0.556 sens: 0.444 F1: 0.471
+
+Pointnet with 9 patients and 9 controls
+AROC: 0.556 spec: 0.889 sens: 0.222 F1: 0.333
+
+Random Forest with 9 patients and 9 controls
+AROC: 0.877 spec: 0.889 sens: 0.778 F1: 0.824
+
+Openface-CFPS with 12 patients and 12 controls
+AROC: 0.764 spec: 0.750 sens: 0.667 F1: 0.696
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.741 spec: 0.889 sens: 0.444 F1: 0.571
+
+Syndrome: YY1
+Deepface with 10 patients and 10 controls
+AROC: 0.735 spec: 0.700 sens: 0.700 F1: 0.700
+
+Deepface with 6 patients and 6 controls
+AROC: 0.500 spec: 0.500 sens: 0.500 F1: 0.500
+
+Pointnet with 6 patients and 6 controls
+AROC: 0.389 spec: 0.333 sens: 0.500 F1: 0.462
+
+Random Forest with 6 patients and 6 controls
+AROC: 0.819 spec: 0.667 sens: 0.833 F1: 0.769
+
+Openface-CFPS with 10 patients and 10 controls
+AROC: 0.625 spec: 0.500 sens: 0.700 F1: 0.636
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.500 spec: 0.500 sens: 0.667 F1: 0.615
+
+Syndrome: 22q11
+Deepface with 45 patients and 45 controls
+AROC: 0.581 spec: 0.422 sens: 0.711 F1: 0.621
+
+Deepface with 16 patients and 16 controls
+AROC: 0.523 spec: 0.312 sens: 0.875 F1: 0.683
+
+Pointnet with 16 patients and 16 controls
+AROC: 0.910 spec: 0.875 sens: 0.875 F1: 0.875
+
+Random Forest with 16 patients and 16 controls
+AROC: 0.568 spec: 0.500 sens: 0.438 F1: 0.452
+
+Openface-CFPS with 45 patients and 45 controls
+AROC: 0.550 spec: 0.644 sens: 0.511 F1: 0.548
+
+Ensemble (deepface/pointnet/random_forest) classifier mean and mode 
+AROC: 0.855 spec: 0.500 sens: 0.812 F1: 0.703
+
