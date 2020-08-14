@@ -5,6 +5,7 @@ from os.path import isfile, join
 import tensorflow as tf
 import csv
 import pandas as pd
+import cv2
 
 IMAGE_SIZE = (152, 152) # set by the model 
 CHANNELS = 3 # RGB image

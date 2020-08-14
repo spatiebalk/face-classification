@@ -15,7 +15,7 @@ import landmarks_distances
 
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
-syns = ['ADNP', 'ANKRD11','CDK13', 'DEAF1', 'DYRK1A', 'EHMT1', 'FBXO11', 'KDVS', 'SON', 'WAC', 'YY1']
+syns = ['ADNP', 'ANKRD11','CDK13', 'DEAF1', 'DYRK1A', 'EHMT1', 'FBXO11', 'KDVS', 'SON', 'WAC', 'YY1', '22q11']
 deepface_model = None
 
 app = Flask(__name__)

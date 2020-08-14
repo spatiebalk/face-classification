@@ -10,23 +10,23 @@
 
 	</tr>
 	<tr>
-		<td>DeepFace rep - knn</td>
-		<td>{{ prob_df }} </td>
+		<td>Deepface model</td>
+		<td>{{ "{:.3f}".format(prob_df) }} </td>
 		<td>{{ pred_df }} </td>
 	</tr>
 	<tr>
-		<td>Pointnet</td>
-		<td>{{ prob_pn }} </td>
+		<td>FaceReader PointNet model</td>
+		<td>{{ "{:.3f}".format(prob_pn) }} </td>
 		<td>{{ pred_pn }} </td>
 	</tr>
 	<tr>
-		<td>Random Forest</td>
-		<td>{{ prob_rf }} </td>
+		<td>FaceReader distance model</td>
+		<td>{{ "{:.3f}".format(prob_rf) }} </td>
 		<td>{{ pred_rf }} </td>
 	</tr>
 	<tr>
-		<td>Ensemble</td>
-		<td>{{ mean_prob }} </td>
+		<td>Ensemble model</td>
+		<td>{{ "{:.3f}".format(mean_prob) }} </td>
 		<td>{{ mode_pred }} </td>
 	</tr>
 	

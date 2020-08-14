@@ -16,6 +16,7 @@ from sklearn.metrics import f1_score
 import tensorflow as tf 
 from statistics import mode
 import pointnet_model
+import sklearn.metrics as metrics
 
 
 def read_rep(syn, syn_csv, ID_csv, data_dir):
@@ -258,8 +259,11 @@ def knn_classifier(data, labels):
     spec = tn / (tn+fp)  
     sens = tp / (tp+fn)
     f1 = f1_score(y_true, y_preds)
+        
+    fpr, tpr, _ = metrics.roc_curve(y_true, y_probs)
+    roc_auc = metrics.auc(fpr, tpr)
                 
-    return aroc, spec, sens, f1, y_true, y_probs, y_preds
+    return aroc, spec, sens, f1, y_true, y_probs, y_preds, fpr, tpr, roc_auc
 
 
 def pointnet_classifier(data, labels):
@@ -272,18 +276,7 @@ def pointnet_classifier(data, labels):
         X_train, X_test = np.array(data[train_index]), data[test_index]
         y_train, _ = np.array(labels[train_index]), labels[test_index]
 
-        model = pointnet_model.generate_model()
-        
-        print(type(X_train))
-        print(type(y_train))
-        print(X_train.shape)
-        print(y_train.shape)
-        for x in X_train:
-            if(np.array(x).shape[0] == 31):
-                print(x)
-                break
-            #print(np.array(x).shape)
-            
+        model = pointnet_model.generate_model()           
         model.fit(x=X_train, y=y_train, batch_size=BATCH_SIZE, epochs=4, shuffle=True)
 
         y_pred_array = model.predict(X_test)
@@ -299,8 +292,11 @@ def pointnet_classifier(data, labels):
     spec = tn / (tn+fp)  
     sens = tp / (tp+fn)
     f1 = f1_score(y_true, y_preds)
+        
+    fpr, tpr, _ = metrics.roc_curve(y_true, y_probs)
+    roc_auc = metrics.auc(fpr, tpr)
     
-    return aroc, spec, sens, f1, y_true, y_probs, y_preds
+    return aroc, spec, sens, f1, y_true, y_probs, y_preds, fpr, tpr, roc_auc
 
 
 def randomforest_classifier(data, labels):
@@ -327,14 +323,17 @@ def randomforest_classifier(data, labels):
     sens = tp / (tp+fn)
     f1 = f1_score(y_true, y_preds)
     
-    return aroc, spec, sens, f1, y_true, y_probs, y_preds
+    fpr, tpr, _ = metrics.roc_curve(y_true, y_probs)
+    roc_auc = metrics.auc(fpr, tpr)
+    
+    return aroc, spec, sens, f1, y_true, y_probs, y_preds, fpr, tpr, roc_auc
 
 
 BATCH_SIZE = 8
 def main(GENERAL_DIR, syn_list, trial):
 
     ## open file 
-    results_file = open("results/ensemble_results_3_models_run_{}_22q11.txt".format(trial), "w")
+    results_file = open("results/ensemble_results_3_models_run_{}_plots.txt".format(trial), "w")
 
     # read in all data (per syndrome) which has a facereader and deepface representation
     for syn in syn_list:
@@ -347,27 +346,27 @@ def main(GENERAL_DIR, syn_list, trial):
         data_df_all, data_df, data_dis, data_oc = normalize(data_df_all, data_df, data_dis, data_oc)   
 
         # DEEPFACE - KNN - all
-        aroc_df_all, spec_df_all, sens_df_all, f1_df_all, _, _, _ = knn_classifier(data_df_all, labels_df_all)
+        aroc_df_all, spec_df_all, sens_df_all, f1_df_all, _, _, _, fpr_df_all, tpr_df_all, roc_auc_df_all = knn_classifier(data_df_all, labels_df_all)
         results_file.write("Deepface with {} patients and {} controls\n".format(labels_df_all.tolist().count(1), labels_df_all.tolist().count(0)))
         results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_df_all, spec_df_all, sens_df_all, f1_df_all))
 
         # DEEPFACE - KNN 
-        aroc_df, spec_df, sens_df, f1_df, y_true_df, y_probs_df, y_preds_df = knn_classifier(data_df, labels)
+        aroc_df, spec_df, sens_df, f1_df, y_true_df, y_probs_df, y_preds_df, fpr_df, tpr_df, roc_auc_df = knn_classifier(data_df, labels)
         results_file.write("Deepface with {} patients and {} controls\n".format(labels.tolist().count(1), labels.tolist().count(0)))
         results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_df, spec_df, sens_df, f1_df))
 
         # POINTNET 
-        aroc_pn, spec_pn, sens_pn, f1_pn, y_true_pn, y_probs_pn, y_preds_pn = pointnet_classifier(data_fr, labels)
+        aroc_pn, spec_pn, sens_pn, f1_pn, y_true_pn, y_probs_pn, y_preds_pn, fpr_pn, tpr_pn, roc_auc_pn = pointnet_classifier(data_fr, labels)
         results_file.write("Pointnet with {} patients and {} controls\n".format(labels.tolist().count(1), labels.tolist().count(0)))
         results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_pn, spec_pn, sens_pn, f1_pn))
 
         # RANDOM FOREST 
-        aroc_rf, spec_rf, sens_rf, f1_rf, y_true_rf, y_probs_rf, y_preds_rf = randomforest_classifier(data_dis, labels)
+        aroc_rf, spec_rf, sens_rf, f1_rf, y_true_rf, y_probs_rf, y_preds_rf, fpr_rf, tpr_rf, roc_auc_rf = randomforest_classifier(data_dis, labels)
         results_file.write("Random Forest with {} patients and {} controls\n".format(labels.tolist().count(1), labels.tolist().count(0)))
         results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_rf, spec_rf, sens_rf, f1_rf))
 
         # OPENFACE-CFPS
-        aroc_oc, spec_oc, sens_oc, f1_oc, _, _, _ = knn_classifier(data_oc, labels_oc)
+        aroc_oc, spec_oc, sens_oc, f1_oc, _, _, _, fpr_oc, tpr_oc, roc_auc_oc = knn_classifier(data_oc, labels_oc)
         results_file.write("Openface-CFPS with {} patients and {} controls\n".format(labels_oc.tolist().count(1), labels_oc.tolist().count(0)))
         results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_oc, spec_oc, sens_oc, f1_oc))
 
@@ -385,9 +384,37 @@ def main(GENERAL_DIR, syn_list, trial):
         spec_ensemble = tn_en / (tn_en+fp_en)  
         sens_ensemble = tp_en / (tp_en+fn_en)
         f1_ensemble = f1_score(y_true_df, ensemble_preds)
+        
+            
+        fpr_en, tpr_en, _ = metrics.roc_curve(y_true_df, ensemble_probs)
+        roc_auc_en = metrics.auc(fpr_en, tpr_en)
 
         results_file.write("Ensemble (deepface/pointnet/random_forest) classifier mean and mode \n".format(labels.tolist().count(1), labels.tolist().count(0)))
         results_file.write("AROC: {:.3f} spec: {:.3f} sens: {:.3f} F1: {:.3f}\n\n".format(aroc_ensemble, spec_ensemble, sens_ensemble, f1_ensemble))
+        
+        
+        
+        # plot roc curve for this syndrome for all models and save
+        
+        plt.figure()
+        plt.title('ROC curve of all models for syndrome {}'.format(syn))
+        plt.plot(fpr_df_all, tpr_df_all, 'b', label = 'Model 1: aroc = %0.2f' % roc_auc_df_all)
+        plt.plot(fpr_pn, tpr_pn, 'g', label = 'Model 2: aroc = %0.2f' % roc_auc_pn)
+        plt.plot(fpr_rf, tpr_rf, 'r', label = 'Model 3: aroc = %0.2f' % roc_auc_rf)
+        plt.plot(fpr_en, tpr_en, 'c', label = 'Model 4: aroc = %0.2f' % roc_auc_en)
+        plt.plot(fpr_oc, tpr_oc, 'k', label = 'Model 5: aroc = %0.2f' % roc_auc_oc)
+
+        plt.legend(loc = 'lower right')
+        plt.plot([0, 1], [0, 1],'r--')
+        plt.xlim([0, 1])
+        plt.ylim([0, 1])
+        plt.ylabel('True Positive Rate')
+        plt.xlabel('False Positive Rate')
+        #plt.show()
+        plt.savefig("results/aroc-{}.png".format(syn), dpi=400)
+
+
+
 
     results_file.close()
 
