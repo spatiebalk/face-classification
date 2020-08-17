@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1> Analyzing Results </h1>
+
+<table style="width:100%">
+	<tr>
+		<th>{{syn}}</th> 
+		<th>Probability</th>
+		<th>Prediction</th>
+
+	</tr>
+	<tr>
+		<td>Deepface model</td>
+		<td>{{ "{:.3f}".format(prob_df) }} </td>
+		<td>{{ pred_df }} </td>
+	</tr>
+	<tr>
+		<td>FaceReader PointNet model</td>
+		<td>{{ "{:.3f}".format(prob_pn) }} </td>
+		<td>{{ pred_pn }} </td>
+	</tr>
+	<tr>
+		<td>FaceReader distance model</td>
+		<td>{{ "{:.3f}".format(prob_rf) }} </td>
+		<td>{{ pred_rf }} </td>
+	</tr>
+	<tr>
+		<td>Ensemble model</td>
+		<td>{{ "{:.3f}".format(mean_prob) }} </td>
+		<td>{{ mode_pred }} </td>
+	</tr>
+	
+
+</table>
+{% endblock content %}

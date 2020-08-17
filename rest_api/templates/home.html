@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="column"> 
+
+	<div> Syndromes </div>
+	<form method="POST" action = "/" enctype=multipart/form-data>
+		<select name="syns"  method="GET" action="/">
+			{% for syn in syns %}
+			<option value= "{{syn}}" SELECTED>{{syn}}</option>"
+			{% endfor %}
+		</select>
+
+		<div><input type="file" name="file"></div>
+
+
+		<div><input type="submit", value="Analyze Image"></div>
+	</form>
+</div>
+
+{% endblock content %}
