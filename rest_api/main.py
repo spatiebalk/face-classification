@@ -37,19 +37,20 @@ class Home(Resource):
 			print("creating deepface")
 			deepface_model = deepface.create_deepface()
 
-		if request.method == 'POST':
-			syn = request.form.get('syns')
-			
-			if 'file' not in request.files:
-				print('No file part')
+	def post(self):
+	#if request.method == 'POST':
+		syn = request.form.get('syns')
+		
+		if 'file' not in request.files:
+			print('No file part')
 
-			else:
-				file = request.files['file']
-				if file and allowed_file(file.filename):
-					filename = secure_filename(file.filename)
-					file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-			print("selected syn", syn)
-			return analyze(syn, file.filename)
+		else:
+			file = request.files['file']
+			if file and allowed_file(file.filename):
+				filename = secure_filename(file.filename)
+				file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+		print("selected syn", syn)
+		return analyze(syn, file.filename)
 
 		return render_template('home.html', syns=syns)
 
