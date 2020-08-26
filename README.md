@@ -1,9 +1,10 @@
 # Face Classification 
 Fien Ockers, March-August 2020
 
-Project for my AI thesis regarding syndrome vs. control classification of faces of people with Intellectual Disability. 
+Project for my master AI thesis regarding syndrome vs. control classification of faces of people with Intellectual Disability. 
 
 Abstract of paper:
+
    Diagnosing a genetic syndrome can be difficult as extracted genetic data is not always decisive. To reach a diagnosis, 
    doctors can compare the facial characteristics of a patient with previously diagnosed patients. This process is subjective 
    and therefore doctors would benefit from an objective model to compare these faces. A Hybrid model has been created at the 
